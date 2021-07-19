@@ -1,0 +1,147 @@
+\contentsline {part}{I\hspace {1em}Probability Theory}{1}%
+\contentsline {chapter}{\numberline {1}Overview}{2}%
+\contentsline {section}{\numberline {1.1}Probability Spaces}{2}%
+\contentsline {section}{\numberline {1.2}General Theory}{3}%
+\contentsline {section}{\numberline {1.3}Conditional Probability}{5}%
+\contentsline {chapter}{\numberline {2}Combinatorics}{6}%
+\contentsline {chapter}{\numberline {3}Properties of Random Variables and Distributions}{8}%
+\contentsline {section}{\numberline {3.1}Expectation and Moments}{8}%
+\contentsline {section}{\numberline {3.2}Moment Generating Function}{11}%
+\contentsline {section}{\numberline {3.3}Characteristic Function}{12}%
+\contentsline {chapter}{\numberline {4}Discrete Distributions}{14}%
+\contentsline {section}{\numberline {4.1}Bernoulli Distribution}{15}%
+\contentsline {subsection}{\numberline {4.1.1}Interpretation}{15}%
+\contentsline {subsection}{\numberline {4.1.2}Properties}{15}%
+\contentsline {section}{\numberline {4.2}Binomial Distribution}{16}%
+\contentsline {subsection}{\numberline {4.2.1}Interpretation}{16}%
+\contentsline {subsection}{\numberline {4.2.2}Properties}{16}%
+\contentsline {subsection}{\numberline {4.2.3}Sum of Binomials}{16}%
+\contentsline {subsection}{\numberline {4.2.4}Ratio of Binomials}{17}%
+\contentsline {subsection}{\numberline {4.2.5}Conditional Binomials}{17}%
+\contentsline {subsection}{\numberline {4.2.6}Normal Approximation}{17}%
+\contentsline {subsection}{\numberline {4.2.7}Poisson Approximation}{17}%
+\contentsline {section}{\numberline {4.3}Geometric Distribution}{19}%
+\contentsline {subsection}{\numberline {4.3.1}Interpretation}{19}%
+\contentsline {subsection}{\numberline {4.3.2}Properties}{19}%
+\contentsline {subsection}{\numberline {4.3.3}Memorylessness}{19}%
+\contentsline {subsection}{\numberline {4.3.4}Sum of Geometric Random Variables}{20}%
+\contentsline {subsection}{\numberline {4.3.5}Minimum of Geometrics Random Variables}{20}%
+\contentsline {section}{\numberline {4.4}Negative Binomial Distribution}{21}%
+\contentsline {subsection}{\numberline {4.4.1}Interpretation}{21}%
+\contentsline {subsection}{\numberline {4.4.2}Properties}{21}%
+\contentsline {section}{\numberline {4.5}Discrete Uniform Distribution}{22}%
+\contentsline {subsection}{\numberline {4.5.1}Interpretation}{22}%
+\contentsline {subsection}{\numberline {4.5.2}Properties}{22}%
+\contentsline {section}{\numberline {4.6}Hypergeometric Distribution}{23}%
+\contentsline {subsection}{\numberline {4.6.1}Interpretation}{23}%
+\contentsline {subsection}{\numberline {4.6.2}Properties}{23}%
+\contentsline {subsection}{\numberline {4.6.3}Symmetries}{23}%
+\contentsline {subsection}{\numberline {4.6.4}Binomial Approximation of Hypergeometric Distributions}{24}%
+\contentsline {subsection}{\numberline {4.6.5}Normal Approximation of Hypergeometric Distributions}{24}%
+\contentsline {section}{\numberline {4.7}Poisson Distribution}{25}%
+\contentsline {subsection}{\numberline {4.7.1}Interpretation}{25}%
+\contentsline {subsection}{\numberline {4.7.2}Properties}{25}%
+\contentsline {subsection}{\numberline {4.7.3}Sum of Poisson Random Variables}{26}%
+\contentsline {subsection}{\numberline {4.7.4}Conditional Poisson Distributions}{26}%
+\contentsline {subsection}{\numberline {4.7.5}Normal Approximation}{26}%
+\contentsline {subsection}{\numberline {4.7.6}Variance-Stabilizing Transformation}{26}%
+\contentsline {section}{\numberline {4.8}Kronecker Delta}{27}%
+\contentsline {subsection}{\numberline {4.8.1}Properties}{27}%
+\contentsline {chapter}{\numberline {5}Continuous Distributions}{28}%
+\contentsline {section}{\numberline {5.1}Continuous Uniform Distribution}{29}%
+\contentsline {subsection}{\numberline {5.1.1}Interpretation}{29}%
+\contentsline {subsection}{\numberline {5.1.2}Properties}{29}%
+\contentsline {subsection}{\numberline {5.1.3}Powers of the Standard Uniform}{30}%
+\contentsline {subsection}{\numberline {5.1.4}Sum of Uniform Distributions}{30}%
+\contentsline {section}{\numberline {5.2}Exponential Distribution}{31}%
+\contentsline {subsection}{\numberline {5.2.1}Interpretation}{31}%
+\contentsline {subsection}{\numberline {5.2.2}Properties}{31}%
+\contentsline {subsection}{\numberline {5.2.3}Memorylessness}{31}%
+\contentsline {subsection}{\numberline {5.2.4}Minimum of Exponential Random Variables}{32}%
+\contentsline {subsection}{\numberline {5.2.5}Sum of Exponentials}{32}%
+\contentsline {subsection}{\numberline {5.2.6}Relation to the Geometric Distribution}{32}%
+\contentsline {section}{\numberline {5.3}Gamma Distribution}{33}%
+\contentsline {subsection}{\numberline {5.3.1}Interpretation}{33}%
+\contentsline {subsection}{\numberline {5.3.2}Properties}{33}%
+\contentsline {subsection}{\numberline {5.3.3}Sum of Gamma Distributions}{34}%
+\contentsline {subsection}{\numberline {5.3.4}Scaling Gamma Distributions}{34}%
+\contentsline {subsection}{\numberline {5.3.5}Ratio of Gamma Distributions}{34}%
+\contentsline {subsection}{\numberline {5.3.6}Relation to Other Distributions}{34}%
+\contentsline {section}{\numberline {5.4}Chi-Square Distribution}{35}%
+\contentsline {subsection}{\numberline {5.4.1}Interpretation}{35}%
+\contentsline {subsection}{\numberline {5.4.2}Properties}{35}%
+\contentsline {subsection}{\numberline {5.4.3}Sum of Chi-Squares}{36}%
+\contentsline {subsection}{\numberline {5.4.4}Sample Mean of Chi-Squares}{36}%
+\contentsline {section}{\numberline {5.5}Chi Distribution}{37}%
+\contentsline {subsection}{\numberline {5.5.1}Interpretation}{37}%
+\contentsline {subsection}{\numberline {5.5.2}Properties}{37}%
+\contentsline {subsection}{\numberline {5.5.3}Absolute Standard Normal Distribution}{37}%
+\contentsline {section}{\numberline {5.6}Normal Distribution}{38}%
+\contentsline {subsection}{\numberline {5.6.1}Interpretation}{38}%
+\contentsline {subsection}{\numberline {5.6.2}Properties}{38}%
+\contentsline {subsection}{\numberline {5.6.3}Standard Normal Distribution}{39}%
+\contentsline {subsection}{\numberline {5.6.4}Linear Transformations}{39}%
+\contentsline {subsection}{\numberline {5.6.5}Sum of Normal Random Variables}{40}%
+\contentsline {subsection}{\numberline {5.6.6}Central Limit Theorem}{40}%
+\contentsline {section}{\numberline {5.7}Student's $\MakeLowercase {t}-$Distribution}{42}%
+\contentsline {subsection}{\numberline {5.7.1}Interpretation}{42}%
+\contentsline {subsection}{\numberline {5.7.2}Properties}{42}%
+\contentsline {subsection}{\numberline {5.7.3}Relation to Sample Mean}{43}%
+\contentsline {section}{\numberline {5.8}$F-$Distribution}{44}%
+\contentsline {subsection}{\numberline {5.8.1}Interpretation}{44}%
+\contentsline {subsection}{\numberline {5.8.2}Properties}{44}%
+\contentsline {subsection}{\numberline {5.8.3}Characterization}{44}%
+\contentsline {subsection}{\numberline {5.8.4}Related Distributions}{45}%
+\contentsline {section}{\numberline {5.9}Maxwell-Boltzmann Distribution}{46}%
+\contentsline {subsection}{\numberline {5.9.1}Interpretation}{46}%
+\contentsline {subsection}{\numberline {5.9.2}Properties}{46}%
+\contentsline {section}{\numberline {5.10}Beta Distribution}{47}%
+\contentsline {subsection}{\numberline {5.10.1}Interpretation}{47}%
+\contentsline {subsection}{\numberline {5.10.2}Properties}{47}%
+\contentsline {section}{\numberline {5.11}Logistic Distribution}{48}%
+\contentsline {subsection}{\numberline {5.11.1}Interpretation}{48}%
+\contentsline {subsection}{\numberline {5.11.2}Properties}{48}%
+\contentsline {section}{\numberline {5.12}Dirac Delta}{49}%
+\contentsline {subsection}{\numberline {5.12.1}Properties}{49}%
+\contentsline {chapter}{\numberline {6}Multivariate Distributions}{50}%
+\contentsline {section}{\numberline {6.1}Joint Probability}{50}%
+\contentsline {section}{\numberline {6.2}Dependence}{52}%
+\contentsline {section}{\numberline {6.3}Categorical Distribution}{54}%
+\contentsline {subsection}{\numberline {6.3.1}Interpretation}{54}%
+\contentsline {subsection}{\numberline {6.3.2}Properties}{54}%
+\contentsline {section}{\numberline {6.4}Multinomial Distribution}{55}%
+\contentsline {subsection}{\numberline {6.4.1}Interpretation}{55}%
+\contentsline {subsection}{\numberline {6.4.2}Properties}{55}%
+\contentsline {section}{\numberline {6.5}Multivariate Hypergeometric Distribution}{56}%
+\contentsline {subsection}{\numberline {6.5.1}Interpretation}{56}%
+\contentsline {subsection}{\numberline {6.5.2}Properties}{56}%
+\contentsline {section}{\numberline {6.6}Multivariate Normal Distribution}{57}%
+\contentsline {subsection}{\numberline {6.6.1}Interpretation}{57}%
+\contentsline {subsection}{\numberline {6.6.2}Properties}{57}%
+\contentsline {part}{II\hspace {1em}Statistics}{58}%
+\contentsline {chapter}{\numberline {7}Overview}{59}%
+\contentsline {chapter}{\numberline {8}Estimating Parameters}{61}%
+\contentsline {section}{\numberline {8.1}Method of Moments}{63}%
+\contentsline {section}{\numberline {8.2}Maximum Likelihood Estimation}{64}%
+\contentsline {section}{\numberline {8.3}Confidence Intervals}{65}%
+\contentsline {subsection}{\numberline {8.3.1}For the mean $\boldsymbol {\mu }$ with known $\boldsymbol {\sigma }$}{66}%
+\contentsline {subsection}{\numberline {8.3.2}For the mean $\boldsymbol {\mu }$ with unknown $\boldsymbol {\sigma }$}{66}%
+\contentsline {subsection}{\numberline {8.3.3}Difference of two means with known $\boldsymbol {\sigma }$}{67}%
+\contentsline {subsection}{\numberline {8.3.4}Difference of two means with unknown $\boldsymbol {\sigma }$}{67}%
+\contentsline {subsection}{\numberline {8.3.5}Difference of two means with known $\boldsymbol {\sigma _X}$ and $\boldsymbol {\sigma _Y}$}{68}%
+\contentsline {subsection}{\numberline {8.3.6}Difference of two means with unknown $\boldsymbol {\sigma _X}$ and $\boldsymbol {\sigma _Y}$}{69}%
+\contentsline {subsection}{\numberline {8.3.7}For proportions}{69}%
+\contentsline {subsection}{\numberline {8.3.8}Difference of proportions}{70}%
+\contentsline {subsection}{\numberline {8.3.9}For variances}{71}%
+\contentsline {subsection}{\numberline {8.3.10}For ratios of variances}{71}%
+\contentsline {chapter}{\numberline {9}Hypothesis Testing}{72}%
+\contentsline {section}{\numberline {9.1}Overview}{72}%
+\contentsline {section}{\numberline {9.2}Statistical Testing Process}{75}%
+\contentsline {section}{\numberline {9.3}Common Parameter Tests}{76}%
+\contentsline {section}{\numberline {9.4}Chi-Square Independence Test}{76}%
+\contentsline {section}{\numberline {9.5}Pearson's Chi-Square Goodness of Fit Test}{78}%
+\contentsline {chapter}{\numberline {10}Order Statistics}{79}%
+\contentsline {chapter}{\numberline {11}Regression}{80}%
+\contentsline {section}{\numberline {11.1}Simple Linear Regression}{80}%
+\contentsline {part}{III\hspace {1em}Tables}{81}%
+\contentsline {part}{IV\hspace {1em}TODO}{88}%

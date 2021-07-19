@@ -1,0 +1,1700 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.4.22)  18 JUL 2021 23:53
+entering extended mode
+**./CondensedProbability.tex
+(CondensedProbability.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-04-06>
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\report.cls"
+Document Class: report 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fncychap\fncychap.
+sty"
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip49
+\mylen=\skip50
+\myhi=\skip51
+\px=\skip52
+\py=\skip53
+\pyy=\skip54
+\pxx=\skip55
+\backskip=\skip56
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.
+sty"
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip57
+\f@nch@O@elh=\skip58
+\f@nch@O@erh=\skip59
+\f@nch@O@olh=\skip60
+\f@nch@O@orh=\skip61
+\f@nch@O@elf=\skip62
+\f@nch@O@erf=\skip63
+\f@nch@O@olf=\skip64
+\f@nch@O@orf=\skip65
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 13.
+
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
+sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty
+"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ ("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty
+"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count176
+\Gm@cntv=\count177
+\c@Gm@tempcnt=\count178
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks16
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.
+cfg"))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.
+sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks17
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.st
+y"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip66
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.st
+y"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen143
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
+"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen144
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty
+"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen145
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip16
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks19
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks20
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks21
+\multlinegap=\skip67
+\multlinetaggap=\skip68
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/adjustbox\adjustbo
+x.sty"
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.st
+y"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkeyval.
+tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkvutils
+.tex"
+\XKV@toks=\toks23
+\XKV@tempa@toks=\toks24
+)
+\XKV@depth=\count191
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/adjustbox\adjcalc.
+sty"
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/adjustbox\trimclip
+.sty"
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/collectbox\collect
+box.sty"
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box47
+)
+\tc@llx=\dimen154
+\tc@lly=\dimen155
+\tc@urx=\dimen156
+\tc@ury=\dimen157
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/adjustbox\tc-pdfte
+x.def"
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen158
+\adjbox@Height=\dimen159
+\adjbox@Depth=\dimen160
+\adjbox@Totalheight=\dimen161
+\adjbox@pwidth=\dimen162
+\adjbox@pheight=\dimen163
+\adjbox@pdepth=\dimen164
+\adjbox@ptotalheight=\dimen165
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ifoddpage\ifoddpag
+e.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count192
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/varwidth\varwidth.
+sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box48
+\sift@deathcycles=\count193
+\@vwid@loff=\dimen166
+\@vwid@roff=\dimen167
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlayer\
+tikz.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf
+.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgfr
+cs.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+futil-common.tex"
+\pgfutil@everybye=\toks25
+\pgfutil@tempdima=\dimen168
+\pgfutil@tempdimb=\dimen169
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+futil-common-lists.tex"))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+futil-latex.def"
+\pgfutil@abb=\box49
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+frcs.code.tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf\pgf.revision
+.tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf
+core.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/systemlayer\pg
+fsys.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgfsys.code.tex"
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+fkeys.code.tex"
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+fkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks28
+))
+\pgf@x=\dimen170
+\pgf@y=\dimen171
+\pgf@xa=\dimen172
+\pgf@ya=\dimen173
+\pgf@xb=\dimen174
+\pgf@yb=\dimen175
+\pgf@xc=\dimen176
+\pgf@yc=\dimen177
+\pgf@xd=\dimen178
+\pgf@yd=\dimen179
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count194
+\c@pgf@countb=\count195
+\c@pgf@countc=\count196
+\c@pgf@countd=\count197
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
+\pgf@sys@id@count=\count198
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgf.cfg"
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count199
+\pgfsyssoftpath@bigbuffer@items=\count266
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\
+pgfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
+.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcore.code.tex"
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+.code.tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+calc.code.tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+util.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+parser.code.tex"
+\pgfmath@dimen=\dimen180
+\pgfmath@count=\count267
+\pgfmath@box=\box50
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.code.tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.basic.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.trigonometric.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.random.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.comparison.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.base.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.round.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.misc.code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+functions.integerarithmetics.code.tex")))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+float.code.tex"
+\c@pgfmathroundto@lastzeros=\count268
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfint.
+code.tex")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen181
+\pgf@picmaxx=\dimen182
+\pgf@picminy=\dimen183
+\pgf@picmaxy=\dimen184
+\pgf@pathminx=\dimen185
+\pgf@pathmaxx=\dimen186
+\pgf@pathminy=\dimen187
+\pgf@pathmaxy=\dimen188
+\pgf@xx=\dimen189
+\pgf@xy=\dimen190
+\pgf@yx=\dimen191
+\pgf@yy=\dimen192
+\pgf@zx=\dimen193
+\pgf@zy=\dimen194
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen195
+\pgf@path@lasty=\dimen196
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen197
+\pgf@shorten@start@additional=\dimen198
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box51
+\pgf@hbox=\box52
+\pgf@layerbox@main=\box53
+\pgf@picture@serial@count=\count269
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen199
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen256
+\pgf@pt@y=\dimen257
+\pgf@pt@temp=\dimen258
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorequick.code.tex"
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen259
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen260
+\pgf@sys@shading@range@num=\count270
+\pgf@shadingcount=\count271
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box54
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\p
+gfcorerdf.code.tex"
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfm
+oduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box55
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfm
+oduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\
+pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen261
+\pgf@nodesepend=\dimen262
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\
+pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgff
+or.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgfk
+eys.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+fkeys.code.tex"))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/math\pgfmath.s
+ty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+.code.tex"))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pg
+ffor.code.tex"
+Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath
+.code.tex")
+\pgffor@iter=\dimen263
+\pgffor@skip=\dimen264
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz\tikz.code.tex"
+Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\pg
+flibraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@plot@mark@count=\count272
+\pgfplotmarksize=\dimen265
+)
+\tikz@lastx=\dimen266
+\tikz@lasty=\dimen267
+\tikz@lastxsaved=\dimen268
+\tikz@lastysaved=\dimen269
+\tikz@lastmovetox=\dimen270
+\tikz@lastmovetoy=\dimen271
+\tikzleveldistance=\dimen272
+\tikzsiblingdistance=\dimen273
+\tikz@figbox=\box56
+\tikz@figbox@bg=\box57
+\tikz@tempbox=\box58
+\tikz@tempbox@bg=\box59
+\tikztreelevel=\count273
+\tikznumberofchildren=\count274
+\tikznumberofcurrentchild=\count275
+\tikz@fig@count=\count276
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfm
+odulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfmatrixcurrentrow=\count277
+\pgfmatrixcurrentcolumn=\count278
+\pgf@matrix@numberofcolumns=\count279
+)
+\tikz@expandcount=\count280
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz/libraries\tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cancel\cancel.sty"
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\multirow.
+sty"
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip69
+\multirow@cntb=\count281
+\multirow@dima=\skip70
+\bigstrutjot=\dimen274
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/enumitem\enumitem.
+sty"
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip71
+\enit@outerparindent=\dimen275
+\enit@toks=\toks37
+\enit@inbox=\box60
+\enit@count@id=\count282
+\enitdp@description=\count283
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xy.sty"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xy.tex"
+Bootstrap'ing: catcodes, docmode,
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyrecat.te
+x")
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyidioms.t
+ex")
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state,
+\X@c=\dimen276
+\Y@c=\dimen277
+\U@c=\dimen278
+\D@c=\dimen279
+\L@c=\dimen280
+\R@c=\dimen281
+\Edge@c=\toks38
+\X@p=\dimen282
+\Y@p=\dimen283
+\U@p=\dimen284
+\D@p=\dimen285
+\L@p=\dimen286
+\R@p=\dimen287
+\Edge@p=\toks39
+\X@origin=\dimen288
+\Y@origin=\dimen289
+\X@xbase=\dimen290
+\Y@xbase=\dimen291
+\X@ybase=\dimen292
+\Y@ybase=\dimen293
+\X@min=\dimen294
+\Y@min=\dimen295
+\X@max=\dimen296
+\Y@max=\dimen297
+\lastobjectbox@=\box61
+\zerodotbox@=\box62
+\almostz@=\dimen298
+ direction,
+\d@X=\dimen299
+\d@Y=\dimen300
+\K@=\count284
+\KK@=\count285
+\Direction=\count286
+\K@dXdY=\dimen301
+\K@dYdX=\dimen302
+\xyread@=\read3
+\xywrite@=\write4
+\csp@=\count287
+\quotPTK@=\dimen303
+
+utility macros; pictures: \xy, positions,
+\swaptoks@@=\toks40
+\connectobjectbox@@=\box63
+ objects,
+\styletoks@=\toks41
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifpdf.sty"
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+Package: xy 2013/10/06 Xy-pic version 3.8.9
+ ("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyall.tex
+"  Xy-pic option: All features v.3.8
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xycurve.te
+x"  Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count288
+\crvpts@=\toks42
+\splinebox@=\box64
+\splineval@=\dimen304
+\splinedepth@=\dimen305
+\splinetol@=\dimen306
+\splinelength@=\dimen307
+ circles,
+\L@=\dimen308
+ loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyframe.te
+x"  Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xycmtip.te
+x"  Xy-pic option: Computer Modern tip extension v.3.7
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xytips.tex
+"  Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyline.tex
+"  Xy-pic option: Line styles extension v.3.10
+\xylinethick@=\dimen309
+ loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyrotate.t
+ex"  Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xycolor.te
+x"  Xy-pic option: Colour extension v.3.11 loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xymatrix.t
+ex"  Xy-pic option: Matrix feature v.3.14
+\Row=\count289
+\Col=\count290
+\queue@=\toks43
+\queue@@=\toks44
+\qcount@=\count291
+\qcount@@=\count292
+\matrixsize@=\count293
+ loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xyarrow.te
+x"  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xygraph.te
+x"  Xy-pic option: Graph feature v.3.11 loaded) loaded)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf.tex"
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf-co.t
+ex" loaded) Xy-pic pdf driver: `curve' extension support
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf-cu.t
+ex" loaded) Xy-pic pdf driver: `frame' extension support
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf-fr.t
+ex" loaded) Xy-pic pdf driver: `line' extension support
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf-li.t
+ex" loaded) Xy-pic pdf driver: `rotate' extension support
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xypic\xypdf-ro.t
+ex" loaded) loaded))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tikz-cd\tikz-cd.st
+y"
+Package: tikz-cd 2018/11/19 v0.9f Commutative diagrams with TikZ
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tikz-cd\tikzlibrar
+ycd.code.tex"
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz/libraries\tikzlibrarymatrix.code.tex"
+File: tikzlibrarymatrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz/libraries\tikzlibraryquotes.code.tex"
+File: tikzlibraryquotes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\pg
+flibraryarrows.meta.code.tex"
+File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowinset=\dimen310
+\pgfarrowlength=\dimen311
+\pgfarrowwidth=\dimen312
+\pgfarrowlinewidth=\dimen313
+)))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen314
+\ar@mcellbox=\box65
+\extrarowheight=\dimen315
+\NC@list=\toks45
+\extratabsurround=\skip72
+\backup@length=\skip73
+\ar@cellbox=\box66
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count294
+\float@exts=\toks46
+\float@box=\box67
+\@float@everytoks=\toks47
+\@floatcapt=\box68
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/imakeidx\imakeidx.
+sty"
+Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchro
+nous mode
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifxetex.st
+y"
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifluatex.s
+ty"
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty
+"
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count295
+\mult@box=\box69
+\multicol@leftmargin=\dimen316
+\c@unbalance=\count296
+\c@collectmore=\count297
+\doublecol@number=\count298
+\multicoltolerance=\count299
+\multicolpretolerance=\count300
+\full@width=\dimen317
+\page@free=\dimen318
+\premulticols=\dimen319
+\postmulticols=\dimen320
+\multicolsep=\skip74
+\multicolbaselineskip=\skip75
+\partial@page=\box70
+\last@line=\box71
+\maxbalancingoverflow=\dimen321
+\mult@rightbox=\box72
+\mult@grightbox=\box73
+\mult@gfirstbox=\box74
+\mult@firstbox=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\c@minrows=\count301
+\c@columnbadness=\count302
+\c@finalcolumnbadness=\count303
+\last@try=\dimen322
+\multicolovershoot=\dimen323
+\multicolundershoot=\dimen324
+\mult@nat@firstbox=\box113
+\colbreak@box=\box114
+\mc@col@check@num=\count304
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/doublestroke\dsfon
+t.sty"
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+) ("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/bbm\bbm.sty"
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/changepage\chngpag
+e.sty"
+Package: chngpage 2009/10/20 v1.2b change page layout
+\c@cp@cnt=\count305
+\c@cp@tempcnt=\count306
+LaTeX Info: Redefining \checkoddpage on input line 48.
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/mathdots\mathdot
+s.sty"
+Package: mathdots 2014/06/11 v0.9 Improve and add various macros for dots in ma
+th.
+\MDo@unit=\dimen325
+\MDo@dotsbox=\box115
+\MDoprekern=\muskip17
+\MDopostkern=\muskip18
+\MDodotkern=\muskip19
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tcolorbox\tcolorbo
+x.sty"
+Package: tcolorbox 2019/11/15 version 4.22 text color boxes
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.sty
+"
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks48
+\verbatim@line=\toks49
+\verbatim@in@stream=\read4
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/environ\environ.st
+y"
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/trimspaces\trimspa
+ces.sty"
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.
+sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count307
+)
+\tcb@titlebox=\box116
+\tcb@upperbox=\box117
+\tcb@lowerbox=\box118
+\tcb@phantombox=\box119
+\c@tcbbreakpart=\count308
+\c@tcblayer=\count309
+\tcolorbox@number=\count310
+\tcb@temp=\box120
+\tcb@temp=\box121
+\tcb@temp=\box122
+\tcb@temp=\box123
+\tcb@out=\write5
+\tcb@record@out=\write6
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tcolorbox\tcbskins
+.code.tex"
+Library (tcolorbox): 'tcbskins.code.tex' version '4.22'
+\tcb@waterbox=\box124
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tcolorbox\tcbskins
+jigsaw.code.tex"
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.22'
+)))
+\c@tcb@cnt@boxybox=\count311
+\c@thm=\count312
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/easy\easytable.sty
+"
+Document Style `easytable' v1.0 <2001/06/13>.
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/easy\easy.sty"
+Document Style `easy' v1.1 <2001/05/31>.
+Package: easy 2001/05/31 v1.1
+\@easy@level=\count313
+\@easy@ncol=\count314
+\@easy@nrow=\count315
+\@easy@cnt=\count316
+\@easy@boxviii=\box125
+\@easy@minxviii=\dimen326
+\@easy@minyviii=\dimen327
+\@easy@maxxviii=\dimen328
+\@easy@maxyviii=\dimen329
+\@easy@boxvii=\box126
+\@easy@minxvii=\dimen330
+\@easy@minyvii=\dimen331
+\@easy@maxxvii=\dimen332
+\@easy@maxyvii=\dimen333
+\@easy@boxvi=\box127
+\@easy@minxvi=\dimen334
+\@easy@minyvi=\dimen335
+\@easy@maxxvi=\dimen336
+\@easy@maxyvi=\dimen337
+\@easy@boxv=\box128
+\@easy@minxv=\dimen338
+\@easy@minyv=\dimen339
+\@easy@maxxv=\dimen340
+\@easy@maxyv=\dimen341
+\@easy@boxiv=\box129
+\@easy@minxiv=\dimen342
+\@easy@minyiv=\dimen343
+\@easy@maxxiv=\dimen344
+\@easy@maxyiv=\dimen345
+\@easy@boxiii=\box130
+\@easy@minxiii=\dimen346
+\@easy@minyiii=\dimen347
+\@easy@maxxiii=\dimen348
+\@easy@maxyiii=\dimen349
+\@easy@boxii=\box131
+\@easy@minxii=\dimen350
+\@easy@minyii=\dimen351
+\@easy@maxxii=\dimen352
+\@easy@maxyii=\dimen353
+\@easy@boxi=\box132
+\@easy@minxi=\dimen354
+\@easy@minyi=\dimen355
+\@easy@maxxi=\dimen356
+\@easy@maxyi=\dimen357
+\@easy@hsizexxx=\dimen358
+\@easy@vsizexxx=\dimen359
+\@easy@hsizexxix=\dimen360
+\@easy@vsizexxix=\dimen361
+\@easy@hsizexxviii=\dimen362
+\@easy@vsizexxviii=\dimen363
+\@easy@hsizexxvii=\dimen364
+\@easy@vsizexxvii=\dimen365
+\@easy@hsizexxvi=\dimen366
+\@easy@vsizexxvi=\dimen367
+\@easy@hsizexxv=\dimen368
+\@easy@vsizexxv=\dimen369
+\@easy@hsizexxiv=\dimen370
+\@easy@vsizexxiv=\dimen371
+\@easy@hsizexxiii=\dimen372
+\@easy@vsizexxiii=\dimen373
+\@easy@hsizexxii=\dimen374
+\@easy@vsizexxii=\dimen375
+\@easy@hsizexxi=\dimen376
+\@easy@vsizexxi=\dimen377
+\@easy@hsizexx=\dimen378
+\@easy@vsizexx=\dimen379
+\@easy@hsizexix=\dimen380
+\@easy@vsizexix=\dimen381
+\@easy@hsizexviii=\dimen382
+\@easy@vsizexviii=\dimen383
+\@easy@hsizexvii=\dimen384
+\@easy@vsizexvii=\dimen385
+\@easy@hsizexvi=\dimen386
+\@easy@vsizexvi=\dimen387
+\@easy@hsizexv=\dimen388
+\@easy@vsizexv=\dimen389
+\@easy@hsizexiv=\dimen390
+\@easy@vsizexiv=\dimen391
+\@easy@hsizexiii=\dimen392
+\@easy@vsizexiii=\dimen393
+\@easy@hsizexii=\dimen394
+\@easy@vsizexii=\dimen395
+\@easy@hsizexi=\dimen396
+\@easy@vsizexi=\dimen397
+\@easy@hsizex=\dimen398
+\@easy@vsizex=\dimen399
+\@easy@hsizeix=\dimen400
+\@easy@vsizeix=\dimen401
+\@easy@hsizeviii=\dimen402
+\@easy@vsizeviii=\dimen403
+\@easy@hsizevii=\dimen404
+\@easy@vsizevii=\dimen405
+\@easy@hsizevi=\dimen406
+\@easy@vsizevi=\dimen407
+\@easy@hsizev=\dimen408
+\@easy@vsizev=\dimen409
+\@easy@hsizeiv=\dimen410
+\@easy@vsizeiv=\dimen411
+\@easy@hsizeiii=\dimen412
+\@easy@vsizeiii=\dimen413
+\@easy@hsizeii=\dimen414
+\@easy@vsizeii=\dimen415
+\@easy@hsizei=\dimen416
+\@easy@vsizei=\dimen417
+\@easy@dash@len=\dimen418
+\@easy@dash@sep=\dimen419
+)
+Package: easytable 2001/05/31v1.1
+\@tab@size@rule=\dimen420
+\@tab@size@dash=\dimen421
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.
+sty"
+Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count317
+\calc@Bcount=\count318
+\calc@Adimen=\dimen422
+\calc@Bdimen=\dimen423
+\calc@Askip=\skip76
+\calc@Bskip=\skip77
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count319
+\calc@Cskip=\skip78
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic.st
+y"
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/atbegshi\atbegsh
+i.sty"
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwar
+err.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.
+sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)))
+\AM@pagewidth=\dimen424
+\AM@pageheight=\dimen425
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfpages\pppdftex.
+def"
+File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box133
+\AM@global@opts=\toks50
+\AM@pagecnt=\count320
+\AM@toc@title=\toks51
+\c@AM@survey=\count321
+\AM@templatesizebox=\box134
+)
+\CondensedProbability@idxfile=\write7
+\openout7 = `CondensedProbability.idx'.
+
+
+Writing index file CondensedProbability.idx
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
+d-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count322
+\l__pdf_internal_box=\box135
+)
+
+LaTeX Warning: Unused global option(s):
+    [1pt].
+
+No file CondensedProbability.aux.
+\openout1 = `CondensedProbability.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 302.
+LaTeX Font Info:    ... okay on input line 302.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* bindingoffset: 18.06749pt
+* modes: twoside 
+* h-part:(L,W,R)=(67.75311pt, 289.08003pt, 67.75311pt)
+* v-part:(T,H,B)=(81.30374pt, 505.89001pt, 81.30374pt)
+* \paperwidth=442.65375pt
+* \paperheight=668.4975pt
+* \textwidth=289.08003pt
+* \textheight=505.89001pt
+* \oddsidemargin=13.55061pt
+* \evensidemargin=-4.51688pt
+* \topmargin=-27.96625pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
+df.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count323
+\scratchdimen=\dimen426
+\scratchbox=\box136
+\nofMPsegments=\count324
+\nofMParguments=\count325
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count326
+\MPscratchDim=\dimen427
+\MPnumerator=\count327
+\makeMPintoPDFobject=\count328
+\everyMPtoPDFconversion=\toks53
+)
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
+pdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+) ABD: EveryShipout initializing macros
+LaTeX Font Info:    Trying to load font information for U+msa on input line 302
+.
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 302
+.
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Package xypdf Info: Line width: 0.39998pt on input line 302.
+\AtBeginShipoutBox=\box137
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdflscape\pdflscap
+e.sty"
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\lscape.st
+y"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) [1
+
+{C:/Users/curti/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[2] [1]
+No file CondensedProbability.toc.
+\tf@toc=\write8
+\openout8 = `CondensedProbability.toc'.
+
+[2
+
+] [1
+
+]
+Section 1.
+
+LaTeX Warning: Command \O invalid in math mode on input line 356.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 365.
+
+[2
+
+]
+Overfull \hbox (3.70172pt too wide) in paragraph at lines 373--374
+[]\OT1/cmr/m/n/10 Let $(\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 F[]\OT1/cmr/m/n/10
+ )$ and $(\OML/cmm/m/it/10 Y; \OMS/cmsy/m/n/10 F[]\OT1/cmr/m/n/10 )$ be two mea
+-sur-able spaces.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--388
+
+ []
+
+[3]
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 4
+02.
+
+("C:\Users\curti\AppData\Local\Programs\MiKTeX 2.9\tex/latex/doublestroke\udsro
+m.fd"
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+
+LaTeX Warning: Command \O invalid in math mode on input line 437.
+
+[4] [5]
+Section 2.
+[6
+
+]
+Overfull \hbox (0.64146pt too wide) detected at line 509
+[]
+ []
+
+[7]
+Section 3.
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 532--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--536
+
+ []
+
+[9] [10] [11]
+Overfull \hbox (30.79514pt too wide) in paragraph at lines 618--619
+[]\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; [] ; X[]$ \OT1/cmr/m/n/10 be in-de
+-pen-dent ran-dom vari-ables and let $\OML/cmm/m/it/10 a[]; [] ; a[]; b$
+ []
+
+[12]
+Underfull \hbox (badness 2189) in paragraph at lines 636--637
+\OML/cmm/m/it/10 a[]; [] ; a[]; b$ \OT1/cmr/m/n/10 be con-stants. De-fine a ran
+-dom vari-able
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 648--651
+
+ []
+
+[13]
+Section 4.
+
+Overfull \hbox (6.3856pt too wide) in paragraph at lines 660--662
+\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 P$ \OT1/cmr/m/n/10 is the prob-a-bil-it
+y mea-sure of the prob-a-bil-ity space $(
+\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 F\OML/cmm/m/it/10 ; P\OT1/cmr/m/n/10 )$.
+ []
+
+[14
+
+]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 701--701
+[]|[]| 
+ []
+
+[15]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 732--732
+[]|[]| 
+ []
+
+
+LaTeX Warning: Citation `katz' on page 16 undefined on input line 739.
+
+[16] [17] [18]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 784--784
+[]|[]| 
+ []
+
+[19]
+Overfull \hbox (3.07pt too wide) in paragraph at lines 793--793
+[]\OT1/cmr/bx/n/12 Minimum of Ge-o-met-rics Ran-dom Vari-ables 
+ []
+
+[20]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 822--822
+[]|[]| 
+ []
+
+[21]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 853--853
+[]|[]| 
+ []
+
+[22] [23] [24]
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 922--922
+[]|[]| 
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 934--937
+
+ []
+
+[26] [27]
+Section 5.
+[28
+
+]
+Overfull \hbox (2.5038pt too wide) in paragraph at lines 981--982
+\OT1/cmr/m/n/10 The con-tin-u-ous uni-form dis-tri-bu-tion mod-els a pro-cess w
+hich chooses
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1013
+
+ []
+
+[30]
+Overfull \hbox (7.0089pt too wide) in paragraph at lines 1053--1053
+[]\OT1/cmr/bx/n/12 Minimum of Ex-po-nen-tial Ran-dom Vari-ables 
+ []
+
+[31] [32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1112--1117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1112--1117
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1125
+
+ []
+
+
+Overfull \hbox (2.8579pt too wide) in paragraph at lines 1147--1147
+[]|[]| 
+ []
+
+[35]
+Overfull \hbox (0.29402pt too wide) in paragraph at lines 1156--1157
+\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; [] ; X[] \OMS/cmsy/m/n/10  \OML/cmm
+/m/it/10 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )$ be in-de-pen-
+dent and iden-ti-cally dis-tributed.
+ []
+
+[36] [37] [38] [39]
+
+LaTeX Warning: Reference `thm:centrallimit' on page 40 undefined on input line 
+1268.
+
+[40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1304--1309
+
+ []
+
+[43] [44] [45] [46] [47] [48] [49]
+Section 6.
+[50
+
+]
+Overfull \hbox (6.52394pt too wide) detected at line 1479
+[]
+ []
+
+[51]
+Overfull \hbox (17.84074pt too wide) in paragraph at lines 1514--1515
+[]$\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Y$ \OT1/cmr/m/n/10
+ are in-de-pen-dent if and only if $\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 y\OT1/cmr/m/n/10 )$. 
+ []
+
+
+Overfull \hbox (13.23665pt too wide) in paragraph at lines 1515--1516
+[]$\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Y$ \OT1/cmr/m/n/10
+ are in-de-pen-dent if and only if $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 x; y\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 y\OT1/cmr/m/n/10 )$. 
+ []
+
+[52] [53] [54] [55]
+Overfull \hbox (2.793pt too wide) in paragraph at lines 1597--1597
+[]\OT1/cmr/bx/n/14.4 Multivariate Hy-per-ge-o-met-ric Dis-tri-
+ []
+
+[56] [57] [58
+
+]
+Section 7.
+
+Overfull \hbox (0.64803pt too wide) in paragraph at lines 1650--1651
+[]\OT1/cmr/m/n/10 A sub-set of the pop-u-la-tion which we study is called
+ []
+
+
+Overfull \hbox (7.0307pt too wide) in paragraph at lines 1658--1659
+[]\OT1/cmr/m/n/10 Data can ei-ther be \OT1/cmr/m/it/10 qual-i-ta-tive \OT1/cmr/
+m/n/10 or \OT1/cmr/m/it/10 quan-ti-ta-tive[][]\OT1/cmr/m/n/10 . Qual-
+ []
+
+
+Overfull \hbox (2.05713pt too wide) in paragraph at lines 1662--1663
+[]\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 sum-mary statis-tic[][] \OT1/cmr/m/n/10 is
+ a piece of in-for-ma-tion which
+ []
+
+[59
+
+] [60]
+Section 8.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1699--1703
+
+ []
+
+[61
+
+]
+Overfull \hbox (2.18066pt too wide) in paragraph at lines 1713--1714
+[]\OT1/cmr/m/n/10 For a ran-dom sam-ple $\OML/cmm/m/it/10 X[]; [] ; X[]$\OT1/cm
+r/m/n/10 , a \OT1/cmr/m/it/10 min-i-mum vari-
+ []
+
+
+Overfull \hbox (7.99837pt too wide) in paragraph at lines 1722--1723
+[]\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; [] ; X[]$ \OT1/cmr/m/n/10 be a ran
+-dom sam-ple. $[](\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10 )$
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 1737--1740
+
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 1766--1768
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1766--1768
+
+ []
+
+[64] [65]
+Overfull \hbox (44.0925pt too wide) detected at line 1827
+[]
+ []
+
+[66] [67] [68] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 1886--1893
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1886--1893
+
+ []
+
+[70]
+Overfull \hbox (1.91786pt too wide) in paragraph at lines 1904--1905
+\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X[]; [] ; X[]$ \OT1/cmr/m/n/10 and $\OML/
+cmm/m/it/10 Y[]; [] ; Y[]$ \OT1/cmr/m/n/10 be in-de-pen-dent nor-mally dis-trib
+uted
+ []
+
+
+Overfull \hbox (1.92297pt too wide) in paragraph at lines 1905--1907
+\OT1/cmr/m/n/10 follows an $\OML/cmm/m/it/10 F$ \OT1/cmr/m/n/10 dis-tri-bu-tion
+ with pa-ram-e-ters $\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1$ a
+nd $\OML/cmm/m/it/10 m \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 1$, $\OML/cmm/m/it/10
+ F[]$\OT1/cmr/m/n/10 .
+ []
+
+[71]
+Section 9.
+[72
+
+]
+Overfull \hbox (2.23254pt too wide) in paragraph at lines 1933--1936
+[]\OT1/cmr/m/n/10 Commonly we talk about a null hy-poth-e-sis wherein
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1933--1936
+
+ []
+
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 1952--1955
+
+ []
+
+[74]
+
+LaTeX Warning: Reference `step:critregion' on page 75 undefined on input line 1
+970.
+
+
+LaTeX Warning: Reference `step:rejectorfailtoreject' on page 75 undefined on in
+put line 1970.
+
+[75] [76] [77]
+Underfull \hbox (badness 10000) in paragraph at lines 2047--2053
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2047--2053
+
+ []
+
+[78]
+Section 10.
+
+Overfull \hbox (55.49074pt too wide) detected at line 2068
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2059--2069
+
+ []
+
+[79
+
+]
+Section 11.
+
+Overfull \hbox (3.02249pt too wide) in paragraph at lines 2090--2091
+[]\OT1/cmr/m/n/10 The er-ror term $\OML/cmm/m/it/10 $ \OT1/cmr/m/n/10 is nor-m
+ally dis-tributed ac-cord-ing to $\OMS/cmsy/m/n/10 N\OT1/cmr/m/n/10 (0\OML/cmm/
+m/it/10 ; []\OT1/cmr/m/n/10 )$. 
+ []
+
+[80
+
+] [81
+
+]
+
+LaTeX Warning: Reference `tbl:binomialcoefficients' on page 82 undefined on inp
+ut line 2094.
+
+
+Overfull \vbox (0.42624pt too high) has occurred while \output is active []
+
+
+[82]
+
+LaTeX Warning: Reference `tbl:cumulativebinomial' on page 83 undefined on input
+ line 2124.
+
+
+Overfull \vbox (37.88943pt too high) has occurred while \output is active []
+
+
+[83]
+
+LaTeX Warning: Reference `tbl:cumulativepoisson' on page 84 undefined on input 
+line 2175.
+
+
+LaTeX Warning: Reference `tbl:chisquare' on page 84 undefined on input line 222
+1.
+
+[84]
+
+LaTeX Warning: Reference `tbl:standardnormal' on page 85 undefined on input lin
+e 2267.
+
+[85]
+
+LaTeX Warning: Reference `tbl:tdistribution' on page 86 undefined on input line
+ 2319.
+
+[86]
+Overfull \vbox (15.01605pt too high) has occurred while \output is active []
+
+
+[87] [88
+
+] [89]
+runsystem(makeindex CondensedProbability.idx)...executed (allowed).
+
+ (CondensedProbability.ind [90
+
+
+] [91] [92] [93]) [94]
+(CondensedProbability.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 23252 strings out of 480896
+ 464158 string characters out of 2898165
+ 820012 words of memory out of 3000000
+ 38644 multiletter control sequences out of 15000+200000
+ 550673 words of font info for 99 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,23n,87p,3253b,1255s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\curti\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm1000.pk><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/curti/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/curti/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Users/c
+urti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex
+8.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/curti/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/curti/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cu
+rti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pf
+b><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cmextra/cmmib8.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/curti/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/curti/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/cur
+ti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
+:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmss12.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmss17.pfb><C:/Users/curti/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/curti/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/curti/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
+rs/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmti10.pfb><C:/Users/curti/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/curti/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/curti/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb
+>
+Output written on CondensedProbability.pdf (98 pages, 581129 bytes).
+PDF statistics:
+ 441 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+

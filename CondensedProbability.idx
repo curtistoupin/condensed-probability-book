@@ -1,0 +1,239 @@
+\indexentry{$\sigma$-algebra}{2}
+\indexentry{measure}{2}
+\indexentry{measurable!space}{3}
+\indexentry{measurable!set}{3}
+\indexentry{measure space}{3}
+\indexentry{measurable!function}{3}
+\indexentry{probability space}{3}
+\indexentry{sample space}{3}
+\indexentry{event}{3}
+\indexentry{probability measure}{3}
+\indexentry{random variable}{3}
+\indexentry{indicator function}{4}
+\indexentry{cumulative distribution function}{4}
+\indexentry{cdf}{4}
+\indexentry{almost surely}{4}
+\indexentry{almost never}{4}
+\indexentry{conditional probability}{5}
+\indexentry{Bayes' Theorem}{5}
+\indexentry{permutation}{6}
+\indexentry{binomial coefficients}{6}
+\indexentry{Vandermonde's Identity}{6}
+\indexentry{Pascal's rule}{7}
+\indexentry{binomial coefficients!sum of}{7}
+\indexentry{Pascal's Triangle}{7}
+\indexentry{i.i.d.}{7}
+\indexentry{expected value}{8}
+\indexentry{moment}{9}
+\indexentry{mean}{9}
+\indexentry{central moment}{9}
+\indexentry{variance}{9}
+\indexentry{standard deviation}{9}
+\indexentry{standardized moment}{10}
+\indexentry{skewness}{10}
+\indexentry{Pearson moment}{10}
+\indexentry{kurtosis}{10}
+\indexentry{excess kurtosis}{10}
+\indexentry{platykurtic}{11}
+\indexentry{sub-Gaussian}{11}
+\indexentry{mesokurtic}{11}
+\indexentry{leptokurtic}{11}
+\indexentry{super-Gaussian}{11}
+\indexentry{moment generating function}{11}
+\indexentry{mgf}{11}
+\indexentry{characteristic function}{12}
+\indexentry{stable distribution}{13}
+\indexentry{discrete random variable}{14}
+\indexentry{probability mass function}{14}
+\indexentry{pmf}{14}
+\indexentry{Bernoulli distribution}{15}
+\indexentry{Bernoulli trial}{15}
+\indexentry{binomial distribution}{16}
+\indexentry{binomial distribution!sum of}{16}
+\indexentry{binomial distribution!ratio of}{17}
+\indexentry{binomial distribution!conditional}{17}
+\indexentry{normal distribution!approximation of binomial}{17}
+\indexentry{binomial distribution!normal approximation of}{17}
+\indexentry{Poisson distribution!approximation of binomial}{17}
+\indexentry{binomial distribution!Poisson approximation of}{17}
+\indexentry{geometric distribution}{19}
+\indexentry{geometric distribution!memorylessness of}{19}
+\indexentry{geometric distribution!sum of}{20}
+\indexentry{geometric distribution!minimum of}{20}
+\indexentry{negative binomial distribution}{21}
+\indexentry{discrete uniform distribution}{22}
+\indexentry{uniform distribution!discrete}{22}
+\indexentry{hypergeometric distribution}{23}
+\indexentry{hypergeometric distribution!symmetries of}{23}
+\indexentry{hypergeometric distribution!binomial approximation of}{24}
+\indexentry{binomial distribution!approximation of a hypergeometric}{24}
+\indexentry{hypergeometric distribution!normal approximation of}{24}
+\indexentry{normal distribution!approximation of a hypergeometric}{24}
+\indexentry{Poisson distribution}{25}
+\indexentry{Poisson distribution!sum of}{26}
+\indexentry{Raikov's Theorem}{26}
+\indexentry{Poisson distribution!conditional}{26}
+\indexentry{Poisson distribution!normal approximation of}{26}
+\indexentry{normal distribution!approximation of a Poisson}{26}
+\indexentry{Poisson distribution!variance-stabilizing transformation of}{26}
+\indexentry{Kronecker delta}{27}
+\indexentry{continuous random variable}{28}
+\indexentry{probability density function}{28}
+\indexentry{pdf}{28}
+\indexentry{continuous uniform distribution}{29}
+\indexentry{uniform distribution!continuous}{29}
+\indexentry{continuous uniform distribution!standard}{30}
+\indexentry{standard uniform distribution!powers of}{30}
+\indexentry{standard uniform distribution!sum of}{30}
+\indexentry{exponential distribution}{31}
+\indexentry{exponential distribution!memorylessness of}{31}
+\indexentry{exponential distribution!minimum of}{32}
+\indexentry{exponential distribution!sum of}{32}
+\indexentry{exponential distribution!relation to the geometric}{32}
+\indexentry{geometric distribution!relation to the exponential}{32}
+\indexentry{gamma distribution}{33}
+\indexentry{gamma distribution!sum of}{34}
+\indexentry{gamma distribution!scaling of}{34}
+\indexentry{gamma distribution!ratio of}{34}
+\indexentry{gamma distribution!relation to exponential}{34}
+\indexentry{gamma distribution!relation to chi-square}{34}
+\indexentry{gamma distribution!relation to Maxwell-Boltzmann}{34}
+\indexentry{chi-square distribution}{35}
+\indexentry{chi-square distribution!sum of}{36}
+\indexentry{chi-square distribution!sample mean of}{36}
+\indexentry{chi distribution}{37}
+\indexentry{standard normal distribution!absolute}{37}
+\indexentry{standard normal distribution!relation to chi}{37}
+\indexentry{normal distribution}{38}
+\indexentry{Gaussian distribution|see{normal distribution}}{38}
+\indexentry{bell curve|see{normal distribution}}{38}
+\indexentry{standard normal distribution}{39}
+\indexentry{normal distribution!standard}{39}
+\indexentry{normal distribution!linear transformations of}{39}
+\indexentry{normal distribution!sum of}{40}
+\indexentry{Cramer's theorem}{40}
+\indexentry{Bernstein's Theorem}{40}
+\indexentry{central limit theorem}{40}
+\indexentry{t-distribution}{42}
+\indexentry{student's t-distribution|see {t-distribution}}{42}
+\indexentry{t-distribution!relation to sample mean}{43}
+\indexentry{F-distribution}{44}
+\indexentry{F-distribution!characterization}{44}
+\indexentry{F-distribution!related distributions}{45}
+\indexentry{Maxwell-Boltzmann distribution}{46}
+\indexentry{beta distribution}{47}
+\indexentry{logistic distribution}{48}
+\indexentry{Dirac delta function}{49}
+\indexentry{joint probability distribution}{50}
+\indexentry{probability distribution!joint}{50}
+\indexentry{bivariate distribution}{50}
+\indexentry{multivariate distribution}{50}
+\indexentry{random vector}{50}
+\indexentry{joint probability mass function}{51}
+\indexentry{probability mass function!joint}{51}
+\indexentry{joint probability density function}{51}
+\indexentry{probability density function!joint}{51}
+\indexentry{mixed joint density}{51}
+\indexentry{joint probability density!mixed}{51}
+\indexentry{marginal probability distribution}{52}
+\indexentry{probability distribution!marginal}{52}
+\indexentry{covariance}{52}
+\indexentry{correlation}{52}
+\indexentry{correlated random variables}{52}
+\indexentry{uncorrelated random variables}{52}
+\indexentry{covariance!properties}{53}
+\indexentry{variance!properties}{53}
+\indexentry{Hoeffding's covariance identity}{53}
+\indexentry{categorical distribution}{54}
+\indexentry{multinoulli distribution}{54}
+\indexentry{multinomial distribution}{55}
+\indexentry{multivariate hypergeometric distribution}{56}
+\indexentry{hypergeometric distribution!multivariate}{56}
+\indexentry{multivariate normal distribution}{57}
+\indexentry{normal distribution!multivariate}{57}
+\indexentry{population}{59}
+\indexentry{random sample}{59}
+\indexentry{sampling}{59}
+\indexentry{data}{59}
+\indexentry{data!qualitative}{59}
+\indexentry{data!quantitative}{59}
+\indexentry{data!categorical}{59}
+\indexentry{summary statistic}{59}
+\indexentry{statistic!summary}{59}
+\indexentry{statistic!descriptive}{59}
+\indexentry{descriptive statistic}{59}
+\indexentry{parameter}{60}
+\indexentry{population parameter}{60}
+\indexentry{frequency}{60}
+\indexentry{frequency!relative}{60}
+\indexentry{frequency!cumulative relative}{60}
+\indexentry{experiment}{60}
+\indexentry{explanatory variable}{60}
+\indexentry{variable!explanatory}{60}
+\indexentry{response variable}{60}
+\indexentry{variable!response}{60}
+\indexentry{lurking variable}{60}
+\indexentry{variable!lurking}{60}
+\indexentry{sample mean}{61}
+\indexentry{sample variance}{61}
+\indexentry{Bessel correction}{61}
+\indexentry{sample standard deviation}{61}
+\indexentry{estimator}{61}
+\indexentry{estimator!unbiased}{62}
+\indexentry{unbiased estimator}{62}
+\indexentry{estimator!asymptotically unbiased}{62}
+\indexentry{estimator bias}{62}
+\indexentry{estimator!bias}{62}
+\indexentry{minimum variance unbiased estimator}{62}
+\indexentry{estimator!minimum variance unbiased}{62}
+\indexentry{sufficient statistic}{62}
+\indexentry{method of moments}{63}
+\indexentry{maximum likelihood estimator}{64}
+\indexentry{likelihood function}{64}
+\indexentry{confidence interval}{65}
+\indexentry{confidence interval!interpretation}{65}
+\indexentry{confidence interval!for $\mu$}{66}
+\indexentry{confidence interval!for $\mu$!$\sigma$ known}{66}
+\indexentry{confidence interval!for $\mu$!$\sigma$ unknown}{66}
+\indexentry{confidence interval!difference of means!$\sigma$ known}{67}
+\indexentry{confidence interval!difference of means!$\sigma$ unknown}{67}
+\indexentry{pooled sample standard deviation}{68}
+\indexentry{sample standard deviation!pooled}{68}
+\indexentry{confidence interval!difference of means!$\sigma_X$,$\sigma_Y$ known}{68}
+\indexentry{confidence interval!difference of means!$\sigma_X$,$\sigma_Y$ unknown}{69}
+\indexentry{confidence interval!for proportions}{69}
+\indexentry{sample proportion}{70}
+\indexentry{confidence interval!difference of proportions}{70}
+\indexentry{confidence interval!for variances}{71}
+\indexentry{confidence interval!for ratio of variances}{71}
+\indexentry{null hypothesis}{72}
+\indexentry{hypothesis!null}{72}
+\indexentry{alternate hypothesis}{72}
+\indexentry{hypothesis!alternate}{72}
+\indexentry{null hypothesis!reject}{72}
+\indexentry{significance level}{72}
+\indexentry{alpha level}{72}
+\indexentry{type I error}{73}
+\indexentry{error!type I}{73}
+\indexentry{type II error}{73}
+\indexentry{error!type II}{73}
+\indexentry{power function}{73}
+\indexentry{two-sided test}{73}
+\indexentry{one-sided test}{73}
+\indexentry{critical region}{73}
+\indexentry{$p$-value}{73}
+\indexentry{independence test}{76}
+\indexentry{chi-square independence test}{76}
+\indexentry{contingency table}{77}
+\indexentry{observed frequency}{77}
+\indexentry{expected frequency}{77}
+\indexentry{goodness of fit}{78}
+\indexentry{chi-square goodness of fit}{78}
+\indexentry{Pearson's chi-square test}{78}
+\indexentry{order statistic}{79}
+\indexentry{explanatory variable}{80}
+\indexentry{independent variable}{80}
+\indexentry{regressor variable}{80}
+\indexentry{response variable}{80}
+\indexentry{dependent variable}{80}
+\indexentry{regression model}{80}

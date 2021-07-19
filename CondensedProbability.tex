@@ -1,0 +1,2391 @@
+\documentclass[1pt]{report}
+\title{On Iwase's Construction of a Counterexample to Ganea's Conjecture}
+\author{Curtis Toupin}
+\date{}
+
+%%% Packages %%%
+\newcommand{\QpSn}{Q_p\times S^n}
+\usepackage[Glenn]{fncychap}
+\usepackage{fancyhdr}
+\fancyhf{}
+%\fancyhead[RE, RO]{\rightmark}
+%\fancyhead[LE, LO]{\leftmark}
+\fancyhead[LE, LO]{\rightmark}
+\cfoot{\thepage}
+\renewcommand{\chaptername}{Section}
+\usepackage[paperheight=9.25in, twoside, paperwidth=6.125in, top = 1.125in, bottom = 1.125in, outer = 0.9375in, inner = 0.9375in, binding offset = 0.25in]{geometry}
+\usepackage{amsfonts,amsmath}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage[all]{xy}
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{float}
+\usepackage{imakeidx}
+\tikzcdset{column sep/normal=1.3cm}
+\tikzcdset{row sep/normal=1.3cm}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{chngpage}
+\usepackage{mathdots}
+\newcommand{\ptop}{\text{Top_2}}
+\newcommand{\htop}{\text{HTop}}
+\newcommand{\hptop}{\text{HPTop}}
+\newcommand{\Top}{\text{Top}}
+\newcommand{\Set}{\text{Set}}
+\newcommand{\hTop}{\text{hTop}}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[skins]{tcolorbox}
+\newtcolorbox{mybox}{sharp corners, rounded corners=southeast,arc is angular,arc=3mm, underlay={%
+    \path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+    }, title=Abuse of Notation}
+    
+    \newtcolorbox{marker}[1][]{enhanced,
+  before skip=2mm,after skip=3mm,
+  boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  underlay={%
+    \path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[fill=black!50,draw=none] (interior.south west) rectangle node[white]{\huge\bfseries !} ([xshift=4mm]interior.north west);
+    },
+  drop fuzzy shadow,#1}
+
+\newtcolorbox{rmkbox}{enhanced,attach boxed title to top left={xshift=10mm, yshift=-2.3mm,yshifttext=-1mm},
+  colback=gray!5!white,colframe=gray!75!black,colbacktitle=black,
+  title={\bfseries Remark},fonttitle=\bfseries,
+  boxed title style={size=small,colframe=black},drop fuzzy shadow,
+oversize=0.3cm,
+before={\vskip20pt\par\noindent},
+after={\par\vskip12pt}}
+
+\newtcolorbox{conjbox}{enhanced,attach boxed title to top left={xshift=10mm, yshift=-2.3mm,yshifttext=-1mm},
+  colback=gray!5!white,colframe=gray!75!black,colbacktitle=black,
+  title={\bfseries Ganea's Conjecture},fonttitle=\bfseries,
+  boxed title style={size=small,colframe=black},drop fuzzy shadow,
+oversize=0.3cm,
+before={\vskip20pt\par\noindent},
+after={\par\vskip12pt}}
+
+\newtcolorbox{thmbox}{enhanced,attach boxed title to top left={xshift=10mm, yshift=-2.3mm,yshifttext=-1mm},
+  colback=gray!5!white,colframe=gray!75!black,colbacktitle=black,
+  title={\bfseries Theorem},fonttitle=\bfseries,
+  boxed title style={size=small,colframe=black},drop fuzzy shadow,
+oversize=0.3cm,
+before={\vskip20pt\par\noindent},
+after={\par\vskip12pt}}
+
+\newtcolorbox{superbox}{freelance,frame code={},   interior titled code={
+  \fill[black!80]
+    ([xshift=0cm]title.south west) --
+    ([xshift=-8.5cm]title.south) -- 
+    ([xshift=-8.1cm, yshift=17pt]title.south) --
+    ([xshift=-5cm, yshift=17pt]title.south) --
+    ([xshift=-4.6cm]title.south) --
+    ([xshift=-0cm]title.south east) {[sharp corners] --
+    ([xshift=-0cm, yshift=-6pt]title.south east) -- 
+    ([xshift=0cm, yshift=-6pt]title.south west) } -- cycle;
+ \draw[gray,line width=1pt]
+    ([xshift=0cm]title.west|-frame.south west) --
+    ([xshift=0cm]title.south west) --
+    ([xshift=-8.5cm]title.south) -- 
+    ([xshift=-8.1cm, yshift=17pt]title.south) --
+    ([xshift=-5cm, yshift=17pt]title.south) --
+    ([xshift=-4.6cm]title.south) --
+    ([xshift=-0cm] title.south east) --
+    ([xshift=-0cm]title.east|-frame.south east) --
+    cycle;
+  \node at ([xshift=2cm,yshift=4pt,anchor=south]title.south) 
+    {\Large };  
+    	},
+    	title=\qquad {\bfseries Remark},
+top=14pt,
+before={\vskip24pt\par\noindent},
+after={\par\vskip12pt}
+    }
+    
+   \newtcolorbox[auto counter]{boxybox}{
+freelance,
+colback=white,
+frame code={},
+interior titled code={
+  \fill[rounded corners=5pt,gray!30]
+    (title.south west) --
+    (title.south) -- 
+    ([yshift=20pt]title.south) --
+    ([yshift=20pt,xshift=2cm]title.south) --
+    ([xshift=2cm]title.south) --
+    (title.south east) {[sharp corners] --
+    ([yshift=-6pt, xshift=-2cm]title.south east) -- 
+    ([yshift=-6pt]title.south west) } -- cycle;
+  \draw[rounded corners=5pt,gray,line width=1pt]
+    (title.west|-frame.south west) --
+    (title.south west) --
+    (title.south) -- 
+    ([yshift=20pt]title.south) --
+    ([yshift=20pt,xshift=4cm]title.south) --
+    ([xshift=4cm]title.south) --
+    (title.south east) --
+    (title.east|-frame.south east) --
+    cycle;
+  \node at ([xshift=2cm,yshift=4pt,anchor=south]title.south) 
+    {\sffamily\Large Remark};  
+  },
+title=Remark,
+top=12pt,
+fontupper=\sffamily\Large,
+oversize=0.5cm,
+before={\vskip24pt\par\noindent},
+after={\par\vskip12pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% Theorems and Stuff %%%
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{props}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{rmks}[thm]{Remarks}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{egs}[thm]{Examples}
+\newtheorem{lemma}[thm]{Lemma}
+\newcommand{\NB}{\underline{\bf N.B.}}
+%\newcommand{\notn}{\underline{\bf Notation:}}
+\newcommand{\ex}{{\bf exercise }}
+\newcommand{\pf}{{\it Proof:}}
+\newtheorem{conj}[thm]{Conjecture}
+\usepackage[thinlines]{easytable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Making Stuff Not Italics %%%
+\let\oldthm\thm
+\let\oldprop\prop
+\let\oldprops\props
+\let\olddefn\defn
+\let\olddefns\defns
+\let\oldcor\cor
+\let\oldrmk\rmk
+\let\oldrmks\rmks
+\let\oldlemma\lemma
+\let\oldeg\eg
+\let\oldnotn\notn
+\renewcommand{\thm}{\oldthm\normalfont}
+\renewcommand{\prop}{\oldprop\normalfont}
+\renewcommand{\props}{\oldprops\normalfont}
+\renewcommand{\defn}{\olddefn\normalfont}
+\renewcommand{\defns}{\olddefns\normalfont}
+\renewcommand{\cor}{\oldcor\normalfont}
+\renewcommand{\rmk}{\oldrmk\normalfont}
+\renewcommand{\rmks}{\oldrmks\normalfont}
+\renewcommand{\lemma}{\oldlemma\normalfont}
+\renewcommand{\eg}{\oldeg\normalfont}
+\renewcommand{\notn}{\oldnotn\normalfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Theorems and Stuff %%%
+%\newcommand{\prop}{\section{Proposition}}
+%\newcommand{\props}{\section{Propositions}}
+%\newcommand{\defn}{\section{Definition}}
+%\newcommand{\defns}{\section{Definitions}}
+%\newcommand{\ex}{{\bf exercise }}
+%\newcommand{\eg}{\section{Example}}
+%\newcommand{\egg}[1]{\section{Example - {#1}}}
+%\newcommand{\egs}{\section{Examples}}
+%\newcommand{\thm}{\section{Theorem}}
+%\newcommand{\cor}{\section{Corollary}}
+%\newcommand{\rmk}{\subsection{Remark}}
+%\newcommand{\rmks}{\subsection{Remarks}}
+%\newcommand{\lemma}{\section{Lemma}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% Special Sets and Spaces %%%
+\newcommand{\Rone}{\mathbb{R}}
+\newcommand{\R}{\Rone}
+\newcommand{\Rtwo}{\mathbb{R}^2}
+\newcommand{\Rthree}{\mathbb{R}^3}
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Rp}{\mathbb{R}^p}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\RP}[1]{\R P^{#1}}
+\newcommand{\CP}[1]{\C P^{#1}}
+\newcommand{\U}{\mathbb{U}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Notation and Words %%%
+\newcommand{\tr}{\textnormal{Tr\,}}
+\newcommand{\cupp}{\textnormal{cup\,}}
+\newcommand{\cat}{\textnormal{cat\,}}
+\newcommand{\coker}{\textnormal{coker\,}}
+\newcommand{\nhood}{\textnormal{neighbourhood }}
+\newcommand{\im}{\textnormal{im\,}}
+\newcommand{\gl}{\textnormal{GL\,}}
+\newcommand{\spann}{\textnormal{span\,}}
+\newcommand{\sym}{\textnormal{Sym\,}}
+\newcommand{\alt}{\textnormal{Alt\,}}
+%\newcommand{\id}{\textnormal{id\,}}
+\newcommand{\id}{\mathds{1}}
+\newcommand{\ev}{\text{ev}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Personal Shorthand %%%
+\newcommand{\pb}{\arrow[dr,phantom,"\lrcorner",at start]}
+\newcommand{\po}{\arrow[ul,phantom,"\ulcorner",at start]}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand{\sums}{\sum\limits}
+\newcommand{\tens}{\otimes}
+\renewcommand{\L}{\Lambda}
+\newcommand{\del}{\partial}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\r}{\rho}
+\newcommand{\g}{\mathfrak{g}}
+\renewcommand{\l}{\mathfrak{l}}
+\newcommand{\s}{\mathfrak{s}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\AAA}{\mathfrak{A}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\fraku}{\mathfrak{u}}
+\renewcommand{\u}{\underline}
+\renewcommand{\bar}{\overline}
+\newcommand{\sm}{\setminus}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\UU}{\mathcal{U}}
+\newcommand{\VV}{\mathcal{V}}
+\renewcommand{\HH}{\mathcal{H}}
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\NN}{\mathcal{N}}
+\newcommand{\intoverr}{\int\limits_{-\infty}^\infty}
+\newcommand{\pois}{\text{Pois}}
+\newcommand{\gam}{\text{Gamma}}
+\newcommand{\Exp}{\text{Exp}}
+\newcommand{\erf}{\text{erf}}
+\newcommand{\Bet}{\text{Beta}}
+\newcommand{\Logistic}{\text{Logistic}}
+\newcommand{\cov}{\text{cov}}
+\let\oldphi\phi
+\let\phi\varphi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdfpages}
+%%% Custom Commands %%%
+\newcommand{\quot}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\qed}{\begin{flushright} $\square$ \end{flushright}}
+\newcommand{\rightsquare}{\begin{flushright} $\square$ \end{flushright}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+
+\begin{document}
+\pagestyle{fancy}
+%\maketitle %this makes the title page%
+\begin{titlepage}
+        \begin{center}
+        \vspace*{1.0cm}
+
+        \huge
+        {\bf Condensed Probability Theory and Statistics}
+
+        \vspace*{1.25cm}
+
+        \Large
+        Arranged by Curtis Toupin \\
+
+        \vspace*{1.5cm}
+
+        \normalsize
+        A collection of common and useful results known in the field of probability and statistics\\
+        \vspace*{2.5cm}
+        \vspace*{0.5cm}
+
+        {Curtis Toupin}, Ottawa, Canada, 2020\\
+        \end{center}
+\end{titlepage}
+\shipout\null
+\setcounter{page}{1}
+\pagenumbering{roman}
+\setcounter{tocdepth}{1}
+\begin{rmkbox}
+From time to time, there will be remarks that contain vital information for the reader. When such a remark arises, it will be contained in a box like this one.
+\end{rmkbox}
+\newpage
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\part{Probability Theory}
+\chapter{Overview}
+\section{Probability Spaces}
+\begin{defn}\label{def:sigmaalgebra}
+A $\sigma$\emph{-algebra}\index{$\sigma$-algebra} on a set $\Omega$ is a collection, $\FF$, of subsets of $\Omega$ satisfying the following:
+\begin{itemize}
+\item $\Omega \in \FF$
+\item $\FF$ is closed under complement. That is, for all $A \in \FF$, $A' \in \FF$ as well, and
+\item $\FF$ is closed under countable unions. That is, for any collection of sets, $\{A_i\}_{i \in \N} \subseteq \FF$, we have
+$$\bigcup\limits_{n \in \N}  A_i  \in \FF$$
+as well.
+\end{itemize}
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}
+For any $\sigma$-algebra $\FF$ over a set $\Omega$,
+\begin{itemize}
+\item $\O \in \FF$
+\item $\FF$ is closed under countable intersection
+\end{itemize}
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn} \label{def:measure}
+Let $\FF$ be a $\sigma$-algebra over a set $\Omega$. A \emph{measure}\index{measure} is a function $\mu: \FF \to \bar{\R} = \R \cup \{-\infty, \infty\}$, the extended real numbers satisfying the following:
+\begin{itemize}
+\item for all $A \in \FF$, $\mu(A) \geq 0$
+\item $\mu(\O) = 0$, and 
+\item For any pairwise disjoint collection of sets, $\{A_i\}_{i \in \N}$ of pairwise disjoint sets in $\FF$,
+$$\mu \left(\bigcup\limits_{i \in \N} A_i \right) = \sum\limits_{i \in \N} \mu(A_i).$$
+\end{itemize}
+The pair $(\Omega, \FF)$ is called a \emph{measurable space}\index{measurable!space}. Members of $\FF$ are called \emph{measurable sets}\index{measurable!set}. The triplet $(\Omega, \FF, \mu)$ is known as a \emph{measure space}\index{measure space}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:measurablefunction}
+Let $(X, \FF_X)$ and $(Y, \FF_Y)$ be two measurable spaces. A function $f: X \to Y$ is said to be \emph{measurable}\index{measurable!function} if for each measurable set $B \in \FF_Y$, the inverse image $f^{-1}(B) \in \FF_X$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:measurablecomposition}
+Let $(X, \FF_X)$, $(Y, \FF_Y)$, and $(Z, \FF_Z)$ be measurable spaces, and let $f:X \to Y$ and $g: Y\to Z$ be measurable functions. Then $g\circ f : X \to Z$ is measurable.
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn} \label{def:probabilityspace}
+A \emph{probability space}\index{probability space} is a measure space $(\Omega, \FF, P)$ with unit total measure (that is, $P(\Omega) = 1$). It is used to model a real world stochastic process.\\
+\\
+$\Omega$ is the set of all possible outcomes for a single execution of the process, and is known as the \emph{sample space}\index{sample space}.\\
+\\
+Sets $A \in \FF$ are called \emph{events}\index{event}.\\
+\\
+$P$ is known as the \emph{probability measure}\index{probability measure}. Note that $P(\Omega) = 1$, and $P$ is a measure and hence is nonnegative and countably additive. Thus, it follows that for all events $A$, $P(A) \in [0,1]$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{General Theory}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:randomvariable}
+Let $(\Omega, \FF, P)$ be a probability space. A \emph{random variable}\index{random variable} is a measurable function $X : \Omega \to E$ for some measurable space $(E, \FF_E)$. The probability that $X$ takes on a value in a measurable set $S \in \FF_E$ is denoted
+$$P(X \in S)$$
+and is given by
+$$P(X \in S) = P\left(\{\omega \in \Omega \mid X(\omega) \in S\}\right).$$
+If $S$ is the singleton $S = \{s\}$, this is also sometimes written as
+$$P(X = s).$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:indicator}
+Let $(\Omega, \FF, P)$ be a probability space and let $A \in \FF$ be an event. The \emph{indicator function}\index{indicator function} of $A$ is a function $\id_A : \Omega \to \{0, 1\}$ defined by
+$$\id_A(x) = \begin{cases} 1, & x \in A \\ 0, & x \not\in A\end{cases}$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:indicatorproperties}
+Let $A, B \subseteq X$ be sets. The indicator function has the following properties:
+\begin{itemize}
+\item $\id_{A\cap B} = \min\{\id_A, \id_B\} = \id_A \cdot \id_B$
+\item $\id_{A\cup B} = \max\{\id_A, \id_B\} = \id_A + \id_B - \id_A\cdot \id_B$
+\item $\id_{A'} = 1- \id_A$
+\end{itemize}
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:cdf}
+Let $X:\Omega \to \R$ be a real-valued random variable. The \emph{cumulative distribution function}\index{cumulative distribution function}, or \emph{distribution function} of $X$, often abbreviated to \emph{cdf}\index{cdf} is the function
+$$F_X(x) = P(X \leq x).$$
+The probability that $X$ is contained in the interval $(a,b]$ is therefore
+$$P(a < X \leq b) = P(X \leq b) - P(X\leq a) = F_X(b) - F_X(a).$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn} \label{def:almostsurely}
+Let $A$ be an event such that $P(A) = 1$. In this case $A$ is said to happen \emph{almost surely}\index{almost surely}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn} \label{def:almostnever}
+Let $A$ be an event such that $A'$ happens almost surely (or, equivalently, $P(A) = 0$). In this case $A$ is said to happen \emph{almost never}\index{almost never}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop} \label{prop:probcomplement}
+Let $(\Omega, \FF, P)$ be a probability space and let $A$ be an event. Then
+$$P(A') = 1-P(A).$$
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop} \label{prop:probempty}
+Let $(\Omega, \FF, P)$ be a probability space. Then 
+$$P(\O) = 0.$$
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop} \label{prop:probsubset}
+Let $(\Omega, \FF, P)$ be a probability space, and let $A$ and $B$ be events. If $A \subseteq B$, then $P(A) \leq P(B)$.
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop} \label{prop:probunion}
+Let $(\Omega, \FF, P)$ be a probability space, and let $A$, $B$, and $C$ be events. Then
+$$P(A \cup B) = P(A) + P(B) + P(A\cap B)$$
+and
+\begin{align*}
+P(A \cup B \cup C) &= P(A) + P(B) + P(C) \\ 
+&\qquad  - P(A \cap B) - P(B\cap C) - P(A\cap C) \\ 
+&\qquad \qquad + P(A\cap B \cap C)
+\end{align*}
+\end{prop}
+\section{Conditional Probability}
+\begin{defn}\label{def:conditional}
+Let $A$ and $B$ be events. The probability that $A$ will happen given that $B$ has already happened is called the \emph{probability of $A$ given $B$}\index{conditional probability}, is denoted $P(A\mid B)$ and is given by
+$$P(A \mid B) = \frac{P(A\cap B)}{P(B)}.$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:independent}
+Two events $A$ and $B$ are said to be independent if 
+$$P(A\mid B) = P(A)$$
+or, equivalently,
+$$P(A \cap B) = P(A)P(B).$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}\label{thm:independentcomplement}
+Let $A$ and $B$ be independent events. Then
+\begin{itemize}
+\item $A'$ and $B$ are independent,
+\item $A$ and $B'$ are independent, and
+\item $A'$ and $B'$ are independent.
+\end{itemize}
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}\label{bayes}\textbf{ -- Bayes' Theorem} \index{Bayes' Theorem}
+Let $B_1, \cdots, B_n$ be a partition of the sample space $\Omega$ (that is, $B_1,\cdots, B_n$ are mutually exclusive and exhaustive), and let $A$ be an event. Then
+$$P( B_k \mid A ) = \frac{PA \mid B_k) P(B_k)}{\sum\limits_{i=1}^m P(A\mid B_i) P (B_i)}, \quad k = 1,2,\dots, n.$$
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Combinatorics}
+\begin{thm}\label{thm:permutation}
+Suppose we are to randomly select $r$ people out of a population of $n$ without replacement and such that order matters. This is referred to as a \emph{permutation}\index{permutation}. The number of ways to do this is denoted $_nP_r$ and is given by 
+$$_nP_r = \frac{n!}{(n-r)!}$$.
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}\label{thm:choose}\index{binomial coefficients}
+Suppose we are to randomly select $r$ people out of a population of $n$ without replacement and that order does not matter. The number of ways to do this is given by the binomial coefficient
+$$_nC_r = \binom{n}{r} = \frac{n!}{r!(n-r)!}$$
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}\textbf{ -- Vandermonde's Identity}\index{Vandermonde's Identity}
+Let $r,m,n \in \N$. Then
+$$\binom{m+n}{r} = \sum\limits_{k=0}^r \binom{m}{k}\binom{n}{r-k}.$$
+More generally,
+$$\binom{n_1 + \cdots + n_p}{m} = \sum\limits_{k_1 + \cdots + k_p = m} \binom{n_1}{k_1}\binom{n_2}{k_2} \cdots \binom{n_p}{k_p}.$$
+\end{thm}
+\begin{thm}\textbf{ -- Pascal's rule}\index{Pascal's rule}\index{binomial coefficients!sum of}
+Binomial coefficients can be calculated recursively by
+$$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.$$
+This is used to generate \emph{Pascal's triangle}\index{Pascal's Triangle} where each vertex is the sum of the nearest two vertices above it, generating the binomial coefficients.
+$$\begin{tikzcd}[column sep = 10pt, row sep = 10pt]
+&&& &  &1\arrow[dr,dash]\arrow[dl,dash] & & &&& \\
+&&& &1\arrow[dr,dash]\arrow[dl,dash] & &1\arrow[dr,dash]\arrow[dl,dash] & &&& \\
+&&&1\arrow[dr,dash]\arrow[dl,dash] & &2\arrow[dr,dash]\arrow[dl,dash] & &1\arrow[dr,dash]\arrow[dl,dash] &&& \\
+&&1\arrow[dr,dash]\arrow[dl,dash]& &3\arrow[dr,dash]\arrow[dl,dash] & &3\arrow[dr,dash]\arrow[dl,dash] & &1\arrow[dr,dash]\arrow[dl,dash]&& \\
+&1\arrow[dr,dash]\arrow[dl,dash] & &4\arrow[dr,dash]\arrow[dl,dash] && 6\arrow[dr,dash]\arrow[dl,dash] && 4\arrow[dr,dash]\arrow[dl,dash] && 1\arrow[dr,dash]\arrow[dl,dash] &\\
+\cdots && \cdots && \cdots && \cdots && \cdots && \cdots\\
+\end{tikzcd}$$ 
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:iid}
+Let $X_1,X_2, \dots, X_n$ be independent random variables which all share the same distribution. In this case the random variables $X_1, \dots, X_n$ are said to be \emph{independent and identically distributed}\index{i.i.d.}, or \emph{i.i.d.} for short.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Properties of Random Variables and Distributions}
+\section{Expectation and Moments}
+\begin{defn}\label{def:expectation}
+Let $X$ be a random variable defined on a probability space $(\Omega, \FF, P)$. Then the \emph{expected value}\index{expected value} or \emph{expectation} of $X$ is defined by the Lebesgue integral
+$$\E[X] = \int_\Omega  X(\omega) dP(\omega).$$
+If $X$ is a real valued random variable with cumulative distribution function $F$. The expectation of $X$ can be written as  
+$$E[X] = \int\limits_{-\infty}^\infty x dF(x).$$
+If 
+$$E[|X|] = \int\limits_{-\infty}^\infty |x| dF(x) = \infty$$
+then the expectation of $X$ is said not to exist. The expectation of $X$ is sometimes denoted $\< x\>$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:moment}
+Let $X$ be a real valued random variable with cumulative distribution function $F$. The $n^{th}$ \emph{moment}\index{moment} of $X$ is the expectation of the random variable $X^n$,
+$$\mu_n = \E[X^n] = \int\limits_{-\infty}^\infty x^n dF(x).$$
+Similarly, if
+$$E[|X^n|] = \int\limits_{-\infty}^\infty |x^n| dF(x) = \infty$$
+then the $n^{th}$ moment of $X$ is said not to exist.\\
+\\
+Note that this means the expectation of $X$ is equal to the first moment of $X$.\\
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:mean}
+Let $X$ be a real valued random variable with cumulative distribution function $F$. The \emph{mean}\index{mean} of $X$, denoted $\mu_X$ or simply $\mu$, is defined to be the first moment, or expectation, of $X$.
+$$\mu_X = \E[X] = \int\limits_{-\infty}^\infty x dF(x)$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:centralmoment}
+Let $X$ be a real valued random variable with mean $\mu$ and cumulative distribution function $F$. The $n^{th}$ \emph{central moment}\index{central moment} of $X$ is defined to as
+$$E[(X-\mu)^n] = \int\limits_{-\infty}^\infty  (x-\mu)^n dF(x).$$
+As above, if $E[|X-\mu|^n] = \infty$, the $n^{th}$ central moment of $X$ is said not to exist.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:variance}
+Let $X$ be a real valued random variable with mean $\mu$ and cumulative distribution function $F$. The \emph{variance}\index{variance} of $X$, denoted $\sigma^2$ is the second central moment of $X$. That is,
+$$ \sigma^2 = \int\limits_{-\infty}^\infty (x-\mu)^2 dF(x) = \E[(X-\mu)^2]$$
+The value $\sigma$ is known as the \emph{standard deviation}\index{standard deviation} of $X$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:standardizedmoment}
+Let $X$ be a real valued random variable with mean $\mu$, variance $\sigma^2$, and cumulative distribution function $F$. The $n^{th}$ \emph{standardized moment}\index{standardized moment} is the $n^{th}$ central moment divided by $\sigma^n$. That is, it is given by
+$$\frac{E[(X-\mu)^n]}{\sigma^n}.$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:expectationalgebra}
+Let $X$ and $Y$ be real valued random variables and let $a, b, c \in \R$. Then
+$$E[aX + bY + c] = aE[X] + bE[Y] + c.$$
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:calculatevariance}
+Let $X$ be a real valued random variable with mean $\mu$. Then the variance of $X$ is given by 
+$$\sigma^2 = \E[X^2] - \E[X]^2 = \E[X^2] - \mu^2.$$
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:skewness}
+Let $X$ be a real valued random variable. The \emph{skewness}\index{skewness}, \emph{skewness coefficient}, or \emph{Pearson moment}\index{Pearson moment} of $X$ is defined as the third standardized moment of $X$,
+$$\E\left[\left(\frac{X-\mu}{\sigma}\right)^3\right] = \frac{\E[X^3] - 3\mu \sigma^2 - \mu^3}{\sigma^3}.$$
+The skewness is a measure of the asymmetry of a distribution about its mean.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:kurtosis}
+Let $X$ be a real valued random variable. The \emph{kurtosis}\index{kurtosis} of $X$ is defined as the fourth standardized moment of $X$,
+$$\text{Kurt}[X] = \E\left[\left(\frac{X-\mu}{\sigma}\right)^4\right].$$
+The kurtosis of $X$ is a measure of how heavy-tailed or light-tailed its distribution is (that is, how slowly or quickly its probability drops off as $x \to \pm \infty$). It can also be thought of as the distributions propensity to produce outliers, and how extreme those outliers tend to be.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:excesskurtosis}
+A normal distribution has a kurtosis of $3$. It is common to compare other distributions to this result. Let $X$ be a real valued random variable. The \emph{excess kurtosis}\index{excess kurtosis} of $X$ is defined to be the difference
+$$\text{Kurt}[X] - 3.$$
+This breaks distributions into three regimes:
+\begin{itemize}
+\item A distribution is said to be \emph{platykurtic}\index{platykurtic} if it has negative excess kurtosis. Distributions in this regime will be more light tailed and produce fewer outliers than a normal distribution. An example of this would be the uniform distribution, which does not produce outliers. Distributions in this regime are sometimes called \emph{sub-Gaussian}\index{sub-Gaussian}.
+\item A distribution is said to be \emph{mesokurtic}\index{mesokurtic} if it has no excess kurtosis. An example of this would be the binomial distribution with $p = \frac{1}{2} \pm \frac{1}{\sqrt{12}}$.
+\item A distribution is said to be \emph{leptokurtic}\index{leptokurtic} if it has positive excess kurtosis. Distributions in this regime will be heavier tailed and produce more outliers than a normal distribution. An example of this would be a Poisson distribution. Distributions in this regime are sometimes called \emph{super-Gaussian}\index{super-Gaussian}.
+\end{itemize}
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Moment Generating Function}
+\begin{defn}\label{def:momentgeneratingfunction}
+Let $X$ be a real valued random variable. The \emph{moment generating function}\index{moment generating function}\index{mgf} of $X$ is defined as
+$$M_X(t) = \mathbb{E}[e^{tX}], \enskip t \in \R.$$
+Note that by applying the Taylor expansion of $e^{tX}$, we have
+\begin{align*}
+M_X(t) & = \E[e^{tX}]\\
+& = \E\left[1 +t X + \frac{t^2X^2}{2} + \cdots + \frac{t^mX^m}{m!} + \cdots \right]\\
+& = \E[1] + \E[X] + \E\left[\frac{t^2 X^2}{2}\right] + \cdots \E\left[\frac{t^m X^m}{m!} \right] + \cdots \\
+& = 1 + \E[X] + \frac{t^2}{2} \E[X^2] + \cdots + \frac{t^m}{m!}\E[X^m] + \cdots \\ 
+& = \sum\limits_{m=0}^\infty \frac{t^m}{m!} \E[X^m]
+\end{align*}
+so that the $n^{th}$ derivative of $M_X(t)$ at $t=0$ gives the $n^{th}$ moment of $X$.
+\begin{align*}
+M_X^{(n)}(0) &= \left(\sum\limits_{m=0}^\infty \frac{t^{m-n}}{(m-n)!} \E[X^m]\right)\Big|_{t=0}\\
+& = \left(\sum\limits_{m=0}^\infty \frac{t^m}{m!} \E[X^{m+n}]\right)\Big|_{x=0}\\
+& = \sum\limits_{m=0}^\infty \frac{0^m}{m!}\E[X^{m+n}]\\
+& = \E[X^{n}]
+\end{align*}
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:mgfproperties}
+The moment generating function has the following properties.
+\begin{itemize}
+\item Let $X$ and $Y$ be any two real valued random variables. Then $X$ and $Y$ are identically distributed if and only if $M_X(t) = M_Y(t)$ for all $t \in \R$.
+\item Let $X_1, \dots, X_n$ be independent random variables and let $a_1, \dots, a_n, b$ be constants. Define a random variable $Y = a_1 X_1 + \cdots + a_n X_n + b$. Then
+$$M_Y(t) = M_{a_1X_1 + \cdots + a_n X_n + b}(t)= e^{bt}M_{X_1}(a_1t)\cdots M_{X_n}(a_n t).$$
+\end{itemize}
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Characteristic Function}
+\begin{defn} \label{def:characteristicfunction}
+Let $X$ be a real valued random variable. The \emph{characteristic function}\index{characteristic function} of $X$ is defined as 
+$$\phi_X(t) = \E\left[e^{itX}\right], \enskip t \in \R.$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:characteristicproperties}
+The characteristic function has the following properties.
+\begin{itemize}
+\item The characteristic function of a real valued random variable always exists.
+\item Let $X_1$ and $X_2$ be any two real valued random variables. Then $X_1$ and $X_2$ are identically distributed if and only if $\phi_{X_1}(t) = \phi_{X_2}(t)$. 
+\item If a random variable $X$ admits a probability density $f(x)$, then its characteristic function is the Fourier transform of $f$.
+\item If a random variable admits a moment generating function $M_X(t)$, then $M_X(t)= \phi_X(-it)$.
+\item Let $X_1, \dots, X_n$ be independent random variables and let \linebreak$a_1,\dots, a_n, b$ be constants. Define a random variable \linebreak $Y = a_1X_1 + \cdots + a_nX_n + b$. Then 
+$$\phi_Y(t) = \phi_{a_1X_1 + \cdots + a_n X_n + b}(t) = e^{itb}\phi_{X_1}(a_1t) \cdots \phi_{X_n}(a_n t).$$
+\end{itemize}
+\end{prop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prop}\label{prop:indicatorcdf}
+Let $X$ be a real-valued random variable and let $A$ be an event. Then $P(A)$ can be expressed as
+$$P(A) = P(X \in A) = \E\left[\id_A\right].$$
+In particular, the cumulative distribution function $F_X(x)$ can be expressed as
+$$F_X(x) = P(X\leq x) = \E\left[\id_{\{X\leq x\}}\right].$$
+\end{prop}
+\begin{defn}
+Let $X_1$ and $X_2$ be independent copies of a random variable $X$. The distribution of $X$ is said to be a \emph{stable distribution}\index{stable distribution} if for any constants $a,b >0$, there exists some $c>0$ and $d\in \R$ such that $aX_1 + bX_2$ shares the same distribution as $cX + d$.\\
+\\
+For example, the normal distribution $\NN(\mu,\sigma)$ is stable.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discrete Distributions}
+\begin{defn}\label{def:discreterandomvariable}
+Let $(\Omega, \FF, P)$ be a probability space. A \emph{discrete random variable}\index{discrete random variable}  is a random variable $X : \Omega \to E$ such that $X(\Omega)$ is countable. A common case is a random variable $X: \Omega \to \Z$. 
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:pmf}
+Let $X: \Omega \to E$ be a discrete random variable. The \emph{probability mass function}\index{probability mass function} \index{pmf} of $X$ is a function $p_X: X(\Omega) \subseteq E \to [0,1]$ defined by
+$$p_X(x_i) = P(X = x_i)$$
+where $P$ is the probability measure of the probability space $(\Omega, \FF, P)$. When no confusion can occur, we drop the subscript and write $p_X(x)$ as simply write $p(x)$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rmk}\label{rmk:discreteidentities}
+Let $X$ be a real valued discrete random variable. We have the following identities:
+\begin{itemize}
+\item $\mu_X = \E[X] = \sum\limits_{x} x\cdot p_X(x)$
+\item $\E[X\mid Y] = \sum\limits_x x \cdot P(X=x \mid Y)$
+\item $\sigma^2 = \sum\limits_x (x-\mu)^2 p_X(x) = \left(\sum\limits_x x^2 p_X(x)\right) - \mu^2$
+\item $E[X^n] = \sum\limits_x x^n p_X(x)$
+\item $M_X(t) = \sum\limits_x e^{tx} p_X(x)$
+\end{itemize}
+\end{rmk}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Bernoulli Distribution}
+\subsection{Interpretation}\index{Bernoulli distribution} \index{Bernoulli trial}
+A Bernoulli trial is a stochastic process for which the outcome is one of two possible values (typically 0 or 1, true or false, success or fail, etc) with probabilities $p$ and $q=1-p$ of getting each result respectively.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\vspace*{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $p \in [0,1]$ \newline $q= 1-p$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \{0,1\}$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) = \begin{cases} q=1-p, &k=0\\ p, & k=1 \end{cases}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = \begin{cases} 0, & k < 0 \\ 1-p, & 0 \leq k < 1 \\ 1, & k \geq 1 \end{cases}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $p$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\begin{cases} 0, & p < \frac{1}{2} \\ \{0, 1\}, & p = \frac{1}{2} \\ 1, & p > \frac{1}{2}\end{cases}$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\begin{cases} 0, & p < \frac{1}{2} \\ \{0, 1\}, & p = \frac{1}{2} \\ 1, & p > \frac{1}{2}\end{cases}$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $p(1-p) = pq$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{q-p}{\sqrt{pq}} = \dfrac{1-2p}{\sqrt{pq}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{1-6pq}{pq}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $-q\ln q - p \ln p$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = q + pe^t$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = q+pe^{it}$ \\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = q + pz$\\ \hline
+\begin{tabular}{l} Fisher Information\end{tabular} & $\dfrac{1}{pq}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:bernoulli}
+\end{table}
+\newpage
+\section{Binomial Distribution}
+\subsection{Interpretation}\index{binomial distribution}
+Let $X_1, X_2, \dots, X_n$ be a sequence of independent and identically distributed Bernoulli trials. The binomial distribution with $n$ trials and probability of success $p$ represents the probability of getting a given number of successes among the $n$ trials. Equivalently the binomial distribution has the same distribution as $X_1 + \cdots + X_n$.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation \end{tabular} & $B(n, p)$ \\ \hline
+\vspace*{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $n \in \N$ \newline $p \in [0,1]$ \newline $q= 1-p$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \{0,\dots, n\}$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) =\binom{n}{k} p^k q^{n-k}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = \sum\limits_{i=0}^k \binom{n}{i} p^i q^{n-i}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $np$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\lfloor np \rfloor$ or $\lceil np \rceil$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\lfloor (n+1)p \rfloor$ or $\lceil (n+1)p \rceil + 1$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $npq$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{q-p}{\sqrt{npq}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{1-6pq}{npq}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\frac{1}{2}\log_2(2\pi e n p q) + O \left(\frac{1}{n}\right)$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = (q + pe^t)^n$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = (q+pe^{it})^n$ \\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = (q + pz)^n$\\ \hline
+\begin{tabular}{l} Fisher Information\end{tabular} & $\dfrac{n}{pq}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:binomial}
+\end{table}
+\subsection{Sum of Binomials}\index{binomial distribution!sum of}
+Let $X \sim B(n,p)$ and $Y \sim B(m,p)$ be independent binomial random variables and define $Z = X+Y$. Then $Z \sim B(n+m, p)$.
+\subsection{Ratio of Binomials}\index{binomial distribution!ratio of}
+Let $X \sim B(n, p_1)$ and $Y \sim B(m, p_2)$ be independent, and define $T = \dfrac{\frac{1}{n}X}{\frac{1}{m}Y} = \frac{mX}{nY}$. Then $\log(T)$ is approximately normally distributed with mean $\log(\dfrac{p_1}{p_2})$ and variance $\dfrac{\frac{1}{p_1} - 1}{n} + \dfrac{\frac{1}{p_2} - 1}{m}$ (\cite{katz}).
+\subsection{Conditional Binomials}\index{binomial distribution!conditional}
+Let $X \sim B(n, p)$ and let $Y|X \sim B(X, q)$. Then $Y \sim B(n, pq)$.
+\subsection{Normal Approximation} \index{normal distribution!approximation of binomial}\index{binomial distribution!normal approximation of}
+Let $X \sim B(n, p)$. In the limit as $n$ become large, $X$ can be approximated as a normal distribution $\mathcal{N}(np, np(1-p))$. This approximation works best when $n > 20$ and $p$ is not near $0$ or $1$. Some common rules of thumb for deciding whether this approximation is appropriate are
+\begin{itemize}
+\item $n > 5$, and the skewness is less than $\frac{1}{3}$ in absolute value. That is,
+$$\frac{|1 - 2p|}{\sqrt{np(1-p)}} = \frac{1}{\sqrt{n}} \left|\sqrt{\frac{1-p}{p}} - \sqrt{\frac{p}{1-p}} \right| < \frac{1}{3}.$$
+\item $\mu \pm 3\sigma = np\pm 3\sqrt{np(1-p)} \in (0,n)$ or, equivalently,
+$$n > 9 \left(\frac{1-p}{p}\right)\quad \text{and} \quad n > 9 \left(\frac{p}{1-p}\right)$$
+which together imply the above criterion.
+\item Both $np$ and $n(1-p)$ are greater than some chosen constant. A common choice is 5, however choosing 9 implies the above two criteria.
+\end{itemize}
+\subsection{Poisson Approximation} \index{Poisson distribution!approximation of binomial}\index{binomial distribution!Poisson approximation of} The binomial distribution $B(n,p)$ converges toward the Poisson distribution with parameter $\lambda = np$ as $n \to \infty$ while the product $np$ remains fixed (or $p\to 0$). Two common rules of thumb for deciding whether this approximation is appropriate are
+\begin{itemize}
+\item $n \geq 20$ and $p \leq 0.05$, and
+\item $n \geq 100$ and $np \leq 10$.
+\end{itemize}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric Distribution}
+\subsection{Interpretation}\index{geometric distribution}
+The geometric distribution models the number of failures of successive independent and identically distributed Bernoulli trials with probability $p$ that are obtained before obtaining one success.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $Geo(p)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} & $p \in [0,1]$\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \N$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) =(1-p)^{k} p$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = 1 - (1-p)^{k+1}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{1-p}{p}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\left\lceil \dfrac{-1}{\log_2(1-p)}\right\rceil - 1$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & 0 \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{1-p}{p^2}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{2-p}{\sqrt{1-p}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $6 + \dfrac{p^2}{1-p}$\\ \hline
+\begin{tabular}{l}Entropy \end{tabular} & $\dfrac{-(1-p)\log_2(1-p) - p \log_2 p}{p}$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \dfrac{p}{1-(1-p)e^t}$\\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \dfrac{p}{1-(1-p)e^{it}}$\\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = \dfrac{p}{1-z(1-p)}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:geometric}
+\end{table}
+\subsection{Memorylessness}\index{geometric distribution!memorylessness of}
+The geometric distribution is memoryless. That is, if $X$ is a geometric random variable and $m, n \in \N$ are any positive integers, then
+$$P(X > m + n \mid X > n) = P(X > m).$$
+\subsection{Sum of Geometric Random Variables}\index{geometric distribution!sum of}
+Let $X_1, \dots, X_r$ be independent and identically distributed random variables with distribution $Geo(p)$, and define a new random variable $Y = \sum\limits_{i=1}^r X_i$. Then $Y$ follows a negative binomial distribution with parameters $r$ and $p$. In particular, this means the geometric distribution is the negative binomial distribution with $r=1$.
+\subsection{Minimum of Geometrics Random Variables}\index{geometric distribution!minimum of}
+Let $X_1, \dots, X_n$ be independent geometrically distributed random variables with (possibly distinct) success parameters $p_i$, and define a new random variable $Y = \min\limits_{i \in 1,\cdots, n} Y_i$. Then $W$ is also geometrically distributed with parameter $p =  1- \prod\limits_{i}(1-p_i)$.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Negative Binomial Distribution}
+\subsection{Interpretation}\index{negative binomial distribution}
+The negative binomial distribution $NB(r,p)$ models the number of failures in a sequence of independent and identically distributed Bernoulli trials with probability of success $p$ before a specified number of successes $r$ occur.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation \end{tabular} & $NB(r, p)$ \\ \hline
+\vspace{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $r \in \N_+$ \newline $p \in [0,1]$\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \N$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) =\binom{k+r-1}{k}(1-p)^k p^r$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = \sum\limits_{i=0}^k \binom{r+i-1}{i} p^r q^{i}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{pr}{1-p}$ \\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\begin{cases} \lfloor \frac{p(r-1)}{1-p}\rfloor, & r > 1 \\ 0, &  r \leq 1 \end{cases}$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{pr}{(1-p)^2}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{1+p}{\sqrt{pr}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{6}{r} + \dfrac{(1-p)^2}{pr}$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \left(\dfrac{1-p}{1-pe^t}\right)^r,$ $t < -\ln p$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \left(\dfrac{1-p}{1-pe^{it}}\right)^r,$ $t \in \R$ \\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = \left(\dfrac{1-p}{1-pz}\right)^r,$ $|z| < \frac{1}{p}$\\ \hline
+\begin{tabular}{l} Fisher Information\end{tabular} & $\dfrac{r}{(1-p)^2p}$ \\ \hline
+\vspace{\fill}\begin{tabular}{l} Method of Moments \end{tabular} & $r = \dfrac{\E[X]^2}{\text{Var}[X] - \E[X]}$ \newline $p = 1 - \frac{\E[X]}{\text{Var}[X]}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:negativebinomial}
+\end{table}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discrete Uniform Distribution}
+\subsection{Interpretation}\index{discrete uniform distribution}\index{uniform distribution!discrete}
+A discrete uniform random variable models a process where a finite number of values between two numbers $a$ and $b$ are equally likely outcomes, such as rolling a fair six-sided die.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation \end{tabular} & $\UU(a,b)$ or $\text{unif}(a,b)$ \\ \hline
+\vspace{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $a,b \in \Z$ with $a \leq b$\newline $n = b-a+1$\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \{a, a+1, \dots, b-1, b\}$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) =\dfrac{1}{n}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = \dfrac{k - a + 1}{n}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{a+b}{2}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $ \dfrac{a+b}{2}$\\ \hline
+\begin{tabular}{l}Median\end{tabular} & N/A \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{(b-a+1)^2 - 1}{12}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $0$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $-\dfrac{6(n^2 + 1)}{5(n^2 - 1)}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\ln(n)$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \dfrac{e^{at} - e^{(b+1)t}}{b(1-e^t)}$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \dfrac{e^{iat} - e^{i(b+1)t}}{b(1-e^{it})}$ \\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = \dfrac{z^a - z^{b+1}}{n(1-z)}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:discreteuniform}
+\end{table}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hypergeometric Distribution}
+\subsection{Interpretation}\index{hypergeometric distribution}
+The hypergeometric distribution models the number, $k$, of successes in $n$ draws without replacement from a finite population of size $N$ containing $K$ objects of the desired type. An example of this would be drawing $n=5$ times at random from a jar containing $N=10$ marbles, $K = 6$ of which are red and $N-K = 4$ of which are green, and counting how many, $k$, are red. In contrast, the binomial distribution models the number of successes with replacement (i.e. when the drawn marble is put back into the jar between draws).
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\vspace{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $N \in \N$ \newline $K \in \{0,1,\dots, N\}$ \newline $n \in \{0,1, \dots, N\}$\\ \hline
+\begin{tabular}{l}Support\end{tabular} & \resizebox{2in}{!}{$\max(0, n+K-N) \leq k \leq \min(n,K)$} \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) =\dfrac{\binom{K}{k}\binom{N-n}{n-k}}{\binom{N}{n}}$ \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{nK}{N}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\left\lceil \dfrac{(n+1)(K+1)}{(N+2)} \right\rceil - 1,$\newline  or $\left\lfloor\dfrac{(n+1)(K+1)}{(N+2)}\right\rfloor$ \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $n \dfrac{K}{N}\cdot \dfrac{N-K}{N}\cdot \dfrac{N-n}{N-1}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{(N-2K)(N-2n)\sqrt{N-1}}{(N-2)\sqrt{nK(N-K)(N-n)}}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:hypergeometric}
+\end{table}
+\subsection{Symmetries}\index{hypergeometric distribution!symmetries of}
+The hypergeometric distribution admits the following symmetries:
+\begin{itemize}
+\item swapping the role of red and green marbles $$f(k ; N, K, n) = f(n-k; N, N-K,n)$$
+\item swapping the role of drawn and not drawn marbles $$f(k; N, K, n) = f(K-k, N, K, N-n)$$
+\item swapping the roles of green marbles and drawn marbles $$ f(k; N, K, n) = f(k; N,n,K)$$
+\end{itemize}
+\subsection{Binomial Approximation of Hypergeometric Distributions}\index{hypergeometric distribution!binomial approximation of}\index{binomial distribution!approximation of a hypergeometric}
+Let $X$ be a hypergeometric random variable with parameters $N$, $K$, and $n$, let $p =\frac{K}{N}$, and let $Y \sim B(n,p)$. If $N\geq K \gg n$ and $p$ is not close to $0$ or $1$, then $X$ and $Y$ have approximately the same distribution so that 
+$$P(X \leq k) \simeq P(Y \leq k).$$
+\subsection{Normal Approximation of Hypergeometric Distributions}\index{hypergeometric distribution!normal approximation of}\index{normal distribution!approximation of a hypergeometric}
+If $n$ is large and $N, K \gg n$, and $p = \frac{K}{N}$ is not close to $0$ or $1$, then
+$$P(X\leq k) \approx \Phi\left(\dfrac{k-np}{\sqrt{np(1-p)}}\right)$$
+where $\Phi$ is the standard normal distribution function.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Poisson Distribution}
+\subsection{Interpretation}\index{Poisson distribution}
+The Poisson distribution models the number of of events occurring within a fixed interval given that these events occur with a known constant rate, $\lambda$, on average and independently of the time that the last event occurred. For example, one might use the Poisson distribution to describe the number of defects produced in 30 yards of fabric given that on average 1 defect is produced per 5 yards. In this case, $\lambda = 1 \cdot \frac{30}{5} = 6$.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation \end{tabular} & $\text{Pois}(\lambda)$ \\ \hline
+\vspace*{\fill}\begin{tabular}{l}Parameters\end{tabular} &  $n \in \N$ \newline $\lambda \in (0, \infty)$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $k \in \N$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(k) = \dfrac{\lambda^k e^{-\lambda}}{k!}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(k) = e^{-\lambda} \sum\limits_{i=0}^k \dfrac{\lambda^i}{i!}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\lambda$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\approx \left\lfloor \lambda + \frac{1}{3} - \frac{0.02}{\lambda}\right\rfloor$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\lfloor \lambda \rfloor$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\lambda$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{1}{\sqrt{\lambda}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{1}{\lambda}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\lambda(1-\ln\lambda) + e^{-\lambda} \sum\limits_{k=0}^\infty \dfrac{\lambda^k \ln(k!)}{k!}$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = e^{\lambda(e^t - 1)} = \text{exp}[\lambda(e^t - 1)]$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = e^{\lambda(e^{it}-1)} = \text{exp}[\lambda(e^{it}-1)]$ \\ \hline
+\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = e^{\lambda(z-1)} = \text{exp}[\lambda(z-1)]$\\ \hline
+\begin{tabular}{l} Fisher Information\end{tabular} & $\dfrac{1}{\lambda}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:poisson}
+\end{table}
+\subsection{Sum of Poisson Random Variables}\index{Poisson distribution!sum of}
+Let $X_i \sim \text{Pois}(\lambda_i)$ for $i=1,\dots, n$ be independent and define a new random variable $Y = \sum\limits_i X_i$. Then
+$$Y \sim \text{Pois}\left(\sum\limits_i \lambda_i\right).$$
+	
+\begin{thm}\textbf{ -- Raikov's Theorem}\index{Raikov's Theorem}
+Let $Z \sim \text{Pois}(\lambda_Z)$ be a random variable and suppose that there are independent random variables $X$ and $Y$ such that $Z = X + Y$. Then the distribution of $X$ and $Y$ are both a shifted Poisson distribution with parameters $\lambda_X$ and $\lambda_Y$, respectively. Moreover, $\lambda_X + \lambda_Y = \lambda_Z$.
+\end{thm}
+\subsection{Conditional Poisson Distributions}\index{Poisson distribution!conditional}
+Let $X\sim \pois(\lambda_X)$ and $Y \sim \pois(\lambda_Y)$ be independent random variables. Define a random variable $Z = X\mid X+Y$. Then $Z$ follows a binomial distribution. Specifically, if $X + Y = k$, then $Z \sim B\left(k, \dfrac{\lambda_X}{\lambda_X + \lambda_Y}\right)$.\\
+\\
+Now, let $X \sim \pois(\lambda_X)$ and suppose $Y\mid (X=k) \sim B(k,p)$. Then $Y$ follows a Poisson distribution $Y \sim \pois (\lambda p)$.
+\subsection{Normal Approximation}\index{Poisson distribution!normal approximation of}\index{normal distribution!approximation of a Poisson}
+For large values of $lambda$ (starting around 1000 or so), the Poisson distribution with parameter $\lambda$ is very closely approximated by a normal distribution with mean $\lambda$ and variance $\lambda$. However, for $\lambda \geq 10$ or so, the Poisson distribution can still be approximated by a normal distribution if a continuity correction is performed.
+\subsection{Variance-Stabilizing Transformation}\index{Poisson distribution!variance-stabilizing transformation of}
+Let $X\sim \pois(\lambda)$. Then
+$$Y = 2\sqrt{X} \approx \NN(2\sqrt\lambda, 1)$$
+and
+$$Z = \sqrt{X} \approx \NN\left(\sqrt\lambda, \frac{1}{4}\right).$$
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Kronecker Delta}
+\begin{defn}
+The \emph{Kronecker delta}\index{Kronecker delta} is a function of two variables, typically two real numbers. It can be thought of as the indicator function for the event that the two variables are equal. That is
+$$\delta_{ij} = \id_{\{i = j\}} = \begin{cases} 1, & i = j \\ 0, &i \neq j \end{cases}$$
+The Kronecker delta is the discrete analog of the Dirac delta.
+\end{defn}
+\subsection{Properties}
+\begin{itemize}
+\item $\sum\limits_i a_i \delta_{ij} = a_j$
+\item $\sum\limits_j \delta_{ij} a_j = a_i$
+\item $\sum\limits_k \delta_{ik}\delta_{kj} = \delta_{ij}$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Continuous Distributions}
+\begin{defn}\label{def:ctsrandomvariable}
+Let $(\Omega, \FF, P)$ be a probability space. A \emph{continuous random variable}\index{continuous random variable} is a random variable $X: \Omega \to E$ such that $X(\Omega)$ is uncountably infinite.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{pdf}
+Let $X: \Omega \to E$ be a continuous random variable. The \emph{probability density function}\index{probability density function}\index{pdf} of $X$ is a function $f_X: X(\Omega)\subseteq E \to \R_+$ defined by 
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rmk}\label{rmk:ctsidentities}
+Let $X$ be a real valued continuous random variable. We have the following identities:
+\begin{itemize}
+\item $\mu_X = \E[X] = {\displaystyle \int\limits_{-\infty}^\infty} x\cdot f_X(x) dx$
+\item $\sigma^2 = {\displaystyle \int\limits_{-\infty}^\infty} (x-\mu)^2 f_X(x) dx = \left({\displaystyle \int_{-\infty}^\infty} x^2 f_X(x) dx\right) - \mu^2$
+\item $E[X^n] = {\displaystyle \int\limits_{-\infty}^\infty} x^n f_X(x)dx$
+\item $M_X(t) = {\displaystyle \intoverr} e^{tx}f_X(x)dx$
+\end{itemize}
+\end{rmk}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous Uniform Distribution}
+\subsection{Interpretation}\index{continuous uniform distribution}\index{uniform distribution!continuous}
+The continuous uniform distribution models a process which chooses a random real number in a designated interval $x \in [a,b]$, with no areas being more likely than others.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation \end{tabular} & $\UU(a,b)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $a<b \in \R$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in [a,b]$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \begin{cases} \dfrac{1}{b-a}, & x \in [a,b] \\ 0, & \text{else} \end{cases}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = \begin{cases} 0, & x < a \\ \dfrac{x-a}{b-a}, & a \in [a,b] \\ 1, & x > b \end{cases}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{a+b}{2}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\dfrac{a+b}{2}$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & N/A\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\frac{1}{12}(b-a)^2$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $0$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{-6}{5}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\ln(b-a)$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \begin{cases} \dfrac{e^{tb} - e^{ta}}{t(b-a)}, & t \neq 0 \\ 1, & t = 0 \end{cases}$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \begin{cases} \dfrac{e^{itb} - e^{ita}}{it(b-a)}, & t \neq 0 \\ 1, & t = 0 \end{cases}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:ctsuniform}
+\end{table}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{standarduniform}
+In this case when $a= 0$ and $b=1$, we have the distribution $\UU(0,1)$. This is called the \emph{standard uniform distribution}\index{continuous uniform distribution!standard}.\\
+\\
+The standard uniform distribution can be used to generate random numbers from any distribution. Let $u$ be a random number generated from $\UU(0,1)$. Then $x = F^{-1}(u)$ generates a random number $x$ from a continuous random variable with cumulative distribution function $F$.
+\end{defn}
+\subsection{Powers of the Standard Uniform}\index{standard uniform distribution!powers of}
+Let $X \sim \UU(0,1)$ and define $Y = X^n$. Then $Y$ has a beta distribution $\text{Beta}\left(\frac{1}{n}, 1 \right)$.
+\subsection{Sum of Uniform Distributions}\index{standard uniform distribution!sum of}
+Let $X_1, \dots, X_n$ be independent and identically distributed $\UU(0,1)$ random variables and define $Y = X_1 + \cdots + X_n$. Then $Y$ has an Irwin-Hall distribution.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exponential Distribution}
+\subsection{Interpretation}\index{exponential distribution}
+The exponential distribution models the time between events in a Poisson process. If $X \sim \pois(\lambda)$, then the time until the first event and the time between successive events have the exponential distribution with parameter $\lambda$.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\text{Exp}(\lambda)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\lambda > 0$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in [0, \infty)$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \lambda e^{-\lambda x}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = 1-e^{-\lambda x}$\\ \hline
+\begin{tabular}{l}$100Q^{th}$ Quantile\end{tabular} & $-\dfrac{1-Q}{\lambda}$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{1}{\lambda}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\dfrac{\ln 2}{\lambda}$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & 0\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{1}{\lambda^2}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $2$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $6$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $1 - \ln\lambda$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \dfrac{\lambda}{\lambda - t},$ for $t < \lambda$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \dfrac{i \lambda}{i\lambda - t }$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:exponential}
+\end{table}
+\subsection{Memorylessness}\index{exponential distribution!memorylessness of}
+If $T \sim \text{Exp}(\lambda)$ models the time for a Poisson event to occur, then the distribution of the waiting time until the next event is independent of the time already spent waiting for the event. That is, for all $s,t \geq 0$, 
+$$P(T > s+t \mid T > s) = P(T>t).$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Minimum of Exponential Random Variables}\index{exponential distribution!minimum of}
+Let $X_1, \dots , X_n$ be independent exponentially distributed random variables with parameters $\lambda_1, \dots, \lambda_n$. Let $Y = \min\{X_1, \dots, X_n\}$. Then $Y$ is also exponentially distributed with parameter 
+$$\lambda = \lambda_1 + \cdots + \lambda_n.$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sum of Exponentials}\index{exponential distribution!sum of}
+Let $X$ and $Y$ be two independent exponentially distributed random variables with parameters $\lambda_X$ and $\lambda_Y$ respectively, and let $Z = X + Y$. Then the probability density function of $Z$ is given by
+$$f_Z(z) = \begin{cases} \dfrac{\lambda_X\lambda_Y}{\lambda_Y - \lambda_X} \left(e^{-\lambda_Xz} - e^{-\lambda_Y z}\right), & \lambda_1 \neq \lambda_2\\ \lambda^2 z e^{-\lambda z}, & \lambda_X = \lambda_Y = \lambda \end{cases}$$
+Moreover, if $X_1,\dots, X_n$ be i.i.d. exponentially distributed random variables with rate parameter $\lambda$ and define $Y = X_1 + \cdots + X_n$. Then
+$$Y \sim \text{Gamma}(n, \lambda).$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Relation to the Geometric Distribution}\index{exponential distribution!relation to the geometric} \index{geometric distribution!relation to the exponential}
+The exponential distribution is the continuous analogue of the geometric distribution. Let $X$ be an exponentially distributed random variable with parameter $\lambda$ and define $Y = \lfloor X \rfloor$. Then $Y$ is geometrically distributed with parameter $p = 1- e^{-\lambda}$.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gamma Distribution}
+\subsection{Interpretation}\index{gamma distribution}
+Among other things, the gamma distribution with parameters $\alpha$ and $\beta$ models the waiting time until the $\alpha^{th}$ occurrence of a Poisson event in a Poisson process with parameter $\lambda = \beta$ \footnote{It is also common to replace $\beta$ with a parameter $\theta = \frac{1}{\beta}$.}.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\text{Gamma}(\alpha, \beta)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\alpha,\beta \in (0, \infty)$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in (0, \infty)$ \\ \hline
+\begin{tabular}{l}Probability Density Function\footnotemark\end{tabular} & $f(x) = \dfrac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1}e^{-\beta x}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\footnotemark\end{tabular} &  $F(x) = \dfrac{1}{\Gamma(\alpha)} \gamma(\alpha, \beta x)$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{\alpha}{\beta}$ \\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\dfrac{\alpha-1}{\beta}$ for $\alpha \geq 1$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{\alpha}{\beta^2}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{2}{\sqrt\alpha}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{6}{\alpha}$\\ \hline
+\begin{tabular}{l}Entropy\footnotemark \end{tabular} & $\alpha - \ln \beta  + \ln\Gamma(\alpha) + (1-\alpha)\psi(\alpha)$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = \left(1-\dfrac{t}{\beta}\right)^{-\alpha},$ for $t < \beta$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = \left(1-\dfrac{it}{\beta}\right)^{-\alpha}$ \\ \hline
+%\begin{tabular}{l}Method of Moments\end{tabular} & $\alpha = \dfrac{\E[X]^2}{V[X]}$\newline $\beta = \dfrac{\E[X]}{V[X]}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:gamma}
+\end{table}
+\addtocounter{footnote}{-2}
+\footnotetext{Here, $\Gamma(x)$ is the gamma function defined by $\Gamma(x) = \int_0^\infty t^{x-1} e^{-t}dt$. Note that when $x \in \N$, $\Gamma(x) = x!$.}
+\addtocounter{footnote}{1}
+\footnotetext{Here, $\gamma(s,x)$ is the lower incomplete gamma function defined by $\gamma(s,x) = \int_0^x t^{s-1}e^{-t} dt$.}
+\addtocounter{footnote}{1}
+\footnotetext{Here, $\psi(\alpha)$ is the digamma function defined by $\psi(\alpha) = \dfrac{\Gamma'(\alpha)}{\Gamma(\alpha)}$.}
+\newpage
+\subsection{Sum of Gamma Distributions}\index{gamma distribution!sum of}
+let $X_i \sim \text{Gamma}(\alpha_i, \beta)$ be independent random variables for $i = 1,\dots, n$ so that all distributions share the rate $\beta$ with possibly varying $\alpha_i$. Let $Y = X_1 + \cdots + X_n$ and define $\alpha = \alpha_1 + \cdots + \alpha_n$.. Then
+$$Y \sim \text{Gamma}\left(k, \theta \right).$$
+\subsection{Scaling Gamma Distributions}\index{gamma distribution!scaling of}
+Let $X \sim \text{Gamma}(\alpha, \beta)$, let $c> 0$, and define $Y = cX$. Then 
+$$Y \sim \text{Gamma}\left(\alpha, \dfrac{\beta}{c}\right).$$
+\subsection{Ratio of Gamma Distributions} \index{gamma distribution!ratio of}
+Let $X_1 \sim \gam(\alpha_1,\beta_1)$ and $X_2 \sim \gam(\alpha_2,\beta_2)$ be independent. Then 
+$$ \dfrac{\alpha_2\beta_1X_1}{\alpha_1\beta_2 X_2} \sim F(2\alpha_1, 2\alpha_2).$$
+\subsection{Relation to Other Distributions}
+Let $X \sim \gam(1, \lambda)$, then $X\sim \Exp(\lambda)$\index{gamma distribution!relation to exponential}\\
+\\
+Let $X \sim \gam\left(\dfrac{\nu}{2}, \frac{1}{2}\right)$, then $X \sim \chi^2(\nu)$, the chi-square distribution with $\nu$ degrees of freedom.\index{gamma distribution!relation to chi-square}\\
+\\
+Let $X$ follow a Maxwell-Boltzmann distribution with parameter $a$. Then $X^2 \sim \gam\left(\dfrac{3}{2}, 2a^2\right)$.\index{gamma distribution!relation to Maxwell-Boltzmann}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chi-Square Distribution}
+\subsection{Interpretation}\index{chi-square distribution}
+The chi-square distribution with $k$ degrees of freedom models the sum of squares of $k$ independent standard normal random variables.\\
+\\
+The chi-square distribution is a space case of the gamma distribution with parameters $\alpha = \frac{k}{2}$ and $\beta = \frac{1}{2}$.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\chi^2(k)$ or $\chi^2_k$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $k \in \N_+$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \begin{cases} (0, \infty), & k=1 \\ [0,\infty), & \text{else}\end{cases}$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \dfrac{1}{2^{k/2} \Gamma(k/2)} x^{k/2 - 1} e^{-x/2}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = \dfrac{1}{\Gamma(k/2)}\gamma\left(\dfrac{k}{2}, \dfrac{x}{2}\right)$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $k$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\approx k\left( 1- \dfrac{2}{9k}\right)^3$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\max(k-2, 0)$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $2k$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\sqrt{\dfrac{8}{k}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{12}{k}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} &\resizebox{2in}{!}{$\dfrac{k}{2} + \ln \left(2\Gamma\left(\dfrac{k}{2}\right)\right) + \left(1 - \dfrac{k}{2}\right)\psi\left(\dfrac{k}{2}\right)$}\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = (1-2t)^{-k/2},$ for $t < \dfrac{1}{2}$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = (1-2it)^{-k/2}$ \\ \hline
+\vspace{-1.5mm}\begin{tabular}{l}Probability Generating Function\end{tabular} & $G(z) = (1-2\ln z)^{-k/2}$ \newline for $t \in (0, \sqrt e)$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:chisquare}
+\end{table}
+\newpage
+\subsection{Sum of Chi-Squares}\index{chi-square distribution!sum of}
+Let $X_i \sim \chi^2(k_i)$ be independent for $i \in 1,\dots, n$ and define $Y = X_1 + \cdots + X_n$. Then 
+$$Y \sim \chi^2(k_1 + \cdots + k_n).$$
+\subsection{Sample Mean of Chi-Squares}\index{chi-square distribution!sample mean of}
+Let $X_1,\dots, X_n \sim \chi^2(k)$ be independent and identically distributed. Then 
+$$\bar X = \frac{1}{n}\sum\limits_i X_i \sim \gam\left(\alpha = \frac{nk}{2}, \beta = \frac{n}{2}\right).$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Chi Distribution}
+\subsection{Interpretation}\index{chi distribution}
+The chi distribution with $k$ degrees of freedom models the Euclidean norm of a vector of $k$ independent standard normal random variables.
+$$Y = \sqrt{\sum\limits_{i=1}^k Z_i^2}$$
+Thus, the square of a chi distribution with $k$ degrees of freedom is a chi-square distribution with $k$ degrees of freedom, so that $Y^2 \sim \chi^2(k)$. Then divided by $\sqrt{k-1}$, $Y$ gives the unbiased estimate of the standard deviation of $k$ samples taken from a standard normal population.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\chi(k)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $k \in \N_+$ degrees of freedom \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in [0,\infty)$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \dfrac{2^{1-k/2}}{\Gamma(k/2)} x^{k-1} e^{-x^2/2}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\footnotemark\end{tabular} &  $P\left(\dfrac{k}{2}, \dfrac{x^2}{2}\right)$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\mu = \dfrac{\sqrt{2}\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\approx \sqrt{k\left(1 - \frac{2}{9k}\right)^3}$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\sqrt{k-1}$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $k-\mu^2$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\gamma_1 = \dfrac{\mu}{\sigma^3}\left(1-2\sigma^2\right)$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{2}{\sigma^2}\left( 1 - \mu\sigma\gamma_1 - \sigma^2\right)$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:normal}
+\end{table}
+\footnotetext{Here $P(x,y)$ denotes the regularized gamma function.}
+\subsection{Absolute Standard Normal Distribution}\index{standard normal distribution!absolute}\index{standard normal distribution!relation to chi}
+Let $Z \sim \NN(0,1)$. Then $|Z| \sim \chi(1)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Normal Distribution}
+\subsection{Interpretation} \index{normal distribution}\index{Gaussian distribution|see{normal distribution}}\index{bell curve|see{normal distribution}}
+When there is a large number of observations, many variables measured in common situations will exhibit a bell curve. The canonical example of this is scholastic aptitude test and other test scores. In addition, under many circumstances, due to the central limit theorem, many distributions will converge to a normal distribution when averaged over a large number of samples.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\NN(\mu, \sigma^2)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\mu \in \R$, the mean \newline $\sigma^2 > 0$, the variance \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \R$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\tfrac{(x-\mu)^2}{2\sigma^2}}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = \dfrac{1}{2}\left[1 + \erf\left(\dfrac{x-\mu}{\sqrt 2 \sigma} \right)\right]$\\ \hline
+\begin{tabular}{l}$100Q^{th}$ Quantile\end{tabular} & $\mu + \sqrt{2} \sigma  \erf^{-1}\left(2Q - 1\right)$ \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\mu$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\mu$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\mu$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\sigma^2$\\ \hline
+\begin{tabular}{p{1.8in}}Mean Absolute Deviation\end{tabular} & $\sqrt{2\pi} \sigma$ \\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $0$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $0$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} &$\dfrac{1}{2} \ln(2\pi e \sigma^2)$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & $M(t) = e^{\mu t + \sigma^2 t^2/2}$\\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = e^{i\mu t - \sigma^2 t^2/2}$ \\ \hline
+\vspace{-1.5mm}\begin{tabular}{l}Fisher information\end{tabular} & $\mathcal{I}(\mu, \sigma) = \begin{bmatrix} 1/\sigma^2 & 0 \\ 0 & 2/\sigma^2\end{bmatrix}$ \newline $\mathcal{I}(\mu, \sigma^2) = \begin{bmatrix} 1/\sigma^2 & 0 \\ 0 & 1/(2\sigma^4)\end{bmatrix}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:normal}
+\end{table}
+\subsection{Standard Normal Distribution}
+The simplest and most commonly used case of the normal distribution is \emph{standard normal distribution}\index{standard normal distribution}\index{normal distribution!standard}, $\NN(0,1)$. In this case, we deviate from the usual notation for the probability density and cumulative distribution functions, $f(x)$ and $F(x)$ respectively. Instead we denote the probability density function and cumulative density function of the standard normal distribution by
+$$\phi(z) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} z^2}$$
+and
+$$\Phi(z) = \frac{1}{2} \left[ 1 + \erf\left(\frac{z}{\sqrt{2}}\right)\right]$$
+respectively. 
+
+By convention, random variables with a standard normal distribution are typically denoted by $Z$. Note that for a general normally distributed random variable $X \sim \NN(\mu, \sigma^2)$, 
+$$f_X(x\mid \mu,\sigma^2) = \frac{1}{\sigma} \phi\left(\frac{x -\mu}{\sigma}\right).$$
+Moreover, 
+$$Z = \frac{X-\mu}{\sigma}$$
+and so regardless of the values of $\mu$ and $\sigma$ we need only ever know $\Phi(z)$ as 
+\begin{align*}
+F_X(x) &= P(X \leq x) \\
+&= P\left(\frac{X-\mu}{\sigma} \leq \frac{x-\mu}{\sigma}\right) \\
+&= P\left(Z \leq \frac{x-\mu}{\sigma}\right) \\
+&= \Phi\left(\frac{x-\mu}{\sigma}\right).
+\end{align*}
+\subsection{Linear Transformations}\index{normal distribution!linear transformations of}
+Let $X \sim \NN(\mu, \sigma^2)$ and $a,b\in \R$. Define $Y = aX + b$. Then 
+$$Y \sim \NN(a\mu + b , a^2\sigma^2).$$
+\subsection{Sum of Normal Random Variables}\index{normal distribution!sum of}
+Let $X_1 \sim \NN(\mu_1, \sigma_1^2)$ and $X_2 \sim \NN(\mu_2, \sigma_2^2)$ be independent, and define $Y = X_1 + X_2$. Then 
+$$Y \sim \NN(\mu_1 + \mu_2, \sigma^2_1 + \sigma^2_2).$$
+\begin{thm}\textbf{ -- Cramer's Theorem}\index{Cramer's theorem}
+Let $X_1$ and $X_2$ be any two independent random variables and define $Y = X_1 + X_2$. Then $Y$ follows a normal distribution if and only if $X_1$ and $X_2$ both follow normal distributions.
+\end{thm}
+\begin{thm}\textbf{ -- Bernstein's Theorem}\index{Bernstein's Theorem}
+Let $X_1,\dots, X_n$ be independent random variables, and define $Y_1= \sum a_kX_k$ and $Y_2 = \sum b_k X_k$ any linear combination of the $X_k$. Then $Y_1$ and $Y_2$ are independent if and only if 
+\begin{itemize}
+\item $X_k$ is normally distributed for all $k$, and
+\item $\sum a_k b_k \sigma_k^2 = 0$ where $\sigma_k^2$ is the variance of $X_k$.
+\end{itemize}
+\end{thm}
+\subsection{Central Limit Theorem}
+\begin{thm}\textbf{ -- Central Limit Theorem}\index{central limit theorem}\label{thm:centrallimit}
+Let $X_1, \dots, X_n$ be independent and identically distributed random variables with an arbitrary distribution, mean $\mu$ and variance $\sigma^2$. Define their average
+$$\bar X_n = \frac{X_1 + \cdots + X_n}{n}$$
+and define
+$$Z_n = \sqrt{n}\left(\bar X_n - \mu\right).$$
+Then $Z_n$ approximates a normal distribution with mean $0$ and variance $\sigma^2$, and the approximation gets better as $n$ increases. Indeed, in the limiting case,
+$$Z = \lim\limits_{n\to\infty} Z_n \sim \NN(0, \sigma^2)$$
+exactly follows a normal distribution with mean $0$ and variance $\sigma^2$.
+\end{thm}
+\begin{cor}
+As a result of Theorem \ref{thm:centrallimit}, any probability distribution which arises as the sum of some number of independent and identically distributed random variables can be approximated by a normal distribution for a large enough number of summands. For example, the binomial distribution $B(n,p)$, being the sum of $n$ Bernoulli random variables, can be approximated by $\NN\left(np, np(1-p)\right)$ for large $n$ and $p$ not too close to 0 or 1. Similarly, the chi-square distribution $\chi^2(k)$, being the sum of squares of $k$ standard normal random variables can be approximated by $\NN(k, 2k)$ for large $k$.
+\end{cor}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section[Student's $\MakeLowercase{t}-$Distribution]{Student's $\boldsymbol{\MakeLowercase{t}}$-Distribution}
+\subsection{Interpretation}\index{t-distribution}\index{student's t-distribution|see {t-distribution}}
+The student's $t-$distribution, or simply the $t-$distribution, is used when estimating the mean of a normally distributed population when the sample size is small and the population standard deviation is unknown. The $t-$distribution with $\nu$ degrees of freedom models the distribution of the sample mean of $\nu+1$ independent and identically distributed normal random variables relative to the true population mean (after multiplying by $\sqrt{n}$. It can also be used to assess the statistical significant of the difference between two sample means. 
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $n \in \N$ degrees of freedom\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \R$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & \resizebox{2in}{!}{$f(x) = \dfrac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\nu \pi}\Gamma\left(\frac{\nu}{2}\right)}\left(1 + \dfrac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}$} \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\begin{cases} 0, & \nu > 1 \\ \text{undefined}, & \text{else} \end{cases}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $0$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $0$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\begin{cases} \dfrac{\nu}{\nu-2}, & \nu > 2 \\ \infty, &1< \nu \leq 2 \\ \text{undefined}, & \text{else}\end{cases}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\begin{cases} 0, & \nu > 3 \\ \text{undefined}, &\text{else} \end{cases}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\begin{cases}\dfrac{6}{\nu-4}, & \nu > 4 \\ \infty, & 2 < \nu \leq 4 \\ \text{undefined}, & \text{else}\end{cases}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:tdistribution}
+\end{table}
+\subsection{Relation to Sample Mean}\index{t-distribution!relation to sample mean}
+Let $X_1, \dots, X_n$ be independent and identically distributed according to the distribution $\NN(\mu, \sigma^2)$. Denote the sample mean
+$$\bar X = \frac{1}{n} \sum\limits_i X_i$$
+and the sample variance
+$$S^2 = \frac{1}{n-1}\sum\limits_i (X_i - \bar X)^2.$$
+Then the random variable
+$$Z = \frac{\bar X - \mu}{\sigma/\sqrt{n}}$$
+follows the standard normal distribution $\NN(0,1)$. However the random variable
+$$T = \frac{\bar X - \mu}{S/\sqrt{n}}$$
+follows a Student's $t-$distribution with $\nu = n-1$ degrees of freedom.\\
+\\
+Notably, despite both being derived from the sample $X_1, \dots, X_n$, the random variables respectively defined by the numerator and denominator of $T$ are independent of one another.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section[$F-$Distribution]{$\boldsymbol{F}$-Distribution}
+\subsection{Interpretation} \index{F-distribution}
+In statistics, the $F-$ distribution often arises as the null distribution of a test statistic, such as in an $F-$test.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $d_1, d_2 \in \N$ degrees of freedom\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \begin{cases} (0, \infty), & d_1 = 1\\ [0,\infty), & \text{else} \end{cases}$ \\ \hline
+\begin{tabular}{l}Probability Density Function\footnotemark\end{tabular} & $\dfrac{\sqrt{\frac{(d_1 x)^{d_1} d_2^{d_2}}{(d_1 x + d_2)^{d_1 + d_2}}}}{xB\left(\frac{d_1}{2} , \frac{d_2}{2}\right)}$ \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{d_2}{d_2-2}$ for $d_2 > 2$ \\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\dfrac{d_1-2}{d_1}\cdot \dfrac{d_2}{d_2+2}$ for $d_1 > 2$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{2d_2^2(d_1 + d_2 -2)}{d_1(d_2-2)^2 (d_2-4)}$ for $d_2>4$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& \resizebox{2in}{!}{$\dfrac{(2d_1 + d_2 - 2)\sqrt{8(d_2-4)}}{(d_2-6)\sqrt{d_1(d_1 + d_2 - 2)}}$ for $d_2 > 6$}\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:Fdistribution}
+\end{table}
+\footnotetext{Here, $B(x,y)$ denotes the beta function, $B(x,y) = \int_0^1 t^{x-1}(1-t)^{y-1} dt = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$.}
+\subsection{Characterization}\index{F-distribution!characterization}
+Let $X_1$ and $X_2$ be independent chi-square random variables with $d_1$ and $d_2$ degrees of freedom, respectively. Then the random variable defined by
+$$F = \frac{U_1/d_1}{U_2/d_2}$$
+follows an $F-$distribution with parameters $d_1$ and $d_2$. Equivalently, by the definition of the chi-square distribution, define $F$ by
+$$F = \dfrac{S_1^2/d_1\sigma_1^2}{S_2^2/d_2\sigma_2^2}$$
+where $S_1^2$ and $S_2^2$ are the sum of $d_1$ and $d_2$ random variables following the normal distributions $\NN(0, \sigma_1^2)$ and $\NN(0,\sigma_2^2)$, respectively. In this case, $F$ is also follow an $F-$distribution with parameters $d_1$ and $d_2$.
+\subsection{Related Distributions}\index{F-distribution!related distributions}
+\begin{itemize}
+\item As above, if $X \sim \chi^2(d_1)$ and $Y\sim \chi^2(d_2)$, then $\dfrac{X/d_1}{Y/d_2} \sim F(d_1, d_2)$.
+\item If $X_k \sim \Gamma(\alpha_k,\beta_k)$, $i = 1,2$ are independent, then $\dfrac{\alpha_2\beta_1X_1}{\alpha_1\beta_2 X_2}\sim F(2\alpha_1, 2\alpha_2)$.
+\item If $X \sim \text{Beta}\left(\frac{d_1}{2}, \frac{d_2}{2}\right)$ then $\dfrac{d_2 X}{d_1(1-X)} \sim F(d_1, d_2)$. Equivalently, if $Y \sim F(d_1, d_2)$ then $\dfrac{d_1 X/d_2}{1+d_1 X/d_2} \sim \text{Beta}\left(\frac{d_1}{2}, \frac{d_2}{2}\right)$.
+\item If $X \sim F(d_1, d_2)$ then $X^{-1} \sim F(d_2, d_2)$.
+\item If $T \sim t(n)$ then $X^2 \sim F(1,n)$.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Maxwell-Boltzmann Distribution}
+\subsection{Interpretation}\index{Maxwell-Boltzmann distribution}
+The Maxwell-Boltzmann distribution models the speed of particles in an ideal gas. The speed is the norm of the velocity vector
+$$V = || \vec V || = ||(V_x, V_y, V_z)|| = \sqrt{V_x^2 + V_y^2 + V_z^2}$$
+and the velocity components are independent and identically distributed according to $\NN(\mu, \sigma^2)$. Thus, we can apply an appropriate transformation so that mathematically, $V \sim \chi(3)$ with a scaling factor $a = \sqrt{kT/m}$ where $T$ is the temperature of the gas mixture, $m$ is the mass of the gas particles, and $k$ is the Boltzmann constant. 
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $a = \sqrt{kT/m} > 0$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in (0,\infty)$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \sqrt{\dfrac{2}{\pi}} \dfrac{ x^2 e^{-\frac{-x^2}{2a^2}}}{a^3}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = \erf\left(\dfrac{x}{\sqrt{2}a}\right) - \sqrt{\dfrac{2}{\pi}}\dfrac{x e^{\frac{-x^2}{2a^2}}}{a}$\\ \hline 
+\begin{tabular}{l}Mean\end{tabular} & $2a\sqrt{\dfrac{2}{\pi}}$ \\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\sqrt{2}a$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{a^2(3\pi - 8)}{\pi}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{2\sqrt{2}(16-5\pi)}{(3\pi-8)^{3/2}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{160\pi - 12\pi^2 - 384}{(3\pi-8)^2}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:maxwellboltzmann}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Beta Distribution}
+\subsection{Interpretation}\index{beta distribution}
+The beta distribution is used to model the behavior of random variables restricted to finite intervals, such as percentages and proportions. It is also the conjugate prior of the Bernoulli, binomial, negative binomial, and geometric distributions.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\Bet(\alpha,\beta)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\alpha, \beta > 0$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in [0,1]$ or $x\in(0,1)$ \\ \hline
+\begin{tabular}{l}Probability Density Function\footnotemark\end{tabular} & $f(x) = \dfrac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\footnotemark\end{tabular} &  $F(x) = I_x(\alpha,\beta)$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\dfrac{\alpha}{\alpha+\beta}$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\approx \dfrac{\alpha -\frac{1}{3}}{\alpha + \beta - \frac{2}{3}}$ for $\alpha,\beta > 1$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\dfrac{\alpha - 1}{\alpha+\beta -2}$ for $\alpha, \beta > 1$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $\dfrac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & \resizebox{2in}{!}{$\dfrac{6\left((\alpha-\beta)^2(\alpha+\beta+1) -\alpha\beta(\alpha+\beta+2)\right)}{\alpha\beta(\alpha+\beta+2)(\alpha+\beta+3)}$}\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:beta}
+\end{table}
+\footnotetext{Here, $I_x(\alpha, \beta)$ denotes the regularized incomplete beta function.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Logistic Distribution}
+\subsection{Interpretation}\index{logistic distribution}
+The logistic distribution is the distribution defined by having a cumulative distribution function equal to the logistic function, which is commonly seen in logistic regression problems and feedforward neural networks.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\Logistic(\mu, s)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\mu \in \R$\newline $s>0$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \R$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & $f(x) = \dfrac{e^{-\tfrac{x-\mu}{s}}}{s\left(1+e^{-\tfrac{x-\mu}{s}}\right)^2}$ \\ \hline
+\begin{tabular}{p{1.5in}}Cumulative Distribution Function\end{tabular} &  $F(x) = \dfrac{1}{1+e^{-\tfrac{x-\mu}{s}}})$\\ \hline
+\begin{tabular}{l}$100Q^{th}$ Quantile\end{tabular} & $\mu + s\ln\left(\dfrac{Q}{1-Q}\right)$\\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\mu$ \\ \hline
+\begin{tabular}{l}Median\end{tabular} & $\mu$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\mu$\\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\dfrac{s^2\pi^2}{3}$\\ \hline
+\begin{tabular}{l}Skewness \end{tabular}& $0$\\ \hline
+\begin{tabular}{l}Excess Kurtosis\end{tabular} & $\dfrac{6}{5}$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\ln s + 2$ \\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & $\phi(t) = e^{i\mu t}\dfrac{st}{\sinh(\pi s t)}$ \\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:logistic}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Dirac Delta}
+\begin{defn}
+The \emph{Dirac delta function}\index{Dirac delta function} is a functioned defined such that $\delta(x) = 0$ everywhere except $x=0$ but with unit integral over the real line. That is
+\begin{itemize}
+\item $\delta(x) = \begin{cases} \infty, & x = 0 \\ 0, & x\neq 0\end{cases}$
+\item ${\displaystyle \intoverr \delta(x) dx = 1}$.
+\end{itemize}
+The Dirac delta is the continuous analog of the Kronecker delta.
+\end{defn}
+\subsection{Properties}
+\begin{itemize}
+\item For any function $f(x)$, $$\intoverr f(x)\delta(x-a)dx = f(a).$$
+\item The Dirac delta function is the derivative of the Heaviside step function.
+$$H(x) = \int\limits_{-\infty}^x \delta(t)dt = \begin{cases} 0, &x < 0 \\ 1, & x\geq 0 \end{cases}$$
+$$\delta(x) = \frac{d}{dx} H(x)$$
+\item For any $\alpha \in \R$, 
+$$\delta(\alpha x) = \frac{\delta(x)}{|\alpha|}.$$
+\item Let $g: \R \to \R$ be continuously differentiable such that $g'$ is nowhere zero, and suppose $g$ has roots at $x_1,\dots,x_n$. Then,
+$$\delta\circ g(x) = \delta\left(g\left(x\right)\right) = \sum\limits_i \dfrac{\delta(x-x_i)}{|g'(x_i)|}.$$
+\end{itemize}
+\chapter{Multivariate Distributions}
+\section{Joint Probability}
+Let $X_1, X_2, X_3, \dots$ be random variables defined on a probability space $(\Omega, \FF, P)$. The \emph{joint probability distribution}\index{joint probability distribution}\index{probability distribution!joint} is a probability distribution which describes the probability that each of the $X_i$ takes on a given value or range of values. If there are only two $X_i$, this is called a \emph{bivariate distrubtion}\index{bivariate distribution}. In general this is called a \emph{multivariate distribution}\index{multivariate distribution}.
+\begin{defn}\label{def:randomvector}
+Let $X_1, \dots , X_n$ be random variables. We can define a vector $\vec{X}$ using these by
+$$\vec X = (X_1, \dots, X_n)^T = \begin{bmatrix} X_1 \\ \vdots \\ X_n\end{bmatrix}$$
+In this case $\vec X$ is called a \emph{random vector}\index{random vector}.
+\end{defn}
+\begin{defn}\label{def:jointcumulative}
+Let $\vec X = (X_1, \dots, X_n)^T$ be a random vector. The joint cumulative distribution function is the function
+$$F_{\vec{X}}(\vec{x}) = P(X_1 \leq x_1 , \dots, X_n \leq x_n).$$
+In the case when the $X_i$ are independent, this reduces to
+$$\resizebox{\textwidth}{!}{$F_{\vec{X}}(\vec{x}) = P(X_1\leq x_1)\cdots P(X_n \leq x_n) = \prod\limits_i P(X_i \leq x_i) = \prod\limits_i F_{X_i}(x_i).$}$$
+\end{defn}
+\begin{defn}\label{def:jointpmf}
+Let $X$ and $Y$ be independent discrete random variables. Their \emph{joint probability mass function}\index{joint probability mass function}\index{probability mass function!joint} is the function defined by
+\begin{align*}
+p_{X,Y}(x,y) &= P(X=x\text{ and }Y=y)\\
+&=P(Y=y \mid X=x) \cdot P(X=x)\\
+&=P(X=x \mid Y=y) \cdot P(Y=y)
+\end{align*}
+In general for a random vector $\vec X = (X_1,\dots, X_n)^T$ the joint probability mass function is
+\begin{align*}
+p_{X_1,\dots,X_n}(x_1,\dots, x_n) &= P(X_1 = x_1)\times P(X_2=x_2 \mid X_1 = x_1) \times \cdots \\
+& \cdots\times P(X_n = x_n \mid X_1 = x_1, \dots , X_{n-1}=x_{n-1})
+\end{align*}
+\end{defn}
+\begin{defn}\label{def:jointpdf}
+Let $X$ and $Y$ be independent continuous random variables. Their \emph{joint probability density function}\index{joint probability density function}\index{probability density function!joint} is the function defined by
+\begin{align*}
+f_{X,Y}(x,y) = \dfrac{\del^2 F_{X,Y}(x,y)}{\del x \del y}
+\end{align*}
+From this, analogous to the discrete case,
+\begin{align*}
+f_{X,y}(x,y) = f_{Y\mid X}(y\mid x) f_X(x) = f_{X\mid Y}(x\mid y) f_Y(y).
+\end{align*}
+In general, for a random vector $\vec X = (X_1, \dots, X_n)^T$ the joint probability density function is
+$$f_{X_1,\dots, X_n} (x_1,\dots, x_n) = \dfrac{\del^n F_{X_1,\dots, X_n}(x_1, \dots, x_n)}{\del x_1 \cdots \del x_n}$$
+Again this gives
+\begin{align*}
+f_{X_1,\dots, X_n}(x_1,\dots, x_n) &= f_{X_1}(x_1) f_{X_2\mid X_1}(x_2\mid x_1) \cdots\\
+& \qquad\cdots f_{X_n \mid X_1, \dots, X_{n-1}}(x_n\mid x_1,\dots, x_{n-1})
+\end{align*}
+\end{defn}
+\begin{defn}\label{def:mixedjointdensity}
+Let $X$ and $Y$ be a independent continuous and discrete random variables, respectively. Their \emph{mixed joint density}\index{mixed joint density}\index{joint probability density!mixed} is defined as
+$$f_{X,Y}(x,y) = f_{X\mid Y}(x\mid y)P(Y=y) = P(Y=y \mid X=x)f_X(x).$$
+This can be used to recover the joint cumulative distribution function
+$$F_{X,Y}(x,y) = \sum\limits_{t \leq y}\int\limits_{s \leq x} f_{X,Y}(s,t)ds.$$
+\end{defn}
+\begin{defn}\label{def:marginalprobability}
+Let $X$ and $Y$ be two independent random variables with joint probability density $f_{X,Y}(x,y)$. The individual probability distributions of each random variable is referred two as its \emph{marginal probability distribution}\index{marginal probability distribution}\index{probability distribution!marginal}, and is given by
+$$f_X(x) = \int f_{X,Y}(x,y)dy$$
+and
+$$f_Y(y) = \int f_{X,Y}(x,y)dx.$$
+\end{defn}
+\section{Dependence}
+\begin{prop}\label{prop:independentjointdistribution}
+Let $X$ and $Y$ be random variables with probability density $f_X$ and $f_Y$ respectively and cumulative distribution $F_X$ and $F_Y$ respectively. Then
+\begin{itemize}
+\item $X$ and $Y$ are independent if and only if $F_{X,Y}(x,y) = F_X(x) F_Y(y)$.
+\item $X$ and $Y$ are independent if and only if $f_{X,Y}(x,y) = f_X(x)f_Y(y)$.
+\end{itemize}
+\end{prop}
+\begin{prop}\label{prop:jointconditionallydependent}
+If a subset $A$ of random variables $X_1, \dots, X_n$ is conditionally dependent on another subset $B$ of these variables, then
+$$P(X_1, \dots, X_n) = P(B)\cdot P(A\mid B)$$
+and therefore can be represented by lower-dimensional probability distributions.
+\end{prop}
+\begin{defn}\label{def:covariance}
+Let $X$ and $Y$ be random variables. The \emph{covariance}\index{covariance} of $X$ and $Y$ describes how these variables move together, and is defined as
+$$\sigma_{XY} = \cov(X,Y) = \E[(X-\mu_X)(Y-\mu_Y)] = \E[XY] - \mu_X\mu_Y.$$
+\end{defn}
+\begin{defn}\label{def:correlation}
+Let $X$ and $Y$ be random variables. The \emph{correlation}\index{correlation} of $X$ is $Y$ is the covariance of $X$ and $Y$ scaled by their respective standard deviations. The result is a unitless measure of how $X$ and $Y$ vary together, and is often easier to interpret than the covariance. It is denoted $\rho_{XY}$ and is given by
+$$\rho_{XY} = \dfrac{\cov(X,Y)}{\sqrt{\text{var}(X) \text{var}(Y)}} = \dfrac{\sigma_{XY}}{\sigma_X \sigma_Y}.$$
+Two random variables whose correlation is nonzero, they are said to be \emph{correlated}\index{correlated random variables}. Conversely if $\rho_{XY} = 0$ then $X$ and $Y$ are said to be \emph{uncorrelated}\index{uncorrelated random variables}.
+\end{defn}
+\begin{prop}\label{prop:covarianceproperties}\index{covariance!properties}\index{variance!properties}
+Let $X$, $Y$, $W$, and $V$ be random variables and let $a,b\in \R$. Then
+\begin{itemize}
+\item If $X$ and $Y$ are independent then $\cov(X,Y) = 0$. The converse is not true in general. For example, supposing $X$ is uniformly distributed on $[-1,1]$ and suppose further that $Y=X^2$. $X$ and $Y$ are clearly not independent but 
+$$\cov(X,Y) = \E[X\cdot X^2] - \E[X]\E[X^2] = \E[X^3] - 0 = \E]X^3] = 0.$$
+\item $\cov(X,a) = 0$
+\item $\cov(X,X) = \text{var}(X)$
+\item $\cov(X,Y) = \cov(Y,X)$
+\item $\cov(aX,bY) = ab\cov(X,Y)$
+\item $\cov(X+a, Y+b) = \cov(X,Y)$
+\item $\cov(aX + bY, cW + dV) = ac\cov(X,W) + ad\cov(X,V) + bc\cov(Y,W) + bd\cov(Y,V)$
+\item For a random vector $\vec X = (X_1, \dots, X_n)^T$ and $a_1,\dots, a_n \in \R$, 
+\begin{align*}\text{var}\left(\sum\limits_{i=1}^n a_i X_i\right) &= \sum\limits_{i=1}^n a_i^2 \text{var}(X_i) + 2\sum\limits_{i<j} a_i a_j\cov(X_i, X_j) \\
+&= \sum\limits_{i,j} a_i a_j \cov(X_i ,X_j)
+\end{align*}
+\end{itemize}
+\end{prop}
+\begin{thm}\textbf{ -- Hoeffding's Covariance Identity}\label{thm:covarianceidentity}\index{Hoeffding's covariance identity}
+A useful way to compute the covariance between two random variables $X$ and $Y$ is
+$$\cov(X,Y) = \iint \left(F_{X,Y}(x,y) - F_X(x)F_Y(y)\right)dxdy.$$
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Categorical Distribution}
+\subsection{Interpretation}\index{categorical distribution}\index{multinoulli distribution}
+The categorical distribution is the generalization of the Bernoulli distribution to a random process where the outcome can be one of $k$ categories each with an associated probability. For example, rolling a fair six-sided die follows the categorical distribution with six categories, each with probability $\frac{1}{6}$.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $k \in \N$ categories\newline $p_1,\dots, p_k > 0$, with $\sum p_i = 1$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x \in \{1,\dots, k\}$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $f(x) = \id_{\{x=1\}} p_1 + \cdots + \id_{\{x=k\}} p_k$\\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $i$ such that $p_i = \max \{p_1,\dots,p_k\}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:categorical}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Multinomial Distribution}
+\subsection{Interpretation}\index{multinomial distribution}
+The multinomial distribution is the generalization of the binomial distribution to categorical processes over Bernoulli processes. For example, a multinomial could be used to model the number of times each number comes up in $n$ rolls of a six-sided die.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $n \in \N$ trials \newline $p_1,\dots,p_k >0$ with $\sum p_i = 1$ \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $x_i \in \{0,\dots, n\}$ for $i \in \{1, \dots, k\}$ \newline such that $\sum x_i = n$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & \resizebox{2in}{!}{$p(x_1,\dots, x_k) = \dfrac{n!}{x_1! \cdots x_k!} p_1^{x_1}\cdots p_k^{x_k}$} \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\mu_i = \E[X_i] = np_i$ \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\text{var}(X_i) = np_i(1-p_i)$ \newline $\cov(X_i, X_j) = -np_ip_j$ for $i\neq j$\\ \hline
+\begin{tabular}{l}Correlation\end{tabular} & $\rho(X_i, X_j) = -\sqrt{\dfrac{p_ip_j}{(1-p_i)(1-p_j)}}$ \newline for $i\neq j$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:multinomial}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Multivariate Hypergeometric Distribution}
+\subsection{Interpretation}\index{multivariate hypergeometric distribution}\index{hypergeometric distribution!multivariate}
+The multivariate hypergeometric distribution extends the hypergeometric distribution to the case where there are $n$ draws without replacement from a population of $N$ objects which are subdivided into $c$ categories of size $K_i$. On the other hand, the multinomial describes a similar situation but draws are taken with replacement.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Parameters\end{tabular} &  $c \in \N$ categories \newline \resizebox{2in}{!}{$(K_1,\dots, K_c) \in \N^c$ with $\sum K_i = N$} \newline $n = \{0, \dots, N\}$ draws \\ \hline
+\begin{tabular}{l}Support\end{tabular} & $(k_1,\dots, k_c) \in \N^c$ with $\sum k_i = n$ \\ \hline
+\begin{tabular}{l}Probability Mass Function\end{tabular} & $p(\vec k) = \dfrac{\prod \binom{K_i}{k_i}}{\binom{N}{n}} = \dfrac{\binom{K_1}{k_1} \cdots \binom{K_c}{k_c}}{\binom{N}{n}}$ \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\mu_i = \E[X_i] = n \dfrac{K_i}{N}$ \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\text{var}(X_i) = n\dfrac{N-n}{N-1} \dfrac{K_i}{N} \left( 1 - \dfrac{K_i}{N}\right)$ \newline $\cov(X_i, X_j) = -n \dfrac{N-n}{N-1}\dfrac{K_i}{N}\dfrac{K_j}{N}$\\ \hline
+\begin{tabular}{l}Moment Generating Function\end{tabular} & ${\displaystyle M(t) = e^{\vec\mu^T \vec t + \frac{1}{2} \vec t^T \Sigma \vec t}}$\\ \hline
+\begin{tabular}{l}Characteristic Function\end{tabular} & ${\displaystyle \phi(t) = e^{i\vec\mu^T \vec t - \frac{}{2} \vec t^T \Sigma \vec t}}$\\ \hline
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:multivariatenormal}
+\end{table}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Multivariate Normal Distribution}
+\subsection{Interpretation}\index{multivariate normal distribution}\index{normal distribution!multivariate}
+The multivariate normal distribution generalizes the normal distribution to higher dimensions. A random vector can be said to be $k$-variate normally distributed if each linear combination of its $k$ component is normally distributed in the usual sense.
+\subsection{Properties}
+\begin{table}[H]
+\centerline{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|| p{2.1in} | p{2in} ||}
+\hline
+\begin{tabular}{l}Notation\end{tabular} & $\NN(\vec \mu, \vec \Sigma)$ \\ \hline
+\begin{tabular}{l}Parameters\end{tabular} &  $\vec \mu = (\mu_1, \dots, \mu_k) \in \R^k$ means \newline $\Sigma \in \R^{k\times k}$, matrix of covariances\\ \hline
+\begin{tabular}{l}Support\end{tabular} & $\vec x \in \mu + \text{span}(\Sigma) \subseteq \R^k$ \\ \hline
+\begin{tabular}{l}Probability Density Function\end{tabular} & \resizebox{2in}{!}{$f(\vec x) = -\dfrac{1}{\sqrt{2^k \pi^k \det \Sigma}}e^{-\frac{1}{2}(\vec x - \vec \mu)^T \Sigma^{-1}(\vec x - \vec \mu)}$} \newline exists only when $\Sigma$ is positive definite \\ \hline
+\begin{tabular}{l}Mean\end{tabular} & $\vec \mu = (\mu_1,\dots, \mu_k)$ \\ \hline
+\begin{tabular}{l}Mode\end{tabular} & $\vec \mu = (\mu_1,\dots, \mu_k)$ \\ \hline
+\begin{tabular}{l}Variance\end{tabular} & $\Sigma = [\sigma_{ij}] = \left[\cov(X_i,X_j)\right]$\\ \hline
+\begin{tabular}{l}Entropy\end{tabular} & $\dfrac{1}{2} \ln \det (2\pi e \Sigma)$ \\ \hline
+
+\end{tabular}
+}}
+\refstepcounter{table}
+\label{tbl:multivariatenormal}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Statistics}
+\chapter{Overview}
+\begin{defn}\label{def:population}
+In statistics, a collection of people, objects, processes, etc. under study is called the \emph{population}\index{population}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:sample}
+A subset of the population which we study is called a \emph{random sample}\index{random sample}. These are often modeled as a set of random variables $X_1, \dots, X_n$. The process of selecting a sample is called \emph{sampling}\index{sampling}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:data}
+The measured or observed results from a sample are called \emph{data}\index{data}. These are often modeled as values $x_1,\dots, x_n$ of a random sample $X_1,\dots, X_n$. For example one might consider $X_1,\dots, X_n$ to be a Bernoulli trial modeling the results of a test for an infectious disease among the population. A singular observation is called a \emph{datum}. 
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:typesofdata}
+Data can either be \emph{qualitative} or \emph{quantitative}\index{data!qualitative}\index{data!quantitative}. Qualitative data, or \emph{categorical data}\index{data!categorical} is data which describes a sample by grouping each datum into different groups, whereas quantitative data describes a sample numerically. For example, hair color is a qualitative statistic whereas percentage of people with red hair is quantitative.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:summarystatistic}
+A \emph{summary statistic}\index{summary statistic}\index{statistic!summary} is a piece of information which summarizes a sample. For example one might consider the mean of the sample, $\bar x = \frac{1}{n} \sum x_i$. A \emph{descriptive statistic}\index{statistic!descriptive}\index{descriptive statistic} is a summary statistic which quantitatively describes a feature or features of a sample.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:parameter}
+A \emph{population parameter}\index{parameter}\index{population parameter} is a numerical characteristic of the population at large which can be estimated via a descriptive statistic.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:frequency}
+The number of times a specific value occurs in data is called its \emph{frequency}\index{frequency}. The \emph{relative frequency}\index{frequency!relative} is the ratio of the number of times a value occurs to the total number of data. The \emph{cumulative relative frequency}\index{frequency!cumulative relative} of a value is the sum of relative frequencies of all smaller (or equal) values.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:experiment}
+An \emph{experiment}\index{experiment} is a process that is performed in order to investigate the relationship between two variables. 
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:explanatoryresponse}
+When one variable  causes change in another, the first is called an \emph{explanatory variable}\index{explanatory variable}\index{variable!explanatory} while the second is called the \emph{response variable}\index{response variable}\index{variable!response}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:lurking variables}
+Any variable which is not an explanatory or response variable which can affect the outcome of a study is called a \emph{lurking variable}\index{lurking variable}\index{variable!lurking}
+\end{defn}
+\chapter{Estimating Parameters}
+\begin{defn}\label{def:samplemean}
+Given a random sample $X_1,\dots, X_n$ of a population, the \emph{sample mean}\index{sample mean} is denoted $\bar X$ and is defined as
+$$\bar X = \dfrac{1}{n} \sum\limits_{i=0}^n X_i$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:samplestandarddeviation}
+Given a random sample $X_1, \dots, X_n$, the \emph{Bessel corrected sample variance}\index{sample variance}\index{Bessel correction} is denoted $S^2$ and is given by
+$$S^2 = \dfrac{1}{n-1} \sum\limits_{i=1}^n (X_i - \bar X)^2.$$
+Similarly the \emph{sample standard deviation}\index{sample standard deviation} is denoted $S$ and is given by
+$$S = \sqrt{S^2} = \sqrt{\dfrac{\sum (X_i - \bar X)^2}{n-1}}.$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:estimator}
+Let $X_1, \dots, X_n$ be a random sample. An \emph{estimator}\index{estimator} of a parameter $\theta$ is a transformation $\hat \Theta$ of the random sample. For example, the sample mean
+$$\hat \Theta(X_1,\dots, X_n) = \frac{X_1 + \cdots + X_n}{n}$$
+is an estimator of the population mean $\mu$.\\
+\\
+An estimator is said to be \emph{unbiased}\index{estimator!unbiased}\index{unbiased estimator} if 
+$$\E(\hat\Theta) = \theta$$
+and is \emph{asymptotically unbiased}\index{estimator!asymptotically unbiased} if
+$$\E(\hat\Theta) \xrightarrow{n\to \infty} \theta.$$
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:estimatorbias}
+Let $\hat\Theta$ be an estimator of the parameter $\theta$. The difference $\E(\hat\Theta) - \theta$ is called the \emph{bias}\index{estimator bias}\index{estimator!bias} of the estimator. Evidently, the bias of an estimator is 0 if and only if the estimator is unbiased.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:mvue}
+For a random sample $X_1, \dots, X_n$, a \emph{minimum variance unbiased estimator}\index{minimum variance unbiased estimator}\index{estimator!minimum variance unbiased} is an unbiased estimator whose variance is less than or equal to the variance of any other possible unbiased estimator for the same parameter.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}\textbf{ -- Cram{\'e}r-Rao Lower Bound}\label{thm:cramerrao}
+Let $\hat\Theta$ be an unbiased estimator of a deterministic (fixed but unknown) parameter $\theta$. Then
+$$\text{Var}(\hat\Theta) \geq \dfrac{1}{n \E\left[\left(\dfrac{\del\ln f(x\mid \theta)}{\del \theta}\right)^2\right]} \equiv \dfrac{1}{-n\E\left[\dfrac{\del^2 \ln f(x\mid \theta)}{\del \theta^2}\right]}$$
+\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:sufficiency}
+Let $X_1, \dots, X_n$ be a random sample. $\hat\Phi(X_1,\dots,X_n)$ is called a \emph{sufficient statistic}\index{sufficient statistic} for $\theta$ if the joint density function of the sample $\prod\limits_{i=1}^n f(x_i \mid \theta)$ can be factored into a product of a function of $\theta$ and $\hat\Phi$ only, and a function of $x_1,\dots,x_n$ only:
+$$\prod\limits_{i=1}^n f(x_i \mid \theta) = g(\theta, \hat\Phi) \cdot h(x_1,\dots, x_n)$$
+For example, if the $X_i$ are Bernoulli distributed with parameter $p$, then 
+$$\prod\limits_{i=1}^n f(x_i \mid p) = p^{x_1 + \cdots + x_n} (1-p)^{n - x_1 - \cdots -x_n}$$
+so defining $\hat\Phi(X_1, \dots, X_n) = \sum X_i$,
+\begin{align*}
+\prod\limits_{i=1}^n f(x_i \mid p) &= p^{\hat\Phi} (1-p)^{n - \hat\Phi} \\
+& = g(p, \hat \Phi)
+\end{align*}
+so $\hat\Phi$ is a sufficient statistic for $p$. To make $\hat\Phi$ an unbiased estimator for $p$, we define
+$$\hat\Theta(X_1, \dots, X_n) = \frac{\hat\Phi(X_1,\dots, X_n)}{n} = \frac{X_1 + \cdots + X_n}{n}$$
+as would be expected.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Method of Moments}\index{method of moments}\label{sec:methodofmoments}
+The method of moments is the easier of the two commons ways to determine parameter estimators. It provides good estimators in many cases but can sometimes result in inefficient estimators.\\
+\\
+Suppose we need to estimate parameters $\theta_1, \dots, \theta_k$ of a random sample $X_1, \dots, X_n$. Then we express the first $k$ moments of $X$ as functions of the $\theta_i$:
+\begin{align*}
+\mu_1 &= \E[X] = g_1(\theta_1, \dots, \theta_k)\\
+\mu_2 &= \E[X^2] = g_2(\theta_1,\dots, \theta_k)\\
+&\vdots \\
+\mu_k & = \E[X^k] = g_k(\theta_1, \dots, \theta_k)
+\end{align*}
+and where possible, invert this system of equations to express
+\begin{align*}
+\hat \Theta_1 &= h_1(\hat \mu_1, \dots, \hat \mu_k)\\
+\hat \Theta_2 &= h_2(\hat \mu_1, \dots, \hat \mu_k)\\
+& \vdots\\ 
+\hat \Theta_k &= h_k(\hat \mu_1, \dots, \hat\mu_k)
+\end{align*}
+\begin{eg}
+Suppose $X_1, \dots, X_n$ is a normally distributed random sample. We need estimators $\hat\mu$ and $\hat \sigma^2$ for the mean and variance respectively. We have
+$$\E[X] = \hat \mu$$
+and 
+$$\E[X^2] = \hat \sigma^2 + \hat\mu^2$$
+which together suggest that 
+$$\hat \mu = \E[X] = \dfrac{\sum X_i}{n} = \bar X$$
+and 
+$$\hat\sigma^2 = \E[X^2] - \E[X]^2 = \dfrac{\Sigma \left(X_i - \bar X\right)^2}{n}$$
+This $\hat\sigma^2$ is not unbiased, although it is asymptotically unbiased and it can be made into an unbiased estimator easily.
+\end{eg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maximum Likelihood Estimation}\index{maximum likelihood estimator}\label{sec:maximumlikelihood}
+This method will typically find a minimum variance unbiased estimator, though it may sometimes produce only an asymptotically unbiased estimator. This has the drawback that the estimators will sometimes turn out to be very complicated functions of the $X_i$. \\
+\\
+\begin{defn}\label{def:likelihood}
+Suppose we have a random sample $X_1, \dots , X_n$ and want to estimate parameters $\theta_1, \dots , \theta_k$. In the joint density function $\prod f(x_i \mid \theta_1, \dots, \theta_n)$, replace the $x_i$ with there observed values and turn it into a function $f_{x_i}(\theta_1,\dots, \theta_n)$ of the parameters. This is called the \emph{likelihood function}\index{likelihood function}. To obtain the estimators of the $\theta_j$, maximize the likelihood function $f_{x_i}$. The corresponding optimal values of $\theta_j$ are the parameter estimates.
+\end{defn}
+As $\ln x$ is a continuously differentiable monotonic increasing function, maximizing
+$$\prod\limits_i f_{x_i}(\theta_1, \dots, \theta_n)$$
+is equivalent to maximizing
+$$\ln\left(\prod\limits_i f_{x_i}(\theta_1, \dots, \theta_n) \right) = \sum\limits_i \ln f_{x_i}(\theta_1, \dots, \theta_n)$$
+\begin{eg}
+Suppose $X_1, \dots , X_n$ is a geometrically distributed random sample. Then 
+\begin{align*}
+\prod\limits_i f_{x_i}(p) & = \prod\limits_i (1-p)^{x_i} p\\
+&= p^n (1-p)^{\sum\limits_i x_i}\\
+\ln\left(\prod\limits_i f_{x_i}(p)\right) &= n \ln p + \ln(1-p)\sum\limits_i x_i
+\end{align*}
+Thus to maximize the likelihood function,
+\begin{align*}
+\dfrac{d\ln \prod\limits_i f_{x_i}(p)}{dp} & = \dfrac{n}{p} - \dfrac{\sum x_i}{1-p} \\
+0 &= \dfrac{n}{p} - \dfrac{\sum x_i}{1-p}\\
+\Rightarrow \hat p & = \dfrac{n}{n + \sum x_i}
+\end{align*}
+\end{eg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Confidence Intervals}
+\begin{defn}\label{def:confidenceinterval}
+Rather than give a point estimate for a parameter, which can in essence never be correct, it is often helpful to talk about an interval which has some nonzero chance of containing the correct value. Thus for a parameter $\theta$ and an estimate of that parameter $\hat\theta$, we might say that $\theta$ falls in the interval $\hat \theta \pm w$ or $[\hat\theta - w, \hat\theta + w]$. This interval is called a \emph{confidence interval}\index{confidence interval} for the parameter $\theta$.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:confidencelevel}
+We will typically associate to a confidence interval a \emph{level of confidence} for that interval. This is usually expressed as a value $1-\alpha$.
+\end{defn}
+\begin{rmkbox}\index{confidence interval!interpretation}
+In this context, $1-\alpha$ is \textbf{not} the probability that the true value of $\theta$ is contained in the obtained interval. This value is deterministic and already exists external to the test, and thus it does not make sense to talk about it in a probabilistic sense. Rather, it is the a priori probability that an interval obtained by the test will contain the true value of the parameter. That is, before any measurements are taken, it is the probability that over all possible data sets, a data set is measured which produces a confidence interval which is representative of the true value.
+\end{rmkbox}
+\subsection{For the mean $\boldsymbol{\mu}$ with known $\boldsymbol{\sigma}$}\index{confidence interval!for $\mu$}\index{confidence interval!for $\mu$!$\sigma$ known}
+Let $X_1, \dots, X_n$ be a random sample and suppose that the standard deviation $\sigma$ is known but the mean $\mu$ is not. As $n$ becomes large, 
+$$Z = \frac{\bar X - \mu}{\sigma/\sqrt{n}}$$
+resembles a standard normal distribution, and thus
+\begin{align*}
+P( |Z| < z_{\alpha/2}) &= P\left(\bar X - z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}  < \mu < \bar X +  z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\right) \\
+&= 2\Phi(z_{\alpha/2}) - 1 \\
+&= 1-\alpha
+\end{align*}
+Consequently, this identifies the interval 
+$$\bar X \pm z_{\alpha/2} \dfrac{\sigma}{\sqrt{n}} = \left[ \bar X - z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \bar X + z_{\alpha/2} \frac{\sigma}{\sqrt{n}}\right]$$
+as a $100(1-\alpha)\%$ confidence interval for the parameter $\mu$.
+\begin{rmkbox}
+A common choice for $\alpha = 0.05$. Note that in general $P(Z <  z_\alpha) = 1-\alpha$.
+\end{rmkbox}
+\subsection{For the mean $\boldsymbol{\mu}$ with unknown $\boldsymbol{\sigma}$}\index{confidence interval!for $\mu$!$\sigma$ unknown}
+Let $X_1, \dots, X_n$ be a random sample and suppose that the standard deviation $\sigma$ and the mean$\mu$ are both unknown. In this case we replace the $\sigma$ above with the sample standard deviation $s$. Then the random variable $T$ defined by 
+$$T = \frac{\bar X - \mu}{s/\sqrt{n}}$$
+follows a Student's $t-$distribution with $n-1$ degrees of freedom rather than the standard normal distribution. Thus by a similar argument\\
+\resizebox{\textwidth}{!}{
+\begin{minipage}{\linewidth}
+\begin{align*}
+P( |T| < t_{\alpha/2}(n-1)) &= P\left(\bar X - t_{\alpha/2}(n-1)\dfrac{s}{\sqrt{n}}  < \mu < \bar X +  t_{\alpha/2}(n-1)\dfrac{s}{\sqrt{n}}\right) \\
+&= 1-\alpha
+\end{align*}
+\end{minipage}
+}
+Consequently, this identifies the interval 
+$$\bar X \pm t_{\alpha/2}(n-1) \dfrac{s}{\sqrt{n}} = \left[ \bar X - t_{\alpha/2}(n-1)\frac{s}{\sqrt{n}}, \bar X + t_{\alpha/2}(n-1) \frac{s}{\sqrt{n}}\right]$$
+as a $100(1-\alpha)\%$ confidence interval for the parameter $\mu$.
+\begin{rmkbox}
+When $n$ is very large, say $\geq 30$, there is little difference between $z_{\alpha/2}$ and $t_{\alpha/2}(n-1)$. We could use $z_{\alpha/2}$ rather than $t_{\alpha/2}(n-1)$ in this case.
+\end{rmkbox}
+\subsection{Difference of two means with known $\boldsymbol{\sigma}$}\index{confidence interval!difference of means!$\sigma$ known}
+Let $X_1, \dots , X_n$ and $Y_1, \dots , Y_m$ be two independent random samples with unknown means $\mu_X$ and $\mu_Y$ and with the same known standard deviation $\sigma$. Then as $n$ and $m$ become large the random variable
+$$Z = \dfrac{(\bar X - \bar Y) - (\mu_X - \mu_Y)}{\sigma \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$$
+follows a standard normal distribution. This identifies
+$$(\bar X - \bar Y) \pm z_{\alpha/2}\sigma \sqrt{\frac{1}{n} + \frac{1}{m}}$$
+or equivalently 
+$$\left[ \bar X - \bar Y - z_{\alpha/2} \sigma\sqrt{\frac{1}{n} + \frac{1}{m}} , \bar X - \bar Y + z_{\alpha/2} \sigma \sqrt{\frac{1}{n} + \frac{1}{m}}\right]$$
+as a $100(1-\alpha)\%$ confidence interval for the difference between $\mu_X$ and $\mu_Y$.
+\subsection{Difference of two means with unknown $\boldsymbol{\sigma}$}\index{confidence interval!difference of means!$\sigma$ unknown}
+Let $X_1, \dots, X_n$ and $Y_1, \dots, Y_m$ be two independent random samples with unknown means $\mu_X$ and $\mu_Y$ and same but unknown standard deviation.
+\begin{defn}\label{def:pooledstandarddeviation}
+The \emph{pooled sample standard deviation}\index{pooled sample standard deviation}\index{sample standard deviation!pooled} is defined to be
+$$s_p = \sqrt{\dfrac{(n - 1)s_X^2 + (m-1)s_Y^2}{n + m - 2}}$$
+where $s_X$ and $s_Y$ are the sample standard deviations of $X_1, \dots , X_n$ and $Y_1, \dots , Y_m$ respectively.
+\end{defn}
+Then the variable $T$ defined by 
+$$T = \dfrac{(\bar X - \bar Y) - (\mu_X - \mu_Y)}{s_p \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$$
+follows a Student's $t-$distribution with $n+m-2$ degrees of freedom. This identifies
+$$(\bar X - \bar Y) \pm t_{\alpha/2}(n+m-2) s_p\sqrt{\dfrac{1}{n} + \dfrac{1}{m}}$$
+or equivalently
+$$\resizebox{\textwidth}{!}{$\left[ \bar X - \bar Y - t_{\alpha/2}(n+m-2) s_p \sqrt{\dfrac{1}{n} + \dfrac{1}{m}} , \bar X - \bar Y + t_{\alpha/2}(n+m-2) s_p \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}\right]$}$$
+as a $100(1-\alpha)\%$ confidence interval for the difference between $\mu_X$ and $\mu_Y$.
+\subsection{Difference of two means with known $\boldsymbol{\sigma_X}$ and $\boldsymbol{\sigma_Y}$}\index{confidence interval!difference of means!$\sigma_X$,$\sigma_Y$ known}
+Let $X_1, \dots , X_n$ and $Y_1, \dots, Y_m$ be two independent random samples with unknown means $\mu_X$ and $\mu_Y$ and known but different standard deviations $\sigma_X$ and $\sigma_Y$. Then as $n$ and $m$ become large, the random variable
+$$Z = \dfrac{(\bar X - \bar Y) - (\mu_X - \mu_Y)}{\sqrt{\dfrac{\sigma_X^2}{n} + \dfrac{\sigma_Y^2}{m}}}$$
+follows a standard normal distribution $\NN(0,1)$. This identifies
+$$ (\bar X - \bar Y) \pm z_{\alpha/2} \sqrt{\frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}}$$
+or equivalently
+$$\left[ \bar X - \bar Y - z_{\alpha/2} \sqrt{\frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}}, \bar X - \bar Y + z_{\alpha/2} \sqrt{\frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}}\right]$$
+as a $100(1-\alpha)\%$ confidence interval for the difference between $\mu_X$ and $\mu_Y$.
+\subsection{Difference of two means with unknown $\boldsymbol{\sigma_X}$ and $\boldsymbol{\sigma_Y}$}\index{confidence interval!difference of means!$\sigma_X$,$\sigma_Y$ unknown}
+Let $X_1, \dots, X_n$ and $Y_1, \dots, Y_m$ be two independent random variables with unknown means $\mu_X$ and $\mu_Y$ as well as unknown standard deviations $\sigma_X$ and $\sigma_Y$. In this case we are not able to construct a random variable from these random samples with a simple distribution. However if $n$ and $m$ are both large, say $n,m \geq 30$ or so, then we can replace $\sigma_X$ and $\sigma_Y$ with $s_X$ and $s_Y$ respectively,  where $s_X$ is the sample standard deviation of $X$ and similar for $\sigma_Y$. In the case of large $n$ and $m$, the random variable
+$$ Z = \dfrac{(\bar X - \bar Y) - (\mu_X - \mu_Y)}{\sqrt{\dfrac{s_X^2}{n} + \dfrac{s_Y^2}{m}}}$$
+is approximately standard normally distributed. Thus we can identify an approximate $100(1-\alpha)\%$ confidence interval for $\mu_X - \mu_Y$ as
+$$(\bar X - \bar Y) \pm z_{\alpha/2} \sqrt{\frac{s_X^2}{n} + \frac{s_Y^2}{m}}$$
+or equivalently
+$$\left[ \bar X - \bar Y - z_{\alpha/2} \sqrt{\frac{s_X^2}{n} + \frac{s_Y^2}{m}} , \bar X - \bar Y + z_{\alpha/2} \sqrt{\frac{s_X^2}{n} + \frac{s_Y^2}{m}}\right]$$
+\subsection{For proportions}\index{confidence interval!for proportions}
+Let $X_1, \dots , X_n$ be a random sample of Bernoulli trials with unknown parameter $p$. This can be thought of as a test of the population for some special or distinguishing feature. For example this could be the results of a test of citizens for an infectious disease.
+\begin{defn}\label{def:sampleproportion}
+As the $X_i$ can take on a value of 1 (when the test subject has the specific feature being tested for) or 0 (when they don't), the \emph{sample proportion}.\index{sample proportion} of cases is equal to the sample mean
+$$\hat p = \bar X = \dfrac{X_1 + \cdots + X_n}{n}.$$
+\end{defn}
+Moreover, in the case when $n$ is large, it follows that $\hat p$ is approximately normally distributed with mean $p$ and standard deviation $\frac{p(1-p)}{n}$. It follows that
+$$ Z = \dfrac{ \hat p - p}{\sqrt{\dfrac{\hat p ( 1 - \hat p)}{n}}}$$
+is approximately standard normally distributed. It follows that 
+$$\hat p \pm z_{\alpha/2}\sqrt{\dfrac{\hat p (1- \hat p)}{n}} = \left[\hat p - z_{\alpha/2}\sqrt{\dfrac{\hat p(1-\hat p)}{n}} , \hat p + z_{\alpha/2} \sqrt{\dfrac{\hat p (1-\hat p)}{n}}\right]$$
+is an approximate $100(1-\alpha)\%$ confidence interval for $p$.
+\subsection{Difference of proportions}\index{confidence interval!difference of proportions}
+Let $X_1,\dots, X_n$ and $Y_1,\dots, Y_m$ be independent random samples of Bernoulli trials with unknown parameters $p_X$ and $p_Y$. When $n$ is large, the random variable
+$$ Z = \dfrac{ (\hat p_X - \hat p_Y) - (p_X - p_Y)}{\sqrt{\dfrac{\hat p_X(1 -\hat p_X)}{n} + \dfrac{\hat p_Y (1 - \hat p_Y)}{m}}}$$
+is approximately standard normally distributed. It follows that
+$$ (\hat p_X - \hat p_Y) \pm z_{\alpha/2} \sqrt{\frac{\hat p_X(1-\hat p_X)}{n} + \frac{\hat p_Y( 1- \hat p_Y)}{m}}$$
+or equivalently\\
+\\
+\centerline {
+$$\resizebox{1.2\textwidth}{!}{$\left[ \hat p_X - \hat p_Y - z_{\alpha/2}\sqrt{\tfrac{\hat p_X(1-\hat p_X)}{n} + \tfrac{\hat p_Y (1-\hat p_Y)}{m}} , \hat p_X - \hat p_Y + z_{\alpha/2} \sqrt{\tfrac{\hat p_X (1-\hat p_X)}{n} + \tfrac{\hat p_Y(1-\hat p_Y)}{m}}\right]$}$$}\\
+\\
+is an approximate $100(1-\alpha)\%$ confidence interval for the difference between $p_X$ and $p_Y$.
+\subsection{For variances}\index{confidence interval!for variances}
+Let $X_1, \dots, X_n$ be a normally distributed random sample with unknown variance $\sigma^2$. Then the random variable
+$$X = \dfrac{(n-1)s^2}{\sigma^2}$$
+where $s^2$ is the sample variance follows a chi-square distribution with $n-1$ degrees of freedom, $\chi^2(n-1)$. It follows that
+\begin{align*}
+P\left(\chi^2_{1-\alpha/2}(n-1) < \dfrac{ (n-1)s^2}{\sigma^2} < \chi^2_{\alpha/2}(n-1)\right) & = 1 - \alpha
+\end{align*}
+and consequently the interval
+$$\left[ \frac{(n-1)s^2}{\chi^2_{\alpha/2}(n-1)} , \frac{(n-1)s^2}{\chi^2_{1-\alpha/2}(n-1)}\right]$$
+is a $100(1-\alpha)\%$ confidence interval for $\sigma^2$.
+\subsection{For ratios of variances}\index{confidence interval!for ratio of variances}
+Let $X_1, \dots , X_n$ and $Y_1, \dots, Y_m$ be independent normally distributed random variables with unknown variances $\sigma_X^2$ and $\sigma_Y^2$ respectively. Then the random variable $F$ defined by
+$$F = \dfrac{\frac{s_X^2}{\sigma_X^2}}{\frac{s_Y^2}{\sigma_Y^2}}$$
+follows an $F$ distribution with parameters $n-1$ and $m-1$, $F_{n-1, m-1}$. Thus
+$$P\left( F_{1-\alpha/2}(n-1, m-1) < \dfrac{s_X^2 \sigma_Y^2}{s_Y^2 \sigma_X^2} < F_{\alpha/2}(n-1,m-1)\right) = 1-\alpha$$
+and consequently
+$$\left[ \dfrac{1}{F_{\alpha/2}(n-1,m-1)}\dfrac{s_X^2}{s_Y^2} , \dfrac{s_X^2}{s_Y^2} F_{\alpha/2}(n-1,m-1)\right]$$
+is a $100(1-\alpha)\%$ confidence interval for the ratio $\frac{\sigma_X^2}{\sigma_Y^2}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Hypothesis Testing}
+\section{Overview}
+\begin{defn}\label{def:hypothesis}
+In order to perform a statistical test we first define a default hypothesis to test against. This is called the \emph{null hypothesis}\index{null hypothesis}\index{hypothesis!null} and is denoted $H_0$. The alternative to the null hypothesis is called the \emph{alternate hypothesis}\index{alternate hypothesis}\index{hypothesis!alternate} and is denoted $H_A$. If sufficient evidence is found to show that the null hypothesis does not hold, then we \emph{reject}\index{null hypothesis!reject} and \emph{accept} the alternate hypothesis. If sufficient evidence is not found to show this, then we say we \emph{fail to reject} the null hypothesis.
+\end{defn}
+\begin{defn}\label{def:significance}
+Part of defining a test is deciding what counts as the aforementioned "sufficient evidence" to reject the null hypothesis. To do this, we select a \emph{significance level}\index{significance level}, usually denoted $\alpha$\index{alpha level}. The significance level allows us to determine how selective the test is. The higher the significance level, the easier it is to reject the null hypothesis, and vice versa. The significance level determines the acceptable probability of rejecting the null hypothesis when it is true. Common choices for $\alpha$ include $0.1$, $0.05$, $0.02$, and $0.01$. However, this is just convention.
+\end{defn}
+\begin{rmkbox}
+Failing to reject the null hypothesis does not mean that the null hypothesis is accepted nor that it is true. It simply means that we have not found sufficient evidence to accept the alternate hypothesis. 
+\end{rmkbox}
+\begin{defn}\label{def:errortypes}
+There are two types of errors we can make when testing hypotheses. These are
+\begin{itemize}
+\item Rejecting $H_0$ when it is true -- a \emph{type I error}\index{type I error}\index{error!type I}
+\item Accepting $H_0$ when it is false -- a \emph{type II error}\index{type II error}\index{error!type II}
+\end{itemize}
+A type I error happens with probability $\alpha$ by definition. The probability of a type II error is typically denoted $\beta$ and depends on the actual values of the parameters involved. The more common quantity to look at is $1-\beta$, which is called the \emph{power function} of the test \index{power function}.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:onesidedtwosided}
+Commonly we talk about a null hypothesis wherein a parameter is equal to a specific value $H_0: \theta = \theta_0$, and an alternative hypothesis encompassing every other scenario, $H_A: \theta \neq \theta_0$. Such a test is said to be \emph{two-sided}\index{two-sided test}. This will often involve constructing a $100(1-\alpha)\%$ interval $(q_{\alpha/2},q_{1-\alpha/2}]$, where $q_{\alpha/2}$ is the $100(\alpha/2)^{th}$ quantile of the distribution.\\
+\\
+We may instead consider the null hypothesis $H_0:\theta \geq \theta_0$ and the alternate hypothesis $H_A: \theta < \theta_0$, or vice-versa. Such a test is said to be \emph{one-sided}\index{one-sided test}. This will instead involve constructing a $100(1-\alpha)\%$ interval as $(q_\alpha, \infty)$ or $(-\infty, q_{1-\alpha})$ as appropriate.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:criticalregion}
+Suppose we have selected a statistical test, and this produces a confidence interval $I$ as shown above. The the region $\R \setminus I$ is called the \emph{critical region}\index{critical region} of the test. The critical region is exactly the values of the test statistic which, if observed, will result in the rejection of the null hypothesis.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:pvalue}
+The $p-$\emph{value}\index{$p$-value} of a statistical test represents the probability of the test statistic $X$ achieving a value at least as extreme as the observed value simply due to random chance. That is, \newpage
+\begin{itemize}
+\item $p=P(X \leq x \mid H_0)$ for a one-sided right tail test
+\item $p=P(X \leq \mid H_0)$ for a one-sided left tail test
+\item $p=2\min\{P(X \leq x \mid H_0), P(X\geq x \mid H_0)\}$ for a two-sided test
+\end{itemize}
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rmkbox}
+The $p$-value does not represent the probability that the null hypothesis is true or that the alternative hypothesis is false. It is not the probability that the observed effects were produced by random chance alone. It is not indicative of the overall size or importance of the observed effect.\\
+\\
+The $p$-value is the calculated probability that the test statistic could be as extreme as it was observed to be under the assumption that the null hypothesis is true. As such, it is more of a statement about the relationship of the observed data to the hypothesis.
+\end{rmkbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Statistical Testing Process}
+This is a typical timeline of events for performing a statistical test.
+\begin{enumerate}
+\item There is a research hypothesis. From this, formulate and state the null and alternative hypotheses.
+\item Consider the statistical assumptions being made about the data in the test.
+\item Decide on an appropriate test and state the relevant test statistic.
+\item Derive the distribution of the test statistic under the null hypothesis. Typically this will be well known.
+\item Select a significance level, $\alpha$, a probability threshold below which the null hypothesis will be rejected. Common choices include $5\%$ and $1\%$.
+\item\label{step:critregion} Using the distribution of the test statistic, determine the critical region -- the range of values of the statistic for which the null hypothesis will be rejected.
+\item Compute the observed value of the test statistic. 
+\item \label{step:rejectorfailtoreject}If the observed value is in the critical region, reject $H_0$. Otherwise, fail to reject $H_0$.
+\end{enumerate}
+we could also replace steps \ref{step:critregion} through \ref{step:rejectorfailtoreject} with the following.
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item Compute the observed value of the test statistic.
+\item Determine the $p-$value.
+\item Reject the null hypothesis in favour of the alternate hypothesis if and only if the $p-$value is less than or equal to the significance level $\alpha$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Common Parameter Tests}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:commontests}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{| c | c c c |}
+\hline
+\multicolumn{4}{|c|}{Tests for means} \\ \hline
+Assumption & $H_0$ & Test statistic $T$ & Distribution of $T$ \\ \hline \hline
+Normal population, $\sigma$ known & $\mu = \mu_0$ & $\dfrac{\bar X - \mu_0}{\sigma/\sqrt{n}}$ & $\NN(0,1)$\\
+Normal population, $\sigma$ unknown & $\mu = \mu_0$ & $\dfrac{\bar X - \mu_0}{s/\sqrt{n}}$ & $t(n-1)$ \\ 
+Any population, large $n$, $\sigma$ unknown & $\mu = \mu_0$ & $\dfrac{ \bar X - \mu_0}{s/\sqrt{n}}$ & $\approx \NN(0,1)$\\ 
+Two normal populations, same unknown $\sigma$ & $\mu_X = \mu_Y$ & $\dfrac{\bar X - \bar Y}{s_p \sqrt{\frac{1}{n} + \frac{1}{m}}}$ & $t_{n + m - 2}$ \\ \hline
+\multicolumn{4}{c}{ } \\\hline
+\multicolumn{4}{|c|}{Tests for variance} \\ \hline
+Assumption & $H_0$ & Test statistic $T$ & Distribution of $T$ \\ \hline
+Normal population & $\sigma = \sigma_0$ & $\dfrac{(n-1)s^2}{\sigma^2}$ & $\chi^2(n-1)$ \\ 
+Two normal populations & $\sigma_X = \sigma_Y$ & $\dfrac{s_X^2 \sigma_Y^2}{s_Y^2 \sigma_X^2}$ & $F(n-1, m-1)$ \\ \hline
+\multicolumn{4}{c}{ } \\ \hline
+\multicolumn{4}{|c|}{Concerning proportions} \\ \hline
+Assumption & $H_0$ & Test statistic $T$ & Distribution of $T$ \\ \hline
+One population, large $n$ & $p = p_0$ & $\dfrac{\hat p - p_0}{\sqrt{\dfrac{\hat p ( 1 - \hat p)}{n}}}$ & $\approx \NN(0,1)$ \\ 
+$k$ populations, large $n_i$ & $p_1 = p_2 = \cdots = p_k$ & $\dfrac{\sum n_i (\hat p_i - \hat\hat p)^2}{\hat\hat p (1 - \hat\hat p)}$ & $\approx \chi^2 (k-1)$ \\ \hline
+\end{tabular}}}
+}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chi-Square Independence Test}\index{independence test}\index{chi-square independence test}
+Let $X_1, \dots , X_n$ be a random sample with two nominal categorical variables denoted $C_i$ and $D_j$ with $i \in \{1,\dots, k\}$ and $j \in \{1,\dots, \ell\}$. Let $o_{ij}$ represent the number of observations in both category $C_i$ and category $D_j$. It follows that $\sum\limits_j o_{ij}$ is the total number of observations in category $C_i$, $\sum\limits_i o_{ij}$ is the total number of observations in category $D_j$, and $\sum\limits_i \sum\limits_j o_{ij}$ is the total number of observations. This can be laid out in a table or matrix as follows.
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:contingency}
+{\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{| c || c c c c c | c|}
+\hline
+& $D_1$ & $\cdots$ & $D_j$ & $\cdots$ & $D_\ell$ & Total \\ \hline \hline
+$C_1$ & $o_{11}$ & $\cdots$ & $o_{1j}$ & $\cdots$ & $o_{1\ell}$ & $\sum\limits_j o_{1j}$ \\
+$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\iddots$ & $\vdots$ & $\vdots$\\
+$C_i$ & $o_{i1}$ & $\cdots$ & $o_{ij}$ & $\cdots$ & $o_{i\ell}$ & $\sum\limits_j o_{ij}$\\
+$\vdots$ & $\vdots$ & $\iddots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$\\
+$C_k$ & $o_{k1}$ & $\cdots$ & $o_{kj}$ & $\cdots$ & $o_{k\ell}$ & $\sum\limits_j o_{kj}$ \\ \hline
+Total & $\sum\limits_i o_{i1}$ & $\cdots$ & $\sum\limits_i o_{ij}$ & $\cdots$ & $\sum\limits_i o_{i\ell}$ & $\sum\limits_i \sum\limits_j o_{ij}$ \\ \hline
+\end{tabular}}
+}
+\end{table}
+\begin{defn}\label{def:observedfrequency}
+The above table is called a \emph{contingency table}\index{contingency table}. The individual $o_{ij}$ are known as \emph{observed frequencies}\index{observed frequency}
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}\label{def:expectedfrequency}
+We define a quantity known as the \emph{expected frequency}\index{expected frequency} for each pair $i,j$ as follows.
+$$e_{ij}  = \dfrac{\left(\sum\limits_j o_{ij}\right)\left(\sum\limits_i o_{ij} \right)}{\sum\limits_i \sum\limits_j o_{ij}}$$
+\end{defn}
+\begin{rmkbox}
+To perform this test, we will generally require that each $e_{ij}$ be no less than 5.
+\end{rmkbox}
+We will define a test statistic 
+$$X = \sum\limits_i \sum\limits_j\dfrac{(o_{ij} - e_{ij})^2}{e_{ij}}$$
+which, under the the null hypothesis $H_0$ that the categorical variables are independent, follows the distribution $\chi^2\left((k-1)(\ell-1)\right)$. If the observed value of $X$ is too extreme as defined by the $p$ value of the test, we reject the null hypothesis and declare the categories not to be independent.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pearson's Chi-Square Goodness of Fit Test}\index{goodness of fit}\index{chi-square goodness of fit}\index{Pearson's chi-square test}
+Let $X_1, \dots, X_n$ be a random sample of unknown distribution, and suppose we would like to test how well an arbitrary distribution with cumulative distribution function $F$ fits the observed data. To do this, we first section the data into discrete groups $(x_i, x_{i+1}]$, for $i \in \{1,\dots, m\}$, such that 
+$$-\infty = x_1 < x_2 < \cdots < x_i < x_{i+1} < \cdots < x_{m} < x_{m+1} = \infty$$
+For each $i$, define the expected frequency for the $i^{th}$ interval to be 
+$$E_i = \left(F\left(x_{i+1}\right) - F\left(x_i\right)\right)n$$
+Define a test statistic 
+$$T = \sum\limits_{i=1}^n \dfrac{ \left(O_i - E_i\right)^2}{E_i}$$
+where $O_i$ is the number of observations falling in the $i^{th}$ interval, $(x_i, x_{i+1}]$.\\
+\\
+The variable $T$, under the null hypothesis $H_0$, follows a chi-square distribution with $(k-c)$ degrees of freedom, where $k$ is the number of intervals which contain one or more observations and $c$ is the number of parameters that were estimated from the observations (for example, the mean or the variance) plus one. For example, if we were testing the goodness of fit of a normal distribution with unknown mean and variance, $c = 3$. \\
+\\
+If the observed value of $T$ is too extreme as defined by the $p$ value of the test, we reject the null hypothesis and declare that the random sample does not follow the proposed distribution.
+\chapter{Order Statistics}
+\begin{defn}\label{def:orderstatistic}
+Let $X_1, \dots, X_n$ be a random sample. Define a new set of random variables $X_{(1)}, \dots , X_{(n)}$ defined such that for each $k$, $X_{(k)}$ is the $k^{th}$ smallest value among the $X_i$. $X_{(k)}$ is called the $k^{th}$ \emph{order statistic}.\index{order statistic} Note that when $n$ is odd, $X_{\left(\frac{n+1}{2}\right)}$ is the sample median.
+\end{defn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rmk}
+To find the marginal density function of $X_{(k)}$ for some $k$, we have\\
+\resizebox{\textwidth}{!}{
+\begin{minipage}{\linewidth}
+\begin{align*}
+f_{(i)}(x) &= \lim \limits_{\Delta \to 0} \dfrac{P(x \leq X_{(k)} < x + \Delta)}{\Delta}\\
+& = \lim\limits_{\Delta \to 0} \binom{n}{i-1, 1, n-i} F(x)^{i-1} \left(\frac{F(x+\Delta) - F(x)}{\Delta}\left(1 - F(x+\Delta)\right)\right)^{n-i}\\
+&= \dfrac{n!}{(i-1)!(n-i)!} F(x)^{i-1}\left[1-F(x)\right]^{n-i} f(x)
+\end{align*}
+\end{minipage}
+}\\
+\end{rmk}
+\begin{rmk}
+The joint distribution of two order statistics $X_{(i)}$ and $X_{(j)}$ ($i < j$) can be determined similarly as
+$$\resizebox{\textwidth}{!}{$f(x, y) = \dfrac{n!}{(i-1)!(j-i-1)!(n-j)!} F(x)^{i-1}f(x)\left[F(y)-F(x)\right]^{j-i-1} f(y) \left[ 1 - F(y)\right]^{n-j}$}$$
+for $x < y$ in the support of the distribution of the $X_i$.	
+\end{rmk}
+\chapter{Regression}
+Regression is a process by which the effects of one or more random variables on another random variable are described.
+\begin{defn}
+An \emph{explanatory variable} is a variable whose impact on another variable is being studied. It is also called an \emph{independent variable} or a \emph{regressor variable}. \index{explanatory variable}\index{independent variable}\index{regressor variable}
+\end{defn}
+\begin{defn}
+A \emph{response variable} is a variable whose response to one or more explanatory variables is being studied. It is also called a \emph{dependent variables}. \index{response variable}\index{dependent variable}
+\end{defn}
+\section{Simple Linear Regression}
+\begin{defn}
+The \emph{regression model}\index{regression model} for simple linear regression is 
+$$y = \beta_0 + \beta_1 x_1 + \cdots + \beta_n x_n + \epsilon$$
+and assumes that
+\begin{itemize}
+\item There is no error on the $x_i$, and
+\item The error term $\epsilon$ is normally distributed according to $\NN(0, \sigma^2)$.
+\end{itemize}
+\end{defn}
+\part{Tables}
+\section*{Table \ref{tbl:binomialcoefficients} - Binomial Coefficients}
+\begin{table}[H]
+\centering
+\refstepcounter{table}
+\label{tbl:binomialcoefficients}
+\rotatebox{90}{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{14}{|c|}{${\displaystyle \binom{n}{r} = \frac{n!}{r!(n-r)!} = \binom{n}{n-r}}$} \\ \hline
+$n$ &${\displaystyle \binom{n}{0}}$ &${\displaystyle \binom{n}{1}}$ & ${\displaystyle \binom{n}{2}}$ & ${\displaystyle \binom{n}{3}}$ & ${\displaystyle \binom{n}{4}}$ & ${\displaystyle \binom{n}{5}}$ & ${\displaystyle \binom{n}{6}}$ & ${\displaystyle \binom{n}{7}}$ & ${\displaystyle \binom{n}{8}}$ & ${\displaystyle \binom{n}{9}}$ & ${\displaystyle \binom{n}{10}}$ & ${\displaystyle \binom{n}{11}}$ & ${\displaystyle \binom{n}{12}}$\\ \hline \hline
+0 & 1 &&&&&&&&&&&&\\
+1 & 1 & 1 &&&&&&&&&&&\\
+2 & 1 & 2 & 1&&&&&&&&&&\\
+3 & 1 & 3 & 3 &1 &&&&&&&&&\\
+4 & 1 & 4 & 6 & 4 & 1 &&&&&&&&\\
+5 & 1 & 5 & 10 & 10 & 5 & 1 & & & & &&&\\
+6 & 1 & 6 & 15 & 20 & 15 &6 & 1 & & & &&&\\
+7 & 1 & 7 & 21 & 35 & 35 & 21 & 7 & 1 & & &&&\\
+8 & 1 & 8 & 28 & 56 & 70 & 56 & 28 & 8 & 1 & &&&\\
+9 & 1 & 9 & 36 & 84 & 126 & 126 & 84 & 36 & 9 & 1 &&&\\
+10 & 1 & 10 & 45 & 120 & 210 & 252 & 210 & 120 & 45 & 10& 1&&\\
+11 & 1 & 11 & 55 & 165 & 330 & 462 & 462 & 330 & 165 & 55 & 11&1&\\
+12 & 1 & 12 & 66 & 220 & 495 & 792 & 924 & 792 & 495 & 220 &66&12&1\\
+13 & 1 & 13 & 78 & 286 & 715 & 1287 & 1716 & 1716 & 1287 & 715 & 286 & 78 & 13\\
+14 & 1 & 14 & 91 & 364 & 1001 & 2002 & 3003 &  6435 & 3432 & 2002 & 1001 & 364 & 91\\
+15 & 	1 & 15 & 105 & 455 & 1365 & 3003 & 5005 & 6435 & 6435 & 5005 & 3003 & 1365 & 455\\ \hline
+\end{tabular}}
+}
+\end{table}
+\section*{Table \ref{tbl:cumulativebinomial} - Binomial Distribution}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:cumulativebinomial}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l l | l l l l l l l l l l|}
+\hline
+\multicolumn{12}{|c|}{${\displaystyle F(x) = P(X \leq x) = \sum\limits_{k=0}^x \binom{n}{k} p^k (1-p)^{n-k}}$} \\ \hline
+& &\multicolumn{10}{|c|}{$p$} \\ \hline
+$n$ & $x$& 0.05  & 0.10 & 0.15 & 0.20 & 0.25 & 0.30 & 0.35 & 0.4 & 0.45 & 0.5\\ \hline \hline
+ 2 & 0 & 0.902 & 0.810 & 0.722 & 0.640 & 0.563 & 0.490 & 0.423 & 0.360 & 0.302 & 0.250 \\ 
+   & 1 & 0.998 & 0.990 & 0.978 & 0.960 & 0.938 & 0.910 & 0.878 & 0.840 & 0.798 & 0.750 \\ \hline \hline
+  3 & 0 & 0.857 & 0.729 & 0.614 & 0.512 & 0.422 & 0.343 & 0.275 & 0.216 & 0.166 & 0.125 \\ 
+   & 1 & 0.993 & 0.972 & 0.939 & 0.896 & 0.844 & 0.784 & 0.718 & 0.648 & 0.575 & 0.500 \\ 
+   & 2 & 1.000 & 0.999 & 0.997 & 0.992 & 0.984 & 0.973 & 0.957 & 0.936 & 0.909 & 0.875 \\ \hline \hline
+  4 & 0 & 0.815 & 0.656 & 0.522 & 0.410 & 0.316 & 0.240 & 0.179 & 0.130 & 0.092 & 0.062 \\ 
+   & 1 & 0.986 & 0.948 & 0.890 & 0.819 & 0.738 & 0.652 & 0.563 & 0.475 & 0.391 & 0.313 \\ 
+   & 2 & 1.000 & 0.996 & 0.988 & 0.973 & 0.949 & 0.916 & 0.874 & 0.821 & 0.759 & 0.688 \\ 
+   & 3 & 1.000 & 1.000 & 0.999 & 0.998 & 0.996 & 0.992 & 0.985 & 0.974 & 0.959 & 0.938 \\ \hline\hline
+  5 & 0 & 0.774 & 0.590 & 0.444 & 0.328 & 0.237 & 0.168 & 0.116 & 0.078 & 0.050 & 0.031 \\ 
+   & 1 & 0.977 & 0.919 & 0.835 & 0.737 & 0.633 & 0.528 & 0.428 & 0.337 & 0.256 & 0.187 \\ 
+   & 2 & 0.999 & 0.991 & 0.973 & 0.942 & 0.896 & 0.837 & 0.765 & 0.683 & 0.593 & 0.500 \\ 
+   & 3 & 1.000 & 1.000 & 0.998 & 0.993 & 0.984 & 0.969 & 0.946 & 0.913 & 0.869 & 0.812 \\ 
+   & 4 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.998 & 0.995 & 0.990 & 0.982 & 0.969 \\ \hline\hline
+  6 & 0 & 0.735 & 0.531 & 0.377 & 0.262 & 0.178 & 0.118 & 0.075 & 0.047 & 0.028 & 0.016 \\ 
+  & 1 & 0.967 & 0.886 & 0.776 & 0.655 & 0.534 & 0.420 & 0.319 & 0.233 & 0.164 & 0.109 \\ 
+   & 2 & 0.998 & 0.984 & 0.953 & 0.901 & 0.831 & 0.744 & 0.647 & 0.544 & 0.442 & 0.344 \\ 
+   & 3 & 1.000 & 0.999 & 0.994 & 0.983 & 0.962 & 0.930 & 0.883 & 0.821 & 0.745 & 0.656 \\ 
+  & 4 & 1.000 & 1.000 & 1.000 & 0.998 & 0.995 & 0.989 & 0.978 & 0.959 & 0.931 & 0.891 \\ 
+   & 5 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.998 & 0.996 & 0.992 & 0.984 \\ \hline\hline
+  7 & 0 & 0.698 & 0.478 & 0.321 & 0.210 & 0.133 & 0.082 & 0.049 & 0.028 & 0.015 & 0.008 \\ 
+   & 1 & 0.956 & 0.850 & 0.717 & 0.577 & 0.445 & 0.329 & 0.234 & 0.159 & 0.102 & 0.063 \\ 
+   & 2 & 0.996 & 0.974 & 0.926 & 0.852 & 0.756 & 0.647 & 0.532 & 0.420 & 0.316 & 0.227 \\ 
+  & 3 & 1.000 & 0.997 & 0.988 & 0.967 & 0.929 & 0.874 & 0.800 & 0.710 & 0.608 & 0.500 \\ 
+ & 4 & 1.000 & 1.000 & 0.999 & 0.995 & 0.987 & 0.971 & 0.944 & 0.904 & 0.847 & 0.773 \\ 
+   & 5 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.996 & 0.991 & 0.981 & 0.964 & 0.938 \\ 
+   & 6 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.998 & 0.996 & 0.992 \\ 
+ \hline \hline
+   8 & 0 & 0.663 & 0.430 & 0.272 & 0.168 & 0.100 & 0.058 & 0.032 & 0.017 & 0.008 & 0.004 \\ 
+ & 1 & 0.943 & 0.813 & 0.657 & 0.503 & 0.367 & 0.255 & 0.169 & 0.106 & 0.063 & 0.035 \\ 
+ & 2 & 0.994 & 0.962 & 0.895 & 0.797 & 0.679 & 0.552 & 0.428 & 0.315 & 0.220 & 0.145 \\ 
+ & 3 & 1.000 & 0.995 & 0.979 & 0.944 & 0.886 & 0.806 & 0.706 & 0.594 & 0.477 & 0.363 \\ 
+ & 4 & 1.000 & 1.000 & 0.997 & 0.990 & 0.973 & 0.942 & 0.894 & 0.826 & 0.740 & 0.637 \\ 
+ & 5 & 1.000 & 1.000 & 1.000 & 0.999 & 0.996 & 0.989 & 0.975 & 0.950 & 0.912 & 0.855 \\ 
+ & 6 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.996 & 0.991 & 0.982 & 0.965 \\ 
+ & 7 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.998 & 0.996 \\ \hline
+\end{tabular}}
+}}
+\end{table}
+\section*{Table \ref{tbl:cumulativepoisson} - Poisson Distribution}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:cumulativepoisson}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{| l | l l l l l l l l l l|}
+\hline
+\multicolumn{11}{|c|}{${\displaystyle F(x) = P(X\leq x)	= \sum\limits_{k=0}^x\frac{\lambda^k e^{-\lambda}}{k!}}$} \\ \hline
+ &\multicolumn{10}{|c|}{$\lambda = \E[X]$} \\ \hline
+$x$& 0.1  & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1.0\\ \hline \hline
+0 & 0.905 & 0.819 & 0.741 & 0.670 & 0.607 & 0.549 & 0.497 & 0.449 & 0.407 & 0.638\\
+1 & 0.995 & 0.982 & 0.963 & 0.938 & 0.910 & 0.878 & 0.844 & 0.809 & 0.772 & 0.736\\
+2 & 1.000 & 0.999 & 0.996 & 0.992 & 0.986 & 0.977 & 0.966 & 0.953 & 0.937 & 0.920\\
+3 & 1.000 & 1.000 & 1.000 & 0.999 & 0.998 & 0.997 & 0.994 & 0.991 & 0.987 & 0.981\\
+4 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999 & 0.998 & 0.996\\
+5 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999\\ \hline
+\multicolumn{11}{c}{ }\\ \hline
+x & 1.1 & 1.2 & 1.3 & 1.4 & 1.5 & 1.6 & 1.7 & 1.8 & 1.9 & 2.0 \\ \hline \hline
+0 & 0.333 & 0.301 & 0.273 & 0.247 & 0.223 & 0.202 & 0.183 & 0.165 & 0.150 & 0.135\\
+1 & 0.699 & 0.663 & 0.627 & 0.592 & 0.558 & 0.525 & 0.493 & 0.463 & 0.434 & 0.406\\
+2 & 0.900 & 0.879 & 0.857 & 0.833 & 0.809 & 0.783 & 0.757 & 0.731 & 0.704 & 0.677\\
+3 & 0.974 & 0.966 & 0.957 & 0.946 & 0.934 & 0.921 & 0.907 & 0.891 & 0.875 & 0.857\\
+4 & 0.995 & 0.992 & 0.989 & 0.986 & 0.981 & 0.976 & 0.970 & 0.964 & 0.956 & 0.947\\
+5 & 0.999 & 0.998 & 0.998 & 0.997 & 0.996 & 0.994 & 0.992 & 0.990 & 0.987 & 0.983\\
+6 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999 & 0.999 & 0.998 & 0.997 & 0.997 & 0.995\\
+7 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999 & 0.999\\
+ \hline
+\multicolumn{11}{c}{ }\\ \hline
+x & 2.2 & 2.4 & 2.6 & 2.8 & 3.0 & 3.2 & 3.4 & 3.6 & 3.8 & 4.0\\ \hline\hline
+0 & 0.111 & 0.091 & 0.074 & 0.061 & 0.050 & 0.041 & 0.033 & 0.027 & 0.022 & 0.018\\
+1 & 0.355 & 0.308 & 0.267 & 0.231 & 0.199 & 0.171 & 0.147 & 0.126 & 0.107 & 0.092\\
+2 & 0.623 & 0.570 & 0.518 & 0.469 & 0.423 & 0.380 & 0.340 & 0.303 & 0.269 & 0.238\\
+3 & 0.819 & 0.779 & 0.736 & 0.692 & 0.647 & 0.603 & 0.558 & 0.515 & 0.473 & 0.433\\
+4 & 0.928 & 0.904 & 0.877 & 0.848 & 0.815 & 0.781 & 0.744 & 0.706 & 0.668 & 0.629\\
+5 & 0.975 & 0.964 & 0.951 & 0.935 & 0.916 & 0.895 & 0.871 & 0.844 & 0.816 & 0.785\\
+6 & 0.993 & 0.988 & 0.983 & 0.976 & 0.966 & 0.955 & 0.942 & 0.927 & 0.909 & 0.889\\
+7 & 0.998 & 0.997 & 0.995 & 0.992 & 0.988 & 0.983 & 0.977 & 0.969 & 0.960 & 0.949\\
+8 & 1.000 & 0.999 & 0.999 & 0.998 & 0.996 & 0.994 & 0.992 & 0.988 & 0.984 & 0.979\\
+9 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999 & 0.998 & 0.997 & 0.996 & 0.994 & 0.992\\
+10 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999 & 0.998 & 0.997\\
+11 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 0.999\\ \hline
+\end{tabular}}
+}}
+\end{table}
+\section*{Table \ref{tbl:chisquare} - Chi-Square Distribution}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:chisquare}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{| l | l l l l l l l l|}
+\hline
+\multicolumn{9}{|c|}{${\displaystyle F(x) = P(X\leq x)	= \int\limits_0^x \frac{1}{2^{k/2}\Gamma(k/2)} t^{\frac{k}{2}-1} e^{-t/2}dt}$} \\ \hline
+ &\multicolumn{8}{|c|}{$P(X \leq x)$} \\ \cline{2-9}
+& 0.010 & 0.025 & 0.050 & 0.100 & 0.900 & 0.950 & 0.975 & 0.990\\ \hline
+$k$& $\chi^2_{0.99}(k)$ & $\chi^2_{0.975}(k)$ & $\chi^2_{0.95}(k)$ & $\chi^2_{0.90}(k)$ & $\chi^2_{0.10}(k)$ & $\chi^2_{0.05}(k)$ & $\chi^2_{0.025}(k)$ & $\chi^2_{0.01}(k)$ \\ \hline
+1 & 0.000 & 0.001 & 0.004 & 0.016 & 2.706 & 3.841 & 5.024 & 6.635 \\
+2 & 0.020 & 0.051 & 0.103 & 0.211 & 4.605 & 5.991 & 7.378 & 9.210 \\
+3 & 0.115 & 0.216 & 0.352 & 0.584 & 6.251 & 7.815 & 9.348 & 11.34\\
+4 & 0.297 & 0.484 & 0.711 & 1.064 & 7.779 & 9.488 & 11.14 & 13.28\\
+5 & 0.554 & 0.831 & 1.145 & 1.610 & 9.236 & 11.07 & 12.83 & 15.09\\
+6 & 0.872 & 1.237 & 1.635 & 2.204 & 10.64 & 12.59 & 14.45 & 16.81\\
+7 & 1.239 & 1.690 & 2.167 & 2.833 & 12.02 & 14.07 & 16.01 & 18.48\\
+8 & 1.646 & 2.180 & 2.733 & 3.490 & 13.36 & 15.51 & 17.54 & 20.09\\
+9 & 2.088 & 2.700 & 3.325 & 4.168 & 14.68 & 16.92 & 19.02 & 21.67\\
+10 & 2.558 & 3.247 & 3.940 & 4.865 & 15.99 & 18.31 & 20.48 & 23.21\\ \hline \hline
+11 & 3.053 & 3.816 & 4.575 & 5.578 & 17.28 & 19.68 & 21.92 & 24.72\\
+12 & 3.571 & 4.404 & 5.226 & 6.304 & 18.55 & 21.03 & 23.34 & 26.22\\
+13 & 4.107 & 5.009 & 5.892 & 7.042 & 19.81 & 22.36 & 24.74 & 27.69\\
+14 & 4.660 & 5.629 & 6.571 & 7.790 & 21.06 & 23.68 & 26.12 & 29.14\\
+15 & 5.229 & 6.262 & 7.261 & 8.547 & 22.31 & 25.00 & 27.49 & 30.58\\
+16 & 5.812 & 6.908 & 7.962 & 9.312 & 23.54 & 26.30 & 28.84 & 32.00\\
+17 & 6.408 & 7.564 & 8.672 & 10.08 & 24.77 & 27.59 & 30.19 & 33.41\\
+18 & 7.015 & 8.231 & 9.390 & 10.86 & 25.99 & 28.87 & 31.53 & 34.80\\
+19 & 7.633 & 8.907 & 10.12 & 11.65 & 27.20 & 30.14 & 32.85 & 36.19\\
+20 & 8.260 & 9.591 & 10.85 & 12.44 & 28.41 & 31.41 & 34.17 & 37.57\\ \hline\hline
+21 & 8.897 & 10.28 & 11.59 & 13.24 & 29.62 & 32.67 & 35.48 & 38.93\\
+22 & 9.542 & 10.98 & 12.34 & 14.04 & 30.81 & 33.92 & 36.78 & 40.29\\
+23 & 10.20 & 11.69 & 13.09 & 14.85 & 32.01 & 35.17 & 38.08 & 41.64\\
+24 & 10.86 & 12.40 & 13.85 & 15.66 & 33.20 & 36.42 & 39.36 & 42.98\\
+25 & 11.52 & 13.12 & 14.61 & 16.47 & 34.38 & 37.65 & 40.65 & 44.31\\
+30 & 14.95 & 16.79 & 18.49 & 20.60 & 40.26 & 43.77 & 46.98 & 50.89\\
+40 & 22.16 & 24.43 & 26.51 & 29.05 & 51.80 & 55.76 & 59.34 & 63.69\\
+50 & 29.71 & 32.36 & 34.76 & 37.69 & 63.17 & 67.50 & 71.42 & 76.15\\
+60 & 37.48 & 40.48 & 43.19 & 46.46 & 74.40 & 79.08 & 83.30 & 88.38\\
+70 & 45.44 & 48.76 & 51.74 & 55.33 & 85.53 & 90.53 & 95.02 & 100.4\\
+80 & 53.34 & 57.15 & 60.39 & 64.28 & 96.58 & 101.9 & 106.6 & 112.3\\ \hline
+\end{tabular}}}}
+\end{table}
+\section*{Table \ref{tbl:standardnormal} - Standard Normal Distribution}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:standardnormal}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{| l | l l l l l l l l l l|}
+\hline
+\multicolumn{11}{|c|}{${\displaystyle \Phi(z) = P(Z\leq z) = \int\limits_{-\infty}^z \frac{1}{\sqrt{2\pi}} e^{-w^2/2} dw}$} \\
+\multicolumn{11}{|c|}{${\displaystyle \Phi(z) = 1 - \Phi(-z)}$} \\
+\multicolumn{11}{|c|}{${\displaystyle z = \text{row} + \text{column}}$} \\ \hline
+$z$ & 0.00 & 0.01 & 0.02 & 0.03 & 0.04 & 0.05 & 0.06 & 0.07 & 0.08 & 0.09 \\ \hline
+ 0.0 & 0.500 & 0.504 & 0.508 & 0.512 & 0.516 & 0.520 & 0.524 & 0.528 & 0.532 & 0.536 \\ 
+  0.1 & 0.540 & 0.544 & 0.548 & 0.552 & 0.556 & 0.560 & 0.564 & 0.567 & 0.571 & 0.575 \\ 
+  0.2 & 0.579 & 0.583 & 0.587 & 0.591 & 0.595 & 0.599 & 0.603 & 0.606 & 0.610 & 0.614 \\ 
+  0.3 & 0.618 & 0.622 & 0.626 & 0.629 & 0.633 & 0.637 & 0.641 & 0.644 & 0.648 & 0.652 \\ 
+  0.4 & 0.655 & 0.659 & 0.663 & 0.666 & 0.670 & 0.674 & 0.677 & 0.681 & 0.684 & 0.688 \\ 
+  0.5 & 0.691 & 0.695 & 0.698 & 0.702 & 0.705 & 0.709 & 0.712 & 0.716 & 0.719 & 0.722 \\ 
+  0.6 & 0.726 & 0.729 & 0.732 & 0.736 & 0.739 & 0.742 & 0.745 & 0.749 & 0.752 & 0.755 \\ 
+  0.7 & 0.758 & 0.761 & 0.764 & 0.767 & 0.770 & 0.773 & 0.776 & 0.779 & 0.782 & 0.785 \\ 
+  0.8 & 0.788 & 0.791 & 0.794 & 0.797 & 0.800 & 0.802 & 0.805 & 0.808 & 0.811 & 0.813 \\ 
+  0.9 & 0.816 & 0.819 & 0.821 & 0.824 & 0.826 & 0.829 & 0.831 & 0.834 & 0.836 & 0.839 \\ \hline\hline
+  1.0 & 0.841 & 0.844 & 0.846 & 0.848 & 0.851 & 0.853 & 0.855 & 0.858 & 0.860 & 0.862 \\ 
+  1.1 & 0.864 & 0.867 & 0.869 & 0.871 & 0.873 & 0.875 & 0.877 & 0.879 & 0.881 & 0.883 \\ 
+  1.2 & 0.885 & 0.887 & 0.889 & 0.891 & 0.893 & 0.894 & 0.896 & 0.898 & 0.900 & 0.901 \\ 
+  1.3 & 0.903 & 0.905 & 0.907 & 0.908 & 0.910 & 0.911 & 0.913 & 0.915 & 0.916 & 0.918 \\ 
+  1.4 & 0.919 & 0.921 & 0.922 & 0.924 & 0.925 & 0.926 & 0.928 & 0.929 & 0.931 & 0.932 \\ 
+  1.5 & 0.933 & 0.934 & 0.936 & 0.937 & 0.938 & 0.939 & 0.941 & 0.942 & 0.943 & 0.944 \\ 
+  1.6 & 0.945 & 0.946 & 0.947 & 0.948 & 0.949 & 0.951 & 0.952 & 0.953 & 0.954 & 0.954 \\ 
+  1.7 & 0.955 & 0.956 & 0.957 & 0.958 & 0.959 & 0.960 & 0.961 & 0.962 & 0.962 & 0.963 \\ 
+  1.8 & 0.964 & 0.965 & 0.966 & 0.966 & 0.967 & 0.968 & 0.969 & 0.969 & 0.970 & 0.971 \\ 
+  1.9 & 0.971 & 0.972 & 0.973 & 0.973 & 0.974 & 0.974 & 0.975 & 0.976 & 0.976 & 0.977 \\ 
+  2.0 & 0.977 & 0.978 & 0.978 & 0.979 & 0.979 & 0.980 & 0.980 & 0.981 & 0.981 &  0.982 \\ \hline \hline
+  2.1 & 0.982 & 0.983 & 0.983 & 0.983 & 0.984 & 0.984 & 0.985 & 0.985 & 0.985 & 0.986 \\ 
+  2.2 & 0.986 & 0.986 & 0.987 & 0.987 & 0.987 & 0.988 & 0.988 & 0.988 & 0.989 & 0.989 \\ 
+  2.3 & 0.989 & 0.990 & 0.990 & 0.990 & 0.990 & 0.991 & 0.991 & 0.991 & 0.991 & 0.992 \\ 
+  2.4 & 0.992 & 0.992 & 0.992 & 0.992 & 0.993 & 0.993 & 0.993 & 0.993 & 0.993 & 0.994 \\ 
+  2.5 & 0.994 & 0.994 & 0.994 & 0.994 & 0.994 & 0.995 & 0.995 & 0.995 & 0.995 & 0.995 \\ 
+  2.6 & 0.995 & 0.995 & 0.996 & 0.996 & 0.996 & 0.996 & 0.996 & 0.996 & 0.996 & 0.996 \\ 
+  2.7 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 & 0.997 \\ 
+  2.8 & 0.997 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 \\ 
+  2.9 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.998 & 0.999 & 0.999 & 0.999 \\ 
+  3.0 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 & 0.999 \\ \hline 
+  \multicolumn{11}{c}{} \\ \hline
+  \multicolumn{11}{|c|}{Quantiles} \\
+  \multicolumn{11}{|c|}{$P(Z > z_\alpha) = \alpha$} \\
+$\alpha$ & 0.400 & 0.300 & 0.200 & 0.100 & 0.050 & 0.025 & 0.020 & 0.010 & 0.005 & 0.001 \\ \hline
+$z_\alpha$ & 0.253 & 0.524 & 0.842 & 1.282 & 1.645 & 1.960 & 2.054 & 2.326 & 2.576 & 3.090 \\
+$z_{\alpha/2}$ & 0.842 & 1.036 & 1.282 & 1.645 & 1.960 & 2.240 & 2.326 & 2.576 & 2.807 & 3.291 \\ \hline
+\end{tabular}}}}
+\end{table}
+\section*{Table \ref{tbl:tdistribution} - Student's t Distribution}
+\begin{table}[H]
+\centerline{
+\refstepcounter{table}
+\label{tbl:tdistribution}
+\resizebox{1.2\textwidth}{!}{
+{\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{| l | l l l l l l l |}
+\hline
+\multicolumn{8}{|c|}{${\displaystyle F(t) = P(T\leq t)	=\int\limits_{-\infty}^t \frac{\Gamma\left(\frac{r+1}{2}\right)}{\sqrt{\pi r}\Gamma\left(\frac{r}{2}\right) \left(1 + \frac{w^2}{r}\right)^{\frac{r+1}{2}}} dw}$} \\ 
+\multicolumn{8}{|c|}{${\displaystyle P(T \leq -t) = 1 - P(T \leq t)}$} \\ \hline
+ &\multicolumn{7}{|c|}{$P(T \leq t)$} \\ \cline{2-8}
+& 0.60 & 0.75 & 0.90 & 0.95 & 0.975 & 0.99 & 0.995 \\ \hline
+$k$& $t_{0.40}(k)$ & $t_{0.25}(k)$ & $t_{0.10}(k)$ & $t_{0.05}(k)$ & $t_{0.025}(k)$ & $t_{0.01}(k)$ & $t_{0.005}(k)$ \\ \hline
+  1 & 0.325 & 1.000 & 3.078 & 6.314 & 12.706 & 31.821 & 63.657 \\ 
+  2 & 0.289 & 0.816 & 1.886 & 2.920 & 4.303 & 6.965 & 9.925 \\ 
+  3 & 0.277 & 0.765 & 1.638 & 2.353 & 3.182 & 4.541 & 5.841 \\ 
+  4 & 0.271 & 0.741 & 1.533 & 2.132 & 2.776 & 3.747 & 4.604 \\ 
+  5 & 0.267 & 0.727 & 1.476 & 2.015 & 2.571 & 3.365 & 4.032 \\ 
+  6 & 0.265 & 0.718 & 1.440 & 1.943 & 2.447 & 3.143 & 3.707 \\ 
+  7 & 0.263 & 0.711 & 1.415 & 1.895 & 2.365 & 2.998 & 3.499 \\ 
+  8 & 0.262 & 0.706 & 1.397 & 1.860 & 2.306 & 2.896 & 3.355 \\ 
+  9 & 0.261 & 0.703 & 1.383 & 1.833 & 2.262 & 2.821 & 3.250 \\ 
+  10 & 0.260 & 0.700 & 1.372 & 1.812 & 2.228 & 2.764 & 3.169 \\ \hline \hline
+  11 & 0.260 & 0.697 & 1.363 & 1.796 & 2.201 & 2.718 & 3.106 \\ 
+  12 & 0.259 & 0.695 & 1.356 & 1.782 & 2.179 & 2.681 & 3.055 \\ 
+  13 & 0.259 & 0.694 & 1.350 & 1.771 & 2.160 & 2.650 & 3.012 \\ 
+  14 & 0.258 & 0.692 & 1.345 & 1.761 & 2.145 & 2.624 & 2.977 \\ 
+  15 & 0.258 & 0.691 & 1.341 & 1.753 & 2.131 & 2.602 & 2.947 \\ 
+  16 & 0.258 & 0.690 & 1.337 & 1.746 & 2.120 & 2.583 & 2.921 \\ 
+  17 & 0.257 & 0.689 & 1.333 & 1.740 & 2.110 & 2.567 & 2.898 \\ 
+  18 & 0.257 & 0.688 & 1.330 & 1.734 & 2.101 & 2.552 & 2.878 \\ 
+  19 & 0.257 & 0.688 & 1.328 & 1.729 & 2.093 & 2.539 & 2.861 \\ 
+  20 & 0.257 & 0.687 & 1.325 & 1.725 & 2.086 & 2.528 & 2.845 \\ \hline \hline
+  21 & 0.257 & 0.686 & 1.323 & 1.721 & 2.080 & 2.518 & 2.831 \\ 
+  22 & 0.256 & 0.686 & 1.321 & 1.717 & 2.074 & 2.508 & 2.819 \\ 
+  23 & 0.256 & 0.685 & 1.319 & 1.714 & 2.069 & 2.500 & 2.807 \\ 
+  24 & 0.256 & 0.685 & 1.318 & 1.711 & 2.064 & 2.492 & 2.797 \\ 
+  25 & 0.256 & 0.684 & 1.316 & 1.708 & 2.060 & 2.485 & 2.787 \\ 
+  26 & 0.256 & 0.684 & 1.315 & 1.706 & 2.056 & 2.479 & 2.779 \\ 
+  27 & 0.256 & 0.684 & 1.314 & 1.703 & 2.052 & 2.473 & 2.771 \\ 
+  28 & 0.256 & 0.683 & 1.313 & 1.701 & 2.048 & 2.467 & 2.763 \\ 
+  29 & 0.256 & 0.683 & 1.311 & 1.699 & 2.045 & 2.462 & 2.756 \\ 
+  30 & 0.256 & 0.683 & 1.310 & 1.697 & 2.042 & 2.457 & 2.750 \\ 
+  $\infty$ & 0.253 & 0.674 & 1.282 & 1.645 & 1.960 & 2.326 & 2.576 \\ \hline
+\end{tabular}}}}
+\end{table}
+\part{TODO}
+\begin{itemize}
+\item entropy
+\item probability generating function
+\item Fisher Information
+\item notation
+\item German Tank Problem
+\item continuity correction
+\item beta distribution
+\item irwin-hall distribution
+\item inverse transform sampling
+\item coefficient of variation
+\item index of dispersion
+\item convolution of probability distributions
+\item precision
+\item R functions after distribution tables?
+\item Power of a test
+\end{itemize}
+\printindex
+%\begin{thebibliography}{10}
+%
+%\bibitem[Kat78]{katz} D. Katz et. al., \emph{Obtaining confidence %intervals for the risk ratio in cohort studies}, Biometrics (1978), %34:469-474.
+
+
+%\end{thebibliography}
+\end{document}
